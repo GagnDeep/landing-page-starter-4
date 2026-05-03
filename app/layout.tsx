@@ -6,6 +6,7 @@ import { PreHeader } from "@/components/layout/PreHeader";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { cn } from "@/lib/utils";
+import { Toaster } from "sonner";
 
 const fontSans = Montserrat({
   subsets: ["latin"],
@@ -39,6 +40,7 @@ export default function RootLayout({
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

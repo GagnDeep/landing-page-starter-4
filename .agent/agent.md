@@ -44,3 +44,11 @@
   - Sourced all text via `content/*.ts` and dynamically populated `next/image` with Unsplash assets from `lib/images.ts`.
   - Used `FloatingBlobs`, `DotMatrixGrid`, and `AnimatedGradientMesh` to maintain visual continuity with the homepage.
 - **Status:** Conversion pages live. Ready for Phase 6 (About, Careers, Contact).
+
+### [Date: Current] - Phase 6 Complete
+- **Summary:** Implemented the informational pages: About, Careers, and Contact.
+- **Decisions:**
+  - Created `/about`, `/careers`, and `/contact` routes using Next.js App Router.
+  - Integrated `shadcn` form components (Input, Textarea, Select) into the Contact page to create a functional UI.
+  - Used `AnimatedGradientMesh` and `FloatingBlobs` combined with content to create immersive narrative pages for About and Careers.
+- **Status:** Informational pages complete. Ready for Phase 7 (Blog, FAQ, Legal).
