@@ -17,3 +17,7 @@
 * **[Date of Execution] Phase 3 Completion:** Implemented visual component library and image registry.
   - **Image Strategy:** Adopted a strict `lib/images.ts` registry referencing external Unsplash URLs. No local images stored.
   - **Animation Library:** Built 8 `framer-motion` components focusing on subtle, luxurious movements (e.g., slow gradient meshes, smooth staggered text reveals, soft parallax). Avoided jarring or overly energetic animations to maintain the "affordable luxury" vibe. Fixed a TypeScript issue with Framer Motion polymorphic components by using `motion.create(Component)`.
+
+* **[Date of Execution] Phase 4 Completion:** Built global layout and navigation.
+  - **Structure:** Connected shadcn's Sheet for mobile nav, integrated next-themes for dark mode, and ensured layout is full-height flex column.
+  - **Integration:** Successfully wired the Footer to read directly from the strongly-typed `contactContent` object, avoiding hardcoded data.

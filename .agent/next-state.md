@@ -1,5 +1,5 @@
 # Next State
 
-**Phase 4 — Core Layout and Global Components** is now ready to begin.
+**Phase 5 — Home Page Implementation** is now ready to begin.
 
-With our content (Phase 2) and visual building blocks (Phase 3) established, we will now assemble the core structural layout. This involves implementing the global Header (navigation, transparent to solid scroll effects, mobile menu) and the global Footer, ensuring they are responsive, accessible, and utilize our newly created design tokens and content objects.
+With the global shell established, we will now build the flagship `app/page.tsx`. This phase requires translating the 20+ section layout from `.agent/layout-home.md` into React components, utilizing the data from `content/home.ts`, the visual components from `components/visuals/`, and the photography from `lib/images.ts`. Focus will be on creating a cinematic, magazine-like scroll experience.

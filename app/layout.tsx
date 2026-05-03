@@ -3,6 +3,8 @@ import { Geist_Mono, Figtree, Playfair_Display } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { MotionProvider } from "@/components/motion-provider"
+import { Header } from "@/components/global/header"
+import { Footer } from "@/components/global/footer"
 import { cn } from "@/lib/utils"
 
 const figtree = Figtree({
@@ -36,9 +38,15 @@ export default function RootLayout({
         playfairDisplay.variable
       )}
     >
-      <body>
+      <body className="min-h-screen flex flex-col">
         <ThemeProvider>
-          <MotionProvider>{children}</MotionProvider>
+          <MotionProvider>
+            <Header />
+            <main className="flex-1 flex flex-col pt-24">
+              {children}
+            </main>
+            <Footer />
+          </MotionProvider>
         </ThemeProvider>
       </body>
     </html>

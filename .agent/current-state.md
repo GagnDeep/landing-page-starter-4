@@ -1,17 +1,9 @@
 # Current State
 
-Phase 3 — Animated Visual Components & Image Registry is **COMPLETE**.
+Phase 4 — Core Layout and Global Components is **COMPLETE**.
 
-We have established a robust visual foundation and image management strategy:
-- Updated `next.config.mjs` to authorize `images.unsplash.com`.
-- Created `lib/images.ts`, a centralized and strongly-typed image registry populated with high-quality salon photography (e.g., botox/keratin treatments, salon interior, stylists).
-- Developed 8 reusable, framer-motion-powered animated UI components in `components/visuals/`:
-  - `AnimatedGradientMesh`
-  - `FloatingBlobs`
-  - `DotMatrixGrid`
-  - `LogoMarquee`
-  - `CTAGlow`
-  - `StaggeredTextReveal`
-  - `ParallaxImageWrapper`
-  - `AvatarStack`
-- Ensured all visual components utilize `framer-motion` appropriately, strictly adhere to the CSS variable color tokens for seamless dark/light mode switching, and degrade gracefully where needed.
+We have successfully established the foundational application shell:
+- Created the global responsive `<Header />` with transparent-to-solid scroll behavior and a mobile drawer (`Sheet`).
+- Implemented the `<ThemeToggle />` for strict CSS variable light/dark mode switching.
+- Created the global `<Footer />` utilizing structured content from `content/contact.ts`.
+- Refactored `app/layout.tsx` to include semantic `header`, `main`, and `footer` elements, ensuring the footer stays at the bottom of the viewport using flexbox, and adding padding to accommodate the sticky navigation.
