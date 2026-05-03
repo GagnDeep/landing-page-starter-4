@@ -1,22 +1,14 @@
 # Current State
 
-Phase 3 (Animated Visuals & Image Registry) is complete.
-We have successfully established a high-performance, reusable visual library and a centralized image registry to serve as the primary aesthetic foundation for the application.
+Phase 4 (Core Layout & Navigation Shell) is complete.
+The application now has a persistent, fully functional site shell containing the global header and footer, utilizing real content data.
 
 ## Completed Objectives
-- Created `lib/images.ts` exporting a typed registry of Unsplash image URLs with photographer credits.
-- Updated `next.config.mjs` to configure `images.remotePatterns` for Unsplash.
-- Built 8 reusable, prop-driven animated components in `components/visuals/`:
-  - `AnimatedGradientMesh`
-  - `LogoMarquee`
-  - `ToothIconSet`
-  - `AnimatedStatCounter`
-  - `CTAGlow`
-  - `HowItWorksDiagram`
-  - `FloatingBlobs`
-  - `AvatarStack`
-- Ensured all components use CSS variables for colors, respect `prefers-reduced-motion`, and are hydration-safe.
-- Verified all content files are complete and consistent with the design system tone.
+- Applied `Playfair Display` and `DM Sans` via `next/font/google` and configured CSS variables.
+- Implemented a responsive `Header` component with mobile drawer navigation, scroll-based backdrop-blur, and the Pre-Header Notification Bar.
+- Implemented a comprehensive `Footer` component containing deep links, contact details (from `content/contact.ts`), operating hours, and legal links.
+- Integrated a smooth, accessible `ThemeToggle` component supporting both light and dark modes accurately based on the established OKLCH theme.
+- Wrapped all routes in the `RootLayout` (`app/layout.tsx`).
 
 ## Active Blockers
-- None at this time. Ready for Phase 4.
+- None at this time. Ready for Phase 5.

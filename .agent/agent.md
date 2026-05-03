@@ -20,3 +20,8 @@ Phase 2 complete. All site content generated as TypeScript modules in /content. 
 - Ensured all animations respect `prefers-reduced-motion` for accessibility and calm-clinic aesthetics.
 - Created a centralized, strongly typed image registry in `lib/images.ts` mapping Unsplash assets with photographer credits to eliminate hardcoded image URLs.
 - Completed Phase 3. Animated components and image registry established. All visuals are prop-driven and remote-sourced.
+
+## Layout & Shell Decisions (Phase 4)
+- Implemented responsive Header and Footer components in `components/layout/`.
+- Connected global navigation and contact arrays from `content/home.ts` and `content/contact.ts` directly into the shell.
+- Successfully integrated typography (Playfair Display and DM Sans) and a smooth ThemeToggle component via `next-themes`.
