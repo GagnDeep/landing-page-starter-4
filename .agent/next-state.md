@@ -1,7 +1,7 @@
 # Next State
 
-Phase 2 (Content Files)
+Phase 3 (Animated Visuals & Image Registry)
 
-- Extract realistic, highly-tailored copy strings based on the structural intents defined in the layout documentations.
-- Ensure the tone matches the sophisticated, editorial vibe outlined in the design system.
-- Map the content seamlessly into `.agent/content-*.md` files to decouple copy-writing from component creation.
+- Source or configure placeholder structures for all necessary image assets referenced in the content files.
+- Establish an `images.ts` or similar registry to map image URLs to semantic uses.
+- Define global animation variants (using Framer Motion or Tailwind) that align with the "Studio-Crafted Elegance" motion principles defined in Phase 1.

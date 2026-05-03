@@ -1,7 +1,7 @@
 # Current State
 
-Phase 1 (Design System & Layout Documentation) is complete.
+Phase 2 (Content Files) is complete.
 
-- `.agent/design-system.md` has been established with a distinctive, high-end "Studio-Crafted Elegance" aesthetic. It includes clear guidelines for typography, color palettes (semantic OKLCH variables for light and dark modes), spacing scales, and motion.
-- Detailed layout documentation has been created for all 10 required pages across 9 files (`.agent/layout-*.md`), outlining their structural intent and visual rhythm.
-- `app/globals.css` has been updated with these CSS variables, fully supporting both light and dark modes.
+- The `content/` directory has been populated with 10 type-safe TypeScript files (`home.ts`, `about.ts`, `features.ts`, `pricing.ts`, `blog.ts`, `faq.ts`, `contact.ts`, `careers.ts`, `terms.ts`, `privacy.ts`).
+- Each file exports structured objects containing all relevant text nodes (SEO metadata, headlines, body copy, CTA labels) necessary for building the page.
+- The voice is established consistently across all pages, reflecting the professional, luxury, and hyper-convenient brand identity of Your Home Salon.
