@@ -3,8 +3,8 @@
 - Phase 1 (Design System & Layout Documentation) completed.
 - Phase 2 (Content Files) completed.
 - Phase 3 (Animated Visuals & Image Registry) completed.
-- Created `lib/images.ts`, a centralized, typed registry utilizing high-quality Unsplash photography mapped to specific sections (hero, salon, academy, etc.).
-- Updated `next.config.mjs` to authorize `images.unsplash.com`.
-- Created `components/visuals/` directory containing 9 unique, reusable, SSR-safe animated components (e.g., AnimatedGradientMesh, LogoMarquee, CodeWindowTyping, MagneticButton).
-- All visual components strictly adhere to the "Glam-Academy" design aesthetic, utilizing phase 1 CSS tokens and respecting prefers-reduced-motion.
-- Added custom keyframe animations to `app/globals.css`.
+- Phase 4 (Core Layout and Navigation Shell) completed.
+- Built the global architectural shell of the application including Header, Footer, MobileMenu, and ThemeToggle in components/layout/.
+- Updated app/layout.tsx to wrap the application in these global structural components.
+- Integrated content/siteConfig.ts and content/home.ts to populate navigation and footer links dynamically (zero hardcoded strings).
+- Ensures responsive design and respects accessibility and CSS token choices for light/dark mode.

@@ -1,6 +1,5 @@
 # Next State
 
-- Phase 4 (Core Layout and Navigation Shell) is ready to proceed.
-- Next agent should build the global structural shell of the application (Header, Footer, Mobile Navigation).
-- Integrate the visual components and content configurations from previous phases into the global layout wrapper.
-- Still no page route implementation (save for app/layout.tsx wrapping).
+- Phase 5 (Home Page Implementation) is ready to proceed.
+- Next agent should build the Home Page route (app/page.tsx) mapping the 20 distinct sections defined in .agent/layout-home.md to the components created in Phase 3 and content from Phase 2.
+- The global layout shell is completely ready to host the page content.
