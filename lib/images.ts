@@ -23,6 +23,8 @@ export interface ImageAsset {
   alt: string;
   width: number;
   height: number;
+  authorName?: string;
+  authorUrl?: string;
 }
 
 const buildUnsplashUrl = (id: string, width: number, height: number, blur = false): string => {

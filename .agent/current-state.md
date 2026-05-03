@@ -1,8 +1,8 @@
 # Current State
 
-Phase 3 (Animated Visuals & Image Registry) is complete.
+Phase 4 (Core Layout and Navigation Shell) is complete.
 
-- Created 8 reusable, animated SVG components in `components/visuals/` (`AnimatedGradientMesh.tsx`, `FloatingBlobs.tsx`, `CTAGlow.tsx`, `LogoMarquee.tsx`, `DotMatrixGrid.tsx`, `MicroIconSet.tsx`, `HowItWorksDiagram.tsx`, `ServiceRevealMask.tsx`).
-- Components adhere strictly to the design system CSS variables, degrade gracefully for `prefers-reduced-motion`, and rely on CSS/Tailwind animations.
-- Established `lib/images.ts` providing a typed mapping of Unsplash URLs for easy consumption in UI.
-- Updated `next.config.mjs` to authorize `images.unsplash.com` domains.
+- The `RootLayout` correctly configures the global typography (`Playfair Display` and `Plus Jakarta Sans`) mapped to CSS variables (`--font-heading`, `--font-sans`).
+- Built the `Header` component with responsive desktop and mobile (Sheet-based) navigation, linked to the `content/home.ts` data source.
+- Built the `Footer` component, incorporating brand text and multi-column navigation.
+- Established a `PageTransition` wrapper using simple CSS animations for smooth navigation.

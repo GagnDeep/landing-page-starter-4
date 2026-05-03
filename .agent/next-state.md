@@ -1,7 +1,7 @@
 # Next State
 
-Phase 4 (Core Layout and Navigation Shell)
+Phase 5 (Home Page Implementation)
 
-- Construct the `RootLayout` integrating the global header, navigation links (from content files), and footer.
-- Implement responsive behavior for the navigation shell (mobile menu vs desktop navbar).
-- Set up global page transitions using Framer Motion or Tailwind.
+- Implement the Home Page using the `content/home.ts` definitions.
+- Build the `Immersive Hero`, `Trust Bar`, `Service Spotlight`, and `Features` sections.
+- Integrate the visual assets from Phase 3 (`AnimatedGradientMesh`, `CTAGlow`, etc.) to elevate the studio aesthetic.
