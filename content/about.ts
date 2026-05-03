@@ -22,6 +22,11 @@ export const aboutContent: PageContent = {
     team: {
       headline: "The Masters at Work",
       subheading: "Meet the talented artisans behind the chair.",
+      members: [
+        { name: "Amil Hassan", role: "Creative Director", bio: "With over 15 years of global experience, Amil specializes in structural integrity and transformative treatments." },
+        { name: "Priya Sharma", role: "Master Colorist", bio: "Priya is renowned for her seamless balayage techniques and ability to craft the perfect sun-kissed dimension." },
+        { name: "Vikram Singh", role: "Senior Stylist", bio: "An expert in precision cutting, Vikram ensures every client leaves with a tailored, modern silhouette." }
+      ]
     },
     space: {
       headline: "A Space Designed for You",

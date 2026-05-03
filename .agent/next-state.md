@@ -1,5 +1,5 @@
 # Next State
 
-**Phase 6 — Service, Pricing, and About Pages** is now ready to begin.
+**Phase 7 — Blog, FAQ, and Contact Pages** is now ready to begin.
 
-With the core routing shell (Phase 4) and the homepage (Phase 5) completed, we move to the secondary conversion pages. This involves creating route files (`app/features/page.tsx`, `app/pricing/page.tsx`, `app/about/page.tsx`) and translating their respective `content/` configurations and layout blueprints into React components, reusing established primitives to maintain brand consistency.
+With the primary conversion funnel (Home -> Services -> Pricing / About) complete, we need to build out the support and communication layer. This phase will focus on creating the Blog index (`/blog`), the FAQ accordion interface (`/faq`), and the Contact form / location details (`/contact`), ensuring they utilize existing layout primitives, shadcn UI components, and the respective content files.
