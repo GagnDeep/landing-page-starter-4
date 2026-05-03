@@ -81,5 +81,55 @@ export const homeContent = {
     email: "concierge@thesmiledesigners.in",
     whatsappUK: "+44 7700 900077",
     copyright: "© 2024 The Smile Designers. All rights reserved.",
+  },
+  clinicExperience: {
+    title: "Designed for Serenity. Engineered for Precision.",
+    subtitle: "Sector 8C, Chandigarh",
+  },
+  clinicalPrecision: {
+    techList: [
+      { title: "CBCT 3D Scanners", description: "Micron-level diagnostic precision." },
+      { title: "Digital Smile Design", description: "Predictable, perfect outcomes." },
+      { title: "Surgical Microscopes", description: "Unparalleled detail and safety." },
+      { title: "Hyper-Sterile Protocols", description: "International hygiene standards." },
+    ],
+  },
+  featuredJournal: {
+    title: "Clinical Journal",
+    description: "Insights and advancements from the forefront of aesthetic dentistry.",
+    cta: { label: "View All Entries", href: "/blog" },
+  },
+  videoTestimonial: {
+    title: "A Journey to Confidence",
+  },
+  faqSneakPeek: {
+    title: "Common Queries",
+  },
+  awards: {
+    items: [
+      { title: "Top Rated Clinic 2023" },
+      { title: "Excellence in Prosthodontics" },
+      { title: "ISO 9001 Certified" },
+    ],
+  },
+  newsletter: {
+    headline: "The UK Patient's Guide to Dental Tourism",
+    subheadline: "Enter your email to receive our comprehensive guide covering travel, costs, and care logistics.",
+    placeholder: "Email address",
+    ctaLabel: "Download Guide",
+  },
+  locationMap: {
+    title: "Chandigarh, India",
+    address: "Sector 8C, Madhya Marg.\nThe heart of the 'City Beautiful'.",
+  },
+  spotlight: {
+    title: "Precision You Can See",
+    description: "Experience the profound impact of our work. Our transformations are not just about aesthetics; they are about restoring function, confidence, and quality of life.",
+    features: [
+      "Digital Smile Design",
+      "E-Max Ceramics",
+      "Micron-level Fit",
+    ],
+    labels: { before: "Before", after: "After" }
   }
 };

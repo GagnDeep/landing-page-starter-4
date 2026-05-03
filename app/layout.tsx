@@ -16,6 +16,9 @@ const jakarta = Plus_Jakarta_Sans({
   variable: "--font-sans",
 })
 
+import { Header } from "@/components/layout/header"
+import { Footer } from "@/components/layout/footer"
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,8 +30,14 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn("antialiased", cormorant.variable, jakarta.variable, "font-sans")}
     >
-      <body>
-        <ThemeProvider>{children}</ThemeProvider>
+      <body className="min-h-screen flex flex-col bg-background text-foreground">
+        <ThemeProvider>
+          <Header />
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   )
