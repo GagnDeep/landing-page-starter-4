@@ -1,13 +1,13 @@
 # Next State
 
 **Project:** The Smile Designers
-**Target Phase:** 2/8 — Content Files
+**Target Phase:** 3/8 — Animated Visuals & Image Registry
 
 **Goal for Next Phase:**
-- Map content structure to the established design system and layouts.
-- Generate and refine content for all pages defined in Phase 1.
-- Ensure the tone matches the luxury-clinical branding.
+- Source or create high-quality, luxury-clinical placeholder imagery for the site.
+- Create an image registry to manage these assets.
+- Build and test animated visual components (e.g., staggered reveals, smooth mask reveals for before/afters, subtle hover states) as defined in the motion principles of the design system.
 
-**Prerequisites to enter Phase 2:**
-- [x] Phase 1 completion (Design system and structural layout files created).
-- [x] Global CSS tokens implemented.
+**Prerequisites to enter Phase 3:**
+- [x] Phase 1 completion (Design system and layouts established).
+- [x] Phase 2 completion (All content files created and verified).
