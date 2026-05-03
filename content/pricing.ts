@@ -76,4 +76,9 @@ export const pricingContent = {
       href: "/contact",
     } as CTA,
   },
+
+  labels: {
+    mostPopular: "Most Popular",
+    bookTier: "Book Tier",
+  }
 };

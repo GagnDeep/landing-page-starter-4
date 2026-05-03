@@ -71,4 +71,10 @@ export const servicesContent = {
     buttonLabel: "Book Now",
     href: "/contact",
   },
+
+  navigation: {
+    nails: "Nails",
+    hair: "Hair",
+    skin: "Skin",
+  }
 };
