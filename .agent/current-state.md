@@ -1,7 +1,8 @@
 # Current State
 
-Phase 2 (Content Files) is complete.
+Phase 3 (Animated Visuals & Image Registry) is complete.
 
-- The `content/` directory has been populated with 10 type-safe TypeScript files (`home.ts`, `about.ts`, `features.ts`, `pricing.ts`, `blog.ts`, `faq.ts`, `contact.ts`, `careers.ts`, `terms.ts`, `privacy.ts`).
-- Each file exports structured objects containing all relevant text nodes (SEO metadata, headlines, body copy, CTA labels) necessary for building the page.
-- The voice is established consistently across all pages, reflecting the professional, luxury, and hyper-convenient brand identity of Your Home Salon.
+- Created 8 reusable, animated SVG components in `components/visuals/` (`AnimatedGradientMesh.tsx`, `FloatingBlobs.tsx`, `CTAGlow.tsx`, `LogoMarquee.tsx`, `DotMatrixGrid.tsx`, `MicroIconSet.tsx`, `HowItWorksDiagram.tsx`, `ServiceRevealMask.tsx`).
+- Components adhere strictly to the design system CSS variables, degrade gracefully for `prefers-reduced-motion`, and rely on CSS/Tailwind animations.
+- Established `lib/images.ts` providing a typed mapping of Unsplash URLs for easy consumption in UI.
+- Updated `next.config.mjs` to authorize `images.unsplash.com` domains.

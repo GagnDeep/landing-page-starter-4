@@ -1,7 +1,7 @@
 # Next State
 
-Phase 3 (Animated Visuals & Image Registry)
+Phase 4 (Core Layout and Navigation Shell)
 
-- Source or configure placeholder structures for all necessary image assets referenced in the content files.
-- Establish an `images.ts` or similar registry to map image URLs to semantic uses.
-- Define global animation variants (using Framer Motion or Tailwind) that align with the "Studio-Crafted Elegance" motion principles defined in Phase 1.
+- Construct the `RootLayout` integrating the global header, navigation links (from content files), and footer.
+- Implement responsive behavior for the navigation shell (mobile menu vs desktop navbar).
+- Set up global page transitions using Framer Motion or Tailwind.
