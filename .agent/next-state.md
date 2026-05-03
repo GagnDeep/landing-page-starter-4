@@ -1,3 +1,3 @@
 # Next Project State
 
-Phase 7: Functional Pages: Pricing, Blog, and FAQ is ready to begin. The upcoming phase will establish the secondary functional pages relying on their respective content files (`content/pricing.ts`, `content/blog.ts`, `content/faq.ts`), continuing the implementation of modular, animated structural components.
+Phase 8: Contact, Careers, and Legal Pages is ready to begin. The final phase involves the layout of the direct communication components, tabular career listings, and structured legal documentation (`content/contact.ts`, `content/careers.ts`, `content/terms.ts`, `content/privacy.ts`).

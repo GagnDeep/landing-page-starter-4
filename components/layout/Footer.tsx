@@ -40,9 +40,9 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Navigation */}
           <div className="flex flex-col space-y-4">
-            <h3 className="font-heading text-lg font-medium">Quick Links</h3>
+            <h3 className="font-heading text-lg font-medium">Navigation</h3>
             <nav className="flex flex-col space-y-3">
               {homeContent.navigation.links.map((link) => (
                 <Link
