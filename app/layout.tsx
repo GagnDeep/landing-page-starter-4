@@ -1,14 +1,17 @@
-import { Geist, Geist_Mono, Figtree } from "next/font/google"
+import { Montserrat, Playfair_Display } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
 
-const figtree = Figtree({subsets:['latin'],variable:'--font-sans'})
-
-const fontMono = Geist_Mono({
+const fontSans = Montserrat({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-sans",
+})
+
+const fontHeading = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-heading",
 })
 
 export default function RootLayout({
@@ -20,7 +23,12 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", figtree.variable)}
+      className={cn(
+        "antialiased",
+        fontSans.variable,
+        fontHeading.variable,
+        "font-sans"
+      )}
     >
       <body>
         <ThemeProvider>{children}</ThemeProvider>
