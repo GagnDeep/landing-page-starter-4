@@ -2,7 +2,9 @@
 
 - Phase 1 (Design System & Layout Documentation) completed.
 - Phase 2 (Content Files) completed.
-- A central `content/` directory exists containing 10 TypeScript files (`home.ts`, `about.ts`, `features.ts`, `pricing.ts`, `blog.ts`, `faq.ts`, `contact.ts`, `careers.ts`, `terms.ts`, `privacy.ts`).
-- All text copy, CTAs, structural labels, and SEO metadata are strictly defined in these files.
-- The voice is perfectly aligned with the "Glam-Academy" design system (sophisticated, authoritative, elegant).
-- Zero React, UI, or structural code outside of content definitions exists yet.
+- Phase 3 (Animated Visuals & Image Registry) completed.
+- Created `lib/images.ts`, a centralized, typed registry utilizing high-quality Unsplash photography mapped to specific sections (hero, salon, academy, etc.).
+- Updated `next.config.mjs` to authorize `images.unsplash.com`.
+- Created `components/visuals/` directory containing 9 unique, reusable, SSR-safe animated components (e.g., AnimatedGradientMesh, LogoMarquee, CodeWindowTyping, MagneticButton).
+- All visual components strictly adhere to the "Glam-Academy" design aesthetic, utilizing phase 1 CSS tokens and respecting prefers-reduced-motion.
+- Added custom keyframe animations to `app/globals.css`.
