@@ -1,3 +1,3 @@
 # Next Project State
 
-Phase 4: Core Layout Components and Navigation is ready to begin. The upcoming phase will focus on implementing the global header, footer, navigation logic, and generic layout wrappers for the site, utilizing the completed design tokens and visual library.
+Phase 5: Home Page Implementation is ready to begin. This phase involves assembling the 20 distinct sections for the Home page, utilizing the visual library, image registry, and layout boundaries established in prior phases.

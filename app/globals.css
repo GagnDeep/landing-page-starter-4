@@ -48,8 +48,6 @@
 }
 
 :root {
-    --font-heading: 'Playfair Display', 'Cormorant Garamond', serif;
-    --font-sans: 'Inter', 'Geist', sans-serif;
     --background: oklch(0.99 0 0);
     --foreground: oklch(0.2 0.02 240);
     --card: oklch(1 0 0);
