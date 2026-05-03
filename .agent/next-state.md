@@ -1,7 +1,8 @@
 # Next State
 
-Phase 5 (Home Page Implementation)
+Phase 6 (Service, Pricing, and Booking Pages)
 
-- Implement the Home Page using the `content/home.ts` definitions.
-- Build the `Immersive Hero`, `Trust Bar`, `Service Spotlight`, and `Features` sections.
-- Integrate the visual assets from Phase 3 (`AnimatedGradientMesh`, `CTAGlow`, etc.) to elevate the studio aesthetic.
+- Implement the comprehensive `/pricing` page layout using `content/pricing.ts`.
+- Build the categorized service menus, ensuring responsive toggling or deep-linking.
+- Implement the curated package displays.
+- Integrate the booking FAQ section at the bottom of the page.
