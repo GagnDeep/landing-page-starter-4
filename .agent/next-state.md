@@ -1,10 +1,9 @@
 # Next State: Dr. Kochar's House of Smiles
 
-## Phase 6: Clinical Services and Features Pages
-Our next priority is assembling the sub-pages related to the clinic's specialized services, particularly emphasizing full-mouth implants and pediatric care.
+## Phase 7: Blog, FAQ, and Contact Pages
+Our next priority is setting up user interaction and informative resource sections.
 
-### Goals for Phase 6:
-- Build the `/services` page using `content/features.ts`.
-- Build the `/about` page using `content/about.ts`.
-- Build the `/pricing` page using `content/pricing.ts`.
-- Ensure all pages leverage the visual components and design tokens established in earlier phases.
+### Goals for Phase 7:
+- Build the `/blog` index and post layouts using `content/blog.ts`.
+- Build the standalone `/faq` or integrate the logic fully if required.
+- Build the `/contact` form and integration using `content/contact.ts`.
