@@ -1,5 +1,5 @@
 # Next State
 
-- Phase 6 (Academy and Services Pages) is ready to proceed.
-- Next agent should build the specific routes for the Academy / Services and Pricing features.
-- Leverage the existing visual components and layout shell.
+- Phase 7 (Blog and FAQ Integration) is ready to proceed.
+- Next agent should build out the `/blog` and `/faq` routes utilizing content from `content/blog.ts` and `content/faq.ts`.
+- Re-use the existing visual shell and components.
