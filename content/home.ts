@@ -1,4 +1,4 @@
-import { SeoMetadata, Section, Cta, NavMenu } from './types';
+import { SeoMetadata, Section,NavMenu } from './types';
 
 export const seo: SeoMetadata = {
   title: "Dr. Bansal's Dental Care | Gentle, Professional Dentistry in Patiala",

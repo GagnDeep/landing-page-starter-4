@@ -27,7 +27,7 @@ export function Header() {
 
   // Close mobile menu on route change
   useEffect(() => {
-    setMobileMenuOpen(false);
+    setTimeout(() => setMobileMenuOpen(false), 0);
   }, [pathname]);
 
   return (
@@ -53,7 +53,7 @@ export function Header() {
             <ToothIconSet variant="shield" className="w-10 h-10 md:w-12 md:h-12 text-primary" />
             <div className="flex flex-col">
               <span className="font-heading font-bold text-lg md:text-xl text-foreground leading-tight group-hover:text-primary transition-colors">
-                Dr. Bansal's
+                Dr. Bansal&apos;s
               </span>
               <span className="font-sans text-xs text-muted-foreground uppercase tracking-widest">
                 Dental Care

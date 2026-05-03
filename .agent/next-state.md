@@ -1,10 +1,10 @@
 # Next State
 
 ## Upcoming Phase
-Phase 5: Home Page Implementation
+Phase 6: About, Features, and Pricing Pages
 
 ## Objectives for Next Phase
-- Implement the 20 distinct sections outlined in `.agent/layout-home.md`.
-- Connect the structured data from `content/home.ts` into individual section components.
-- Integrate animated visual elements (e.g., `AnimatedGradientMesh`, `CTAGlow`) and remote Unsplash images seamlessly.
-- Ensure optimal visual rhythm and spacing matching the Phase 1 Design System.
+- Implement `app/about/page.tsx`, `app/features/page.tsx`, and `app/pricing/page.tsx`.
+- Structure the layouts based on `.agent/layout-about.md`, `.agent/layout-features.md`, and `.agent/layout-pricing.md`.
+- Populate data from `content/about.ts`, `content/features.ts`, and `content/pricing.ts`.
+- Ensure component reuse from existing UI elements where applicable.

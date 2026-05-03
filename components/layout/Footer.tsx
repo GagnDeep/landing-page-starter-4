@@ -21,7 +21,7 @@ export function Footer() {
               <ToothIconSet variant="clean" className="w-10 h-10 text-primary" />
               <div className="flex flex-col">
                 <span className="font-heading font-bold text-xl text-foreground leading-tight group-hover:text-primary transition-colors">
-                  Dr. Bansal's
+                  Dr. Bansal&apos;s
                 </span>
                 <span className="font-sans text-xs text-muted-foreground uppercase tracking-widest">
                   Dental Care
@@ -96,7 +96,7 @@ export function Footer() {
 
         {/* Bottom Legal Bar */}
         <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4 font-sans text-sm text-muted-foreground">
-          <p>© {currentYear} Dr. Bansal's Dental Care. All rights reserved.</p>
+          <p>© {currentYear} Dr. Bansal&apos;s Dental Care. All rights reserved.</p>
           <div className="flex items-center space-x-6">
             <Link href="/privacy" className="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">
               Privacy Policy

@@ -19,7 +19,7 @@ export function AnimatedStatCounter({ value, label, suffix = '', duration = 2000
     // Respect user's motion preferences
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
-      setCount(value);
+      setTimeout(() => setCount(value), 0);
       return;
     }
 
