@@ -1,8 +1,8 @@
 # Next State
 
-Phase 7 (Blog, FAQ, and About Pages)
+Phase 8 (Contact, Careers, Legal, and Polish)
 
-- Implement `/blog` to render journal entries using `content/blog.ts`.
-- Implement `/faq` (standalone page) to render structured answers using `content/faq.ts`.
-- Implement `/about` to render the studio's story and team profiles using `content/about.ts`.
-- Incorporate appropriate visual primitives.
+- Implement `/contact` form and location map views.
+- Implement `/careers` displaying value proposition and open roles.
+- Implement `/terms` and `/privacy` for strict textual rendering.
+- Perform final responsive polish, contrast verification, and UI cleanup.

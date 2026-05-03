@@ -1,9 +1,9 @@
 # Current State
 
-Phase 6 (Service, Pricing, and Booking Pages) is complete.
+Phase 7 (Blog, FAQ, and About Pages) is complete.
 
-- Implemented `/pricing` page with dynamic category navigation, service lists, curated packages, and FAQ sections.
-- Implemented `/features` page mapping out hygiene protocols, premium products, and the doorstep experience.
-- Successfully consumed all strings from `content/pricing.ts` and `content/features.ts`.
-- Integrated Animated SVG visual components across both pages.
-- Built without errors.
+- Implemented `/about` page featuring the studio story, founder and team bios, and physical space imagery.
+- Implemented `/blog` indexing featured and standard journal articles into responsive grid layouts.
+- Implemented `/faq` mapping nested JSON categories into accessible shadcn `Accordion` instances.
+- Integrated background visuals (`FloatingBlobs`, `DotMatrixGrid`, `AnimatedGradientMesh`, `CTAGlow`) across components for dynamic rhythm.
+- Maintained exact dark/light parity using semantic color tokens and strict reliance on `lib/images.ts` and `content/*.ts` stores.
