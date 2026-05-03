@@ -8,7 +8,6 @@ import { DoctorProfile } from "@/components/home/doctor-profile";
 import { StatsAndTestimonials } from "@/components/home/stats-and-testimonials";
 import { Process } from "@/components/home/process";
 import { CtaModule } from "@/components/home/cta-module";
-import { SectionDivider } from "@/components/visuals/section-divider";
 import { ClinicExperience } from "@/components/home/clinic-experience";
 import { ClinicalPrecision } from "@/components/home/clinical-precision";
 import { FeaturedJournal } from "@/components/home/featured-journal";
@@ -17,7 +16,6 @@ import { FaqSneakPeek } from "@/components/home/faq-sneak-peek";
 import { Awards } from "@/components/home/awards";
 import { Newsletter } from "@/components/home/newsletter";
 import { LocationMap } from "@/components/home/location-map";
-import { TestimonialCarousel } from "@/components/visuals/testimonial-carousel";
 
 export default function HomePage() {
   return (

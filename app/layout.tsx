@@ -18,6 +18,7 @@ const jakarta = Plus_Jakarta_Sans({
 
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
+import { MotionProvider } from "@/components/layout/motion-provider"
 
 export default function RootLayout({
   children,
@@ -32,11 +33,13 @@ export default function RootLayout({
     >
       <body className="min-h-screen flex flex-col bg-background text-foreground">
         <ThemeProvider>
-          <Header />
-          <main className="flex-1">
-            {children}
-          </main>
-          <Footer />
+          <MotionProvider>
+            <Header />
+            <main className="flex-1">
+              {children}
+            </main>
+            <Footer />
+          </MotionProvider>
         </ThemeProvider>
       </body>
     </html>

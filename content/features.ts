@@ -44,7 +44,7 @@ export const featuresContent = {
   galleryCta: {
     title: "Witness the Transformations",
     description: "Browse our clinical portfolio to see the profound impact of our work.",
-    cta: { label: "View Before & Afters", href: "/portfolio" }
+    cta: { label: "View Before & Afters", href: "/" } // Redirects to Home page spotlight section
   },
   consultationCta: {
     headline: "Ready for Your Transformation?",

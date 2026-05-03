@@ -27,7 +27,7 @@ export function AnimatedStatCounter({ value, label, suffix = "", className }: An
   useEffect(() => {
     if (isInView && !hasStarted) {
       motionValue.set(value);
-      setHasStarted(true);
+      setTimeout(() => setHasStarted(true), 0);
     }
   }, [isInView, value, motionValue, hasStarted]);
 

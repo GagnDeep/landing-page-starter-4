@@ -85,7 +85,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida.
               </p>
               <blockquote>
-                "A smile is the universal language of kindness and confidence. We engineer it with the precision of a watchmaker and the eye of an artist."
+                &quot;A smile is the universal language of kindness and confidence. We engineer it with the precision of a watchmaker and the eye of an artist.&quot;
               </blockquote>
               <p>
                 Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. In hac habitasse platea dictumst. Donec est velit, scelerisque in tempor et, eleifend id odio. Donec rhoncus mi eu auctor consequat.

@@ -41,7 +41,7 @@ export function TestimonialCarousel({ items, interval = 6000, className }: Testi
           className="absolute inset-0 flex flex-col items-center justify-center p-6"
         >
           <p className="font-heading text-2xl md:text-3xl lg:text-4xl leading-relaxed text-foreground mb-8 max-w-4xl mx-auto">
-            "{items[currentIndex].quote}"
+            &quot;{items[currentIndex].quote}&quot;
           </p>
           <div className="flex flex-col items-center">
             <span className="font-medium text-primary text-sm uppercase tracking-widest">{items[currentIndex].author}</span>
