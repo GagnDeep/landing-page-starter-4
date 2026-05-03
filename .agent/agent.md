@@ -36,3 +36,8 @@
 - Added `/blog`, `/faq`, and `/contact` routes.
 - Form logic initialized with basic state management on the Contact page.
 - Utilized image registry extensively to give the Blog an editorial magazine feel.
+
+**[2024-05-03] Phase 8 Completion:**
+- Finalized `/careers`, `/terms`, and `/privacy` routes mapping content and adhering to layout specs.
+- Installed `@tailwindcss/typography` to handle dense prose in legal sections.
+- Verified visual rendering, completed pre-commit steps, and audited build logic. Site is ready for handoff.
