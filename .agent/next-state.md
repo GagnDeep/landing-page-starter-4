@@ -1,9 +1,10 @@
 # Next State: Dr. Kochar's House of Smiles
 
-## Phase 7: Blog, FAQ, and Contact Pages
-Our next priority is setting up user interaction and informative resource sections.
+## Phase 8: Legal, Careers, and Final Polish
+Our final priority is implementing the legal pages, career opportunities, and executing a final polish of the entire site.
 
-### Goals for Phase 7:
-- Build the `/blog` index and post layouts using `content/blog.ts`.
-- Build the standalone `/faq` or integrate the logic fully if required.
-- Build the `/contact` form and integration using `content/contact.ts`.
+### Goals for Phase 8:
+- Build the `/careers` page layout using `content/careers.ts`.
+- Build the `/privacy` and `/terms` pages using their respective content files and typography (`Prose`) configurations.
+- Ensure 404/Not Found pages are correctly implemented and styled.
+- Perform a final review of the codebase for consistency, accessibility, and production readiness.
