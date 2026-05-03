@@ -1,3 +1,4 @@
 # Next State
-- Phase 7 (Blog, FAQ & Contact Pages) is the immediate next priority.
-- Focus will be on implementing functional, highly readable structures for the blog index, FAQ directory, and contact form layout.
+- Phase 8 (Careers, Legal & Final Polish) is the final step.
+- Implement the Careers, Terms, and Privacy pages.
+- Perform a final visual, accessibility, and functional review before handover.
