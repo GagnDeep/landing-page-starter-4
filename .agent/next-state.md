@@ -1,5 +1,5 @@
 # Next State
 
-- Phase 2 (Content Files) is ready to proceed.
-- Next agent should synthesize the brand voice defined in the design system and author the copy and string definitions needed for the website based on the structured layouts defined in `.agent/layout-*.md`.
-- No React/TSX coding should occur in Phase 2; focus entirely on writing high-quality copy that reflects the "Glam-Academy" identity.
+- Phase 3 (Animated Visuals & Image Registry) is ready to proceed.
+- Next agent should create animated visual components and the image registry.
+- Implement any required visual asset architecture to map against the content generated in Phase 2.
