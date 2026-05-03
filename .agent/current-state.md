@@ -1,7 +1,7 @@
 # Current State
 
 **Project:** The Smile Designers
-**Phase:** 5/8 — About and Clinical Features Pages
+**Phase:** 6/8 — Pricing, Blog, and FAQ Pages
 
 **Status:** Completed
 
@@ -13,8 +13,10 @@
 - Established a comprehensive, type-safe content repository (`content/` directory) for all pages (Phase 2).
 - Built an image registry in `lib/images.ts` and 8 SSR-safe animated visual components in `components/visuals/` (Phase 3).
 - Implemented global `RootLayout` with responsive `Header` and `Footer`, and built the complete `Home` page (Phase 4).
-- Implemented the `About` page with timeline elements, abstract map representations, and grid layouts matching the content schema.
-- Implemented the `Features` page with a sophisticated sticky sidebar layout for browsing high-end dental treatments.
+- Implemented the `About` and `Features` pages mapping to content strings and visual animations (Phase 5).
+- Built the `Pricing` page with comparison tables and tiered concierge cards.
+- Built the `Blog` page with horizontal category filtering and masonry-style article grid.
+- Built the `FAQ` page using accessible Accordions for organized medical and travel queries.
 
 **In Progress:**
-- None. Ready for Phase 6.
+- None. Ready for Phase 7.

@@ -1,6 +1,7 @@
 import { aboutContent } from "@/content/about";
 import { StaggeredReveal, StaggerItem } from "@/components/visuals/staggered-reveal";
 import { MapPin } from "lucide-react";
+import { images } from "@/lib/images";
 
 export function GlobalReach() {
   return (
