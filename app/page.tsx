@@ -1,7 +1,54 @@
+import {
+  Hero,
+  TrustBar,
+  CorePhilosophy,
+  SplitFeatureSalon,
+  SplitFeatureAcademy,
+  FounderSpotlight,
+  CurriculumOverview,
+  FeaturedArtists,
+  BridalExperience,
+  Testimonials,
+  Statistics,
+  GalleryTeaser,
+  PricingTiers,
+  Process,
+  FaqTeaser,
+  Location,
+  Newsletter,
+  BlogTeaser,
+  FinalCta
+} from "@/components/home";
+import { SectionDivider } from "@/components/visuals";
+
 export default function Home() {
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <h1 className="text-4xl font-heading text-primary">Glam Academy (Coming in Phase 5)</h1>
-    </div>
+    <>
+      <Hero />
+      <TrustBar />
+      <CorePhilosophy />
+
+      <SectionDivider type="diamonds" />
+
+      <SplitFeatureSalon />
+      <SplitFeatureAcademy />
+
+      <SectionDivider type="line" />
+
+      <FounderSpotlight />
+      <CurriculumOverview />
+      <FeaturedArtists />
+      <BridalExperience />
+      <Testimonials />
+      <Statistics />
+      <GalleryTeaser />
+      <PricingTiers />
+      <Process />
+      <FaqTeaser />
+      <Location />
+      <Newsletter />
+      <BlogTeaser />
+      <FinalCta />
+    </>
   );
 }

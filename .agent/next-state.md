@@ -1,5 +1,5 @@
 # Next State
 
-- Phase 5 (Home Page Implementation) is ready to proceed.
-- Next agent should build the Home Page route (app/page.tsx) mapping the 20 distinct sections defined in .agent/layout-home.md to the components created in Phase 3 and content from Phase 2.
-- The global layout shell is completely ready to host the page content.
+- Phase 6 (Academy and Services Pages) is ready to proceed.
+- Next agent should build the specific routes for the Academy / Services and Pricing features.
+- Leverage the existing visual components and layout shell.

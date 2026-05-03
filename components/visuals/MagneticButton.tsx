@@ -19,7 +19,7 @@ export function MagneticButton({
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => setMounted(true), 0); return () => clearTimeout(timer);
   }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {

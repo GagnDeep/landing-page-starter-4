@@ -13,7 +13,7 @@ export function CodeWindowTyping({ className, codeLines }: CodeWindowTypingProps
   const [visibleLines, setVisibleLines] = useState<number>(0);
 
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => setMounted(true), 0); return () => clearTimeout(timer);
 
     let currentLine = 0;
     const interval = setInterval(() => {
