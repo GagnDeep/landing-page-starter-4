@@ -1,5 +1,5 @@
 # Next State
 
-**Phase 2 — Content Files** is now ready to begin.
+**Phase 3 — Animated Visual Components & Image Registry** is now ready to begin.
 
-In this next phase, we will focus on translating the layout structures into actual textual content. We need to create detailed markdown files containing the exact copy for each section described in the layout documentation, adhering to the sophisticated, high-end "affordable luxury" brand voice.
+With the design system (Phase 1) and content files (Phase 2) established, the next step is to create the visual and animated building blocks. We need to set up an image registry mapping to placeholder (or actual) assets and implement reusable, animated UI components (like staggered text reveals, parallax image wrappers, and smooth page transitions) that will bring the "affordable luxury" layout to life before full page assembly.
