@@ -1,4 +1,4 @@
 # Next State
-- Phase 2 (Content Files) is the next immediate step.
-- The content team must follow the established voice/tone and map their copy to the structural intent outlined in the layout documentation files (`.agent/layout-[page].md`).
-- Focus will be on writing and organizing strings (no TSX implementation yet).
+- Phase 3 (Animated Visual Components & Image Registry) is the immediate next step.
+- Focus will be on implementing the animated visual component logic and setting up the image registry, avoiding page structure creation until Phase 4.
+- Content is ready to be imported and mapped to components in upcoming phases.
