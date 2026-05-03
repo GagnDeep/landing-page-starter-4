@@ -1,3 +1,3 @@
 # Next Project State
 
-Phase 2: Content Files is ready to begin. The upcoming phase will involve translating the defined layout structures into concrete content strings and TSX scaffolding, utilizing the design language established in Phase 1.
+Phase 3: Animated Visuals & Image Registry is ready to begin. The upcoming phase will focus on gathering/implementing assets and setting up a registry for all imagery to maintain visual consistency.
