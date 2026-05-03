@@ -14,3 +14,9 @@ This project creates a world-class digital presence for Dr. Bansal's Dental Care
 - Created standard TypeScript interfaces for SEO metadata, sections, and CTAs.
 
 Phase 2 complete. All site content generated as TypeScript modules in /content. Voice and tone verified against design system.
+
+## Visual Elements Decisions (Phase 3)
+- Established a prop-driven, animated visual component library in `components/visuals/` using Tailwind and SVG, avoiding heavy external dependencies.
+- Ensured all animations respect `prefers-reduced-motion` for accessibility and calm-clinic aesthetics.
+- Created a centralized, strongly typed image registry in `lib/images.ts` mapping Unsplash assets with photographer credits to eliminate hardcoded image URLs.
+- Completed Phase 3. Animated components and image registry established. All visuals are prop-driven and remote-sourced.
