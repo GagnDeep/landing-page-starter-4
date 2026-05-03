@@ -1,5 +1,5 @@
 # Next State
 
-**Phase 5 — Home Page Implementation** is now ready to begin.
+**Phase 6 — Service, Pricing, and About Pages** is now ready to begin.
 
-With the global shell established, we will now build the flagship `app/page.tsx`. This phase requires translating the 20+ section layout from `.agent/layout-home.md` into React components, utilizing the data from `content/home.ts`, the visual components from `components/visuals/`, and the photography from `lib/images.ts`. Focus will be on creating a cinematic, magazine-like scroll experience.
+With the core routing shell (Phase 4) and the homepage (Phase 5) completed, we move to the secondary conversion pages. This involves creating route files (`app/features/page.tsx`, `app/pricing/page.tsx`, `app/about/page.tsx`) and translating their respective `content/` configurations and layout blueprints into React components, reusing established primitives to maintain brand consistency.
