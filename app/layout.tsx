@@ -2,6 +2,9 @@ import { Montserrat, Playfair_Display } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { PreHeader } from "@/components/layout/PreHeader";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import { cn } from "@/lib/utils";
 
 const fontSans = Montserrat({
@@ -30,8 +33,13 @@ export default function RootLayout({
         "font-sans"
       )}
     >
-      <body>
-        <ThemeProvider>{children}</ThemeProvider>
+      <body className="flex min-h-screen flex-col">
+        <ThemeProvider>
+          <PreHeader />
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   )

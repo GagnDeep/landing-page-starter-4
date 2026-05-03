@@ -51,6 +51,13 @@ export const homeContent = {
     } as CTA,
   },
 
+  marqueeLogos: [
+    { src: "/placeholder-logo-1.svg", alt: "Premium Brands" },
+    { src: "/placeholder-logo-2.svg", alt: "Luxury Care" },
+    { src: "/placeholder-logo-3.svg", alt: "Artisan Skills" },
+    { src: "/placeholder-logo-4.svg", alt: "Boho Modern" },
+  ],
+
   spotlightNails: {
     heading: "The Chrome Standard",
     text: "Elevate your aesthetic with our signature chrome gel application. Flawless execution, mirror-like finish, and uncompromising durability.",
@@ -84,6 +91,10 @@ export const homeContent = {
     },
   ] as Testimonial[],
 
+  testimonialsHeading: "Words from our clients",
+
+  galleryHeading: "Our Work",
+
   midPageCTA: {
     heading: "Ready for Your Transformation?",
     cta: {
@@ -98,8 +109,20 @@ export const homeContent = {
     hours: "Open Tuesday – Sunday, 10:00 AM – 8:00 PM",
   },
 
+  brandsHeading: "Luxury Products We Use",
+
   faqTeaser: {
     heading: "Common Inquiries",
+    faqs: [
+      {
+        question: "Do I need an appointment?",
+        answer: "Yes, we operate strictly by appointment to ensure every client receives our full attention."
+      },
+      {
+        question: "What is your cancellation policy?",
+        answer: "We kindly ask for 24 hours notice to avoid a 50% cancellation fee."
+      }
+    ],
     cta: {
       label: "Read our full FAQ",
       href: "/faq",
@@ -111,4 +134,13 @@ export const homeContent = {
     description: "Exclusive access to seasonal bookings, new services, and styling guides.",
     buttonLabel: "Subscribe",
   },
+
+  awardsHeading: "Recognized By",
+  preFooterCTA: {
+      heading: "Elevate Your Aesthetics",
+      cta: {
+          label: "Book Now",
+          href: "/contact"
+      } as CTA
+  }
 };

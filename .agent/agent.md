@@ -27,3 +27,11 @@
   - Installed `framer-motion` and created 8 reusable, accessible animation primitives (`components/visuals/`) focusing on organic, slow, and purposeful movement.
   - Ensured all animations respect `useReducedMotion` hooks for accessibility.
 - **Status:** Visual infrastructure complete. Ready for Phase 4 (Core Layout and Homepage Implementation).
+
+### [Date: Current] - Phase 4 Complete
+- **Summary:** Implemented the Core Layout (Application Shell) and Homepage.
+- **Decisions:**
+  - Created responsive `Header`, `PreHeader`, and `Footer` in `components/layout/`.
+  - Assembled `app/page.tsx` mapping directly to the 20+ sections specified in layout docs, pulling text from `content/home.ts`.
+  - Aggressively utilized Phase 3 visual components (e.g., `AnimatedHeroIllustration`, `FloatingBlobs`, `CTAGlow`) to establish the required high-end, immersive Boho-Modern aesthetic without hardcoding assets or strings.
+- **Status:** Base application shell and entry point complete. Ready for Phase 5 (Services, Features, and Pricing).

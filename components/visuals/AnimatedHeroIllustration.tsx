@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { siteImages } from "@/lib/images";
+import { globalContent } from "@/content/global";
 
 interface AnimatedHeroIllustrationProps {
   className?: string;
@@ -61,8 +62,8 @@ export function AnimatedHeroIllustration({
         transition={{ duration: 1, delay: 0.8, type: "spring", stiffness: 100, damping: 20 }}
       >
         <div className="text-center">
-            <span className="block font-heading text-2xl md:text-4xl text-primary">4.7★</span>
-            <span className="block text-[10px] md:text-xs tracking-widest uppercase mt-1 text-muted-foreground">800+ Reviews</span>
+            <span className="block font-heading text-2xl md:text-4xl text-primary">{globalContent.heroBadge.rating}</span>
+            <span className="block text-[10px] md:text-xs tracking-widest uppercase mt-1 text-muted-foreground">{globalContent.heroBadge.reviews}</span>
         </div>
       </motion.div>
     </div>
