@@ -1,5 +1,5 @@
-# Next State: Phase 7 (Blog, FAQ, and Legal Pages)
+# Next State: Phase 8 (Polishing, SEO, and Final Audit)
 
-*   **Status:** Ready to begin Phase 7.
-*   **Goal:** Implement the final content pages: `/blog`, `/faq`, `/terms`, and `/privacy`.
-*   **Requirements:** Translate the respective `.agent/layout-*.md` blueprints and `content/*.ts` files into functional Next.js pages. Ensure the FAQ uses accessible accordion components. Ensure the legal pages are easily readable with proper typography spacing.
+*   **Status:** Ready to begin Phase 8.
+*   **Goal:** Perform final project checks, SEO tuning, accessibility audits, and cross-browser visual polishing.
+*   **Requirements:** Ensure all pages meet standard lighthouse scores, metadata is correctly formatted, no unused components exist, and all linting/build errors are resolved.

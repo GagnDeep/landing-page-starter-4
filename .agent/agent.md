@@ -52,3 +52,12 @@
   - Integrated `shadcn` form components (Input, Textarea, Select) into the Contact page to create a functional UI.
   - Used `AnimatedGradientMesh` and `FloatingBlobs` combined with content to create immersive narrative pages for About and Careers.
 - **Status:** Informational pages complete. Ready for Phase 7 (Blog, FAQ, Legal).
+
+### [Date: Current] - Phase 7 Complete
+- **Summary:** Implemented the resource pages: Blog, FAQ, and Legal documents.
+- **Decisions:**
+  - Created `/blog`, `/blog/[slug]`, `/faq`, `/terms`, and `/privacy` routes using Next.js App Router.
+  - Implemented dynamic routing for the blog, referencing the `content/blog.ts` mock data.
+  - Used `shadcn` Accordion for the FAQ section to ensure accessibility.
+  - Formatted legal pages with clean, distraction-free typography.
+- **Status:** All core pages complete. Ready for Phase 8 (Polishing & SEO Audit).
