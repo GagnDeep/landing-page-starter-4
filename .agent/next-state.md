@@ -1,9 +1,9 @@
 # Next State: Dr. Kochar's House of Smiles
 
-## Phase 4: Core Layout and Navigation Shell
-Our next priority is assembling the global layout and navigation shell, bringing the layout documentation into React implementation.
+## Phase 5: Home Page Implementation
+Our next priority is assembling the Home Page using the components, content, and layout shell established in Phases 1-4.
 
-### Goals for Phase 4:
-- Implement the global `<Header>` and `<Footer>` components.
-- Integrate the 24/7 Availability Badge and theming toggles.
-- Assemble the main `app/layout.tsx` to properly wrap the application with the new UI shell.
+### Goals for Phase 5:
+- Implement the Home Page sections as defined in `.agent/layout-home.md` (e.g., Hero, Services Grid, Testimonials, FAQ).
+- Integrate the visual components from `components/visuals/` to bring the page to life.
+- Ensure all copy is sourced from `content/home.ts`.
