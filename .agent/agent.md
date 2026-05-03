@@ -10,3 +10,8 @@
 - Content layer established via TypeScript data objects in the `content/` directory.
 - Voice/Tone finalized: Authoritative, elegant, and balanced between high-end salon service and rigorous academy instruction.
 - Files map 1:1 with the Phase 1 layout documentation. No UI components were built. Ready for visual/component integration.
+
+**[2024-05-03] Phase 3 Completion:**
+- Visual library established with 8 reusable `framer-motion` components (`AnimatedGradientMesh`, `LogoMarquee`, etc.)
+- Typed image registry configured in `lib/images.ts` using external Unsplash assets.
+- Project ready for assembly of the core layout and global navigation (Phase 4).
