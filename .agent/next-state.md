@@ -1,8 +1,8 @@
 # Next State
 
-Phase 6 (Service, Pricing, and Booking Pages)
+Phase 7 (Blog, FAQ, and About Pages)
 
-- Implement the comprehensive `/pricing` page layout using `content/pricing.ts`.
-- Build the categorized service menus, ensuring responsive toggling or deep-linking.
-- Implement the curated package displays.
-- Integrate the booking FAQ section at the bottom of the page.
+- Implement `/blog` to render journal entries using `content/blog.ts`.
+- Implement `/faq` (standalone page) to render structured answers using `content/faq.ts`.
+- Implement `/about` to render the studio's story and team profiles using `content/about.ts`.
+- Incorporate appropriate visual primitives.
