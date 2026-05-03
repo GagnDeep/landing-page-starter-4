@@ -1,10 +1,9 @@
 # Current State
 
-Phase 6 — Service, Pricing, and About Pages is **COMPLETE**.
+Phase 7 — Blog, FAQ, and Contact Pages is **COMPLETE**.
 
-We have successfully built out the core secondary conversion pages:
-- **About Page (`/about`)**: Implemented `VisionMission`, `TheJourney`, `MeetTheTeam`, and `CoreValues` using `ParallaxImageWrapper` and `AvatarStack`.
-- **Features Page (`/features`)**: Created a comprehensive service menu with sticky category navigation (`CategoryNav`) and rich text/image alternating layouts to explain treatments and color.
-- **Pricing Page (`/pricing`)**: Developed an elegant, salon-style dotted-leader menu design (`PricingTables`) with proper disclaimers and membership teasers.
-- All three pages utilize the shared `PageHero` component powered by `AnimatedGradientMesh` for brand consistency.
-- All copy is strictly driven by the `content/` TypeScript registry. No hardcoded text.
+We have successfully implemented the functional support routes:
+- **Blog Page (`/blog`)**: Implemented `FeaturedArticle`, `CategoryFilters`, `ArticleGrid`, and `BlogNewsletter` matching the `.agent/layout-blog.md` intent.
+- **FAQ Page (`/faq`)**: Developed a searchable layout with `FAQAccordions` grouped by category, utilizing the `shadcn` accordion component.
+- **Contact Page (`/contact`)**: Built a fully responsive layout with `ContactDetails` pulled from configuration, alongside an elegant `ContactForm` and a `ContactMap` placeholder.
+- All three pages utilize the `PageHero` component for brand visual consistency and import 100% of their copy from the TypeScript `content/` registry. No hardcoded strings.

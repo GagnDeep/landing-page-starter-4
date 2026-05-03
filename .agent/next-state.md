@@ -1,5 +1,5 @@
 # Next State
 
-**Phase 7 — Blog, FAQ, and Contact Pages** is now ready to begin.
+**Phase 8 — Careers, Legal, and Final Polish** is now ready to begin.
 
-With the primary conversion funnel (Home -> Services -> Pricing / About) complete, we need to build out the support and communication layer. This phase will focus on creating the Blog index (`/blog`), the FAQ accordion interface (`/faq`), and the Contact form / location details (`/contact`), ensuring they utilize existing layout primitives, shadcn UI components, and the respective content files.
+With all primary and secondary routes fully functional, we will now implement the final missing pages: Careers (`/careers`), Terms of Service (`/terms`), and Privacy Policy (`/privacy`). This phase also serves as the final integration checkpoint, ensuring all design tokens, accessibility standards, and Next.js best practices are flawlessly applied across the entire digital experience before deployment.
