@@ -37,5 +37,6 @@ export const contactContent = {
       phone: "+91 98765 43210",
       email: "hello@yourhomesalon.in",
     },
+    mapPlaceholderUrl: "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=1200",
   },
 };

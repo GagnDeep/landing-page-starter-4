@@ -1,8 +1,6 @@
 # Next State
 
-Phase 8 (Contact, Careers, Legal, and Polish)
+Project Hand-off.
 
-- Implement `/contact` form and location map views.
-- Implement `/careers` displaying value proposition and open roles.
-- Implement `/terms` and `/privacy` for strict textual rendering.
-- Perform final responsive polish, contrast verification, and UI cleanup.
+- No further structural phases are required.
+- Maintainers can now attach a backend CMS, integrate a booking engine API to the existing CTA buttons, and configure custom analytics.
