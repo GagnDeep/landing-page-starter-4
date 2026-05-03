@@ -1,9 +1,10 @@
 # Next State: Dr. Kochar's House of Smiles
 
-## Phase 5: Home Page Implementation
-Our next priority is assembling the Home Page using the components, content, and layout shell established in Phases 1-4.
+## Phase 6: Clinical Services and Features Pages
+Our next priority is assembling the sub-pages related to the clinic's specialized services, particularly emphasizing full-mouth implants and pediatric care.
 
-### Goals for Phase 5:
-- Implement the Home Page sections as defined in `.agent/layout-home.md` (e.g., Hero, Services Grid, Testimonials, FAQ).
-- Integrate the visual components from `components/visuals/` to bring the page to life.
-- Ensure all copy is sourced from `content/home.ts`.
+### Goals for Phase 6:
+- Build the `/services` page using `content/features.ts`.
+- Build the `/about` page using `content/about.ts`.
+- Build the `/pricing` page using `content/pricing.ts`.
+- Ensure all pages leverage the visual components and design tokens established in earlier phases.
