@@ -1,3 +1,3 @@
 # Current Project State
 
-Phase 2 (Content Files) has been finalized. A centralized `content/` directory has been created containing strongly typed `.ts` files for all 10 core pages (home, about, features, pricing, blog, faq, contact, careers, terms, privacy). All files reflect a professional, empathetic, and premium brand voice with comprehensive SEO metadata.
+Phase 3 (Animated Visuals & Image Registry) has been finalized. A robust visual library has been established in `components/visuals/` featuring 8 prop-driven animated components. A centralized, type-safe image registry is configured in `lib/images.ts` using external Unsplash placeholders, and `next.config.mjs` has been updated to support it.
