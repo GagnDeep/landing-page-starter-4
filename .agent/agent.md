@@ -18,3 +18,12 @@
   - Enforced a consistent "Boho-Modern" voice: luxurious, sophisticated, yet warm and inviting, explicitly targeting high-end clientele and NRIs.
   - Structured content hierarchically matching the layout documentation from Phase 1.
 - **Status:** Content layer established. Ready for Phase 3 (Animated Visuals & Image Registry).
+
+### [Date: Current] - Phase 3 Complete
+- **Summary:** Established Animated Visual Components and Image Registry.
+- **Decisions:**
+  - Configured `lib/images.ts` to type-safely manage all imagery using Unsplash URLs.
+  - Added `images.unsplash.com` to `next.config.mjs` remote patterns.
+  - Installed `framer-motion` and created 8 reusable, accessible animation primitives (`components/visuals/`) focusing on organic, slow, and purposeful movement.
+  - Ensured all animations respect `useReducedMotion` hooks for accessibility.
+- **Status:** Visual infrastructure complete. Ready for Phase 4 (Core Layout and Homepage Implementation).
