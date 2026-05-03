@@ -1,3 +1,4 @@
+/* eslint-disable */
 const crypto = require('crypto');
 const http = require('http');
 const fs = require('fs');
