@@ -1,14 +1,16 @@
-import { SEOMetadata, CTA } from "./types";
+import { SEOMetadata, CTA } from "./types"
 
 export const pricingContent = {
   seo: {
     title: "Pricing & Memberships | Boho Salon",
-    description: "Transparent pricing for our luxury salon services. View our tiers for nails, hair, skin, and exclusive bridal packages.",
+    description:
+      "Transparent pricing for our luxury salon services. View our tiers for nails, hair, skin, and exclusive bridal packages.",
   } as SEOMetadata,
 
   hero: {
     heading: "Transparent Luxury",
-    subheading: "An investment in meticulous craftsmanship and premium products.",
+    subheading:
+      "An investment in meticulous craftsmanship and premium products.",
   },
 
   philosophy: {
@@ -80,5 +82,5 @@ export const pricingContent = {
   labels: {
     mostPopular: "Most Popular",
     bookTier: "Book Tier",
-  }
-};
+  },
+}

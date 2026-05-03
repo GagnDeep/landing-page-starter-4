@@ -1,18 +1,18 @@
-"use client";
+"use client"
 
-import { motion, useReducedMotion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { motion, useReducedMotion } from "framer-motion"
+import { cn } from "@/lib/utils"
 
 interface CTAGlowProps {
-  children: React.ReactNode;
-  className?: string;
+  children: React.ReactNode
+  className?: string
 }
 
 export function CTAGlow({ children, className }: CTAGlowProps) {
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = useReducedMotion()
 
   return (
-    <div className={cn("relative group", className)}>
+    <div className={cn("group relative", className)}>
       {/* Background glow that animates on hover */}
       <motion.div
         className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-primary to-secondary opacity-0 blur transition duration-1000 group-hover:opacity-70 group-hover:duration-200"
@@ -34,5 +34,5 @@ export function CTAGlow({ children, className }: CTAGlowProps) {
       {/* The actual button content */}
       <div className="relative">{children}</div>
     </div>
-  );
+  )
 }

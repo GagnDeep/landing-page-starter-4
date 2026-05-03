@@ -1,27 +1,37 @@
-"use client";
+"use client"
 
-import { motion, useReducedMotion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { motion, useReducedMotion } from "framer-motion"
+import { cn } from "@/lib/utils"
 
 interface FloatingBlobsProps {
-  className?: string;
-  colors?: [string, string, string]; // Expecting valid CSS color values
+  className?: string
+  colors?: [string, string, string] // Expecting valid CSS color values
 }
 
 export function FloatingBlobs({
   className,
-  colors = ["var(--color-primary)", "var(--color-secondary)", "var(--color-accent)"],
+  colors = [
+    "var(--color-primary)",
+    "var(--color-secondary)",
+    "var(--color-accent)",
+  ],
 }: FloatingBlobsProps) {
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = useReducedMotion()
 
   // If reduced motion is preferred, we just show static, slightly opaque shapes
-  const duration = shouldReduceMotion ? 0 : 20;
+  const duration = shouldReduceMotion ? 0 : 20
 
   return (
-    <div className={cn("pointer-events-none absolute inset-0 overflow-hidden", className)} aria-hidden="true">
+    <div
+      className={cn(
+        "pointer-events-none absolute inset-0 overflow-hidden",
+        className
+      )}
+      aria-hidden="true"
+    >
       {/* Blob 1 - Top Left */}
       <motion.div
-        className="absolute -top-24 -left-24 h-96 w-96 rounded-full mix-blend-multiply blur-3xl opacity-30 dark:mix-blend-screen dark:opacity-20"
+        className="absolute -top-24 -left-24 h-96 w-96 rounded-full opacity-30 mix-blend-multiply blur-3xl dark:opacity-20 dark:mix-blend-screen"
         style={{ backgroundColor: colors[0] }}
         animate={
           !shouldReduceMotion
@@ -40,7 +50,7 @@ export function FloatingBlobs({
       />
       {/* Blob 2 - Bottom Right */}
       <motion.div
-        className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full mix-blend-multiply blur-3xl opacity-30 dark:mix-blend-screen dark:opacity-20"
+        className="absolute -right-24 -bottom-24 h-96 w-96 rounded-full opacity-30 mix-blend-multiply blur-3xl dark:opacity-20 dark:mix-blend-screen"
         style={{ backgroundColor: colors[1] }}
         animate={
           !shouldReduceMotion
@@ -60,7 +70,7 @@ export function FloatingBlobs({
       />
       {/* Blob 3 - Center */}
       <motion.div
-        className="absolute top-1/2 left-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full mix-blend-multiply blur-3xl opacity-20 dark:mix-blend-screen dark:opacity-10"
+        className="absolute top-1/2 left-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-20 mix-blend-multiply blur-3xl dark:opacity-10 dark:mix-blend-screen"
         style={{ backgroundColor: colors[2] }}
         animate={
           !shouldReduceMotion
@@ -79,5 +89,5 @@ export function FloatingBlobs({
         }}
       />
     </div>
-  );
+  )
 }

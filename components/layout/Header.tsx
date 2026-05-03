@@ -1,26 +1,31 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
-import { globalContent } from "@/content/global";
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
+import { usePathname } from "next/navigation"
+import { globalContent } from "@/content/global"
 
 export function Header() {
-  const pathname = usePathname();
-  const isHome = pathname === "/";
+  const pathname = usePathname()
+  const isHome = pathname === "/"
 
   return (
-    <header className={cn(
-        "absolute top-0 w-full z-50 flex items-center justify-between px-6 py-6 md:px-12",
-    )}>
+    <header
+      className={cn(
+        "absolute top-0 z-50 flex w-full items-center justify-between px-6 py-6 md:px-12"
+      )}
+    >
       {/* Brand */}
-      <Link href="/" className="font-heading text-2xl tracking-wide z-10 flex-1">
+      <Link
+        href="/"
+        className="z-10 flex-1 font-heading text-2xl tracking-wide"
+      >
         {globalContent.header.brand}
       </Link>
 
       {/* Main Nav (Desktop) */}
-      <nav className="hidden md:flex items-center gap-8 text-sm tracking-widest uppercase font-medium flex-1 justify-center">
+      <nav className="hidden flex-1 items-center justify-center gap-8 text-sm font-medium tracking-widest uppercase md:flex">
         {globalContent.header.navLinks.map((link) => (
           <Link
             key={link.label}
@@ -36,11 +41,17 @@ export function Header() {
       </nav>
 
       {/* CTA */}
-      <div className="flex-1 flex justify-end">
-        <Button variant={isHome ? "secondary" : "default"} asChild className="rounded-full tracking-wider uppercase text-xs px-6">
-          <Link href={globalContent.header.cta.href}>{globalContent.header.cta.label}</Link>
+      <div className="flex flex-1 justify-end">
+        <Button
+          variant={isHome ? "secondary" : "default"}
+          asChild
+          className="rounded-full px-6 text-xs tracking-wider uppercase"
+        >
+          <Link href={globalContent.header.cta.href}>
+            {globalContent.header.cta.label}
+          </Link>
         </Button>
       </div>
     </header>
-  );
+  )
 }

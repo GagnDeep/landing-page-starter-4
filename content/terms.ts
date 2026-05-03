@@ -1,9 +1,10 @@
-import { SEOMetadata } from "./types";
+import { SEOMetadata } from "./types"
 
 export const termsContent = {
   seo: {
     title: "Terms & Conditions | Boho Salon",
-    description: "Terms and conditions for booking and utilizing services at Boho Salon Chandigarh.",
+    description:
+      "Terms and conditions for booking and utilizing services at Boho Salon Chandigarh.",
   } as SEOMetadata,
 
   heading: "Terms & Conditions",
@@ -31,4 +32,4 @@ export const termsContent = {
       text: "We reserve the right to refuse service to anyone demonstrating inappropriate behavior or presenting a health/safety risk to our staff or other clients (e.g., severe nail infections).",
     },
   ],
-};
+}

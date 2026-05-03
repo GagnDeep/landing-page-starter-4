@@ -1,20 +1,20 @@
-"use client";
+"use client"
 
-import { motion, useReducedMotion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { motion, useReducedMotion } from "framer-motion"
+import { cn } from "@/lib/utils"
 
 interface AnimatedGradientMeshProps {
-  className?: string;
+  className?: string
 }
 
 export function AnimatedGradientMesh({ className }: AnimatedGradientMeshProps) {
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = useReducedMotion()
 
   // We use CSS custom properties from our design system to drive the gradients
   return (
     <div
       className={cn(
-        "pointer-events-none absolute inset-0 overflow-hidden mix-blend-overlay opacity-40 dark:opacity-20",
+        "pointer-events-none absolute inset-0 overflow-hidden opacity-40 mix-blend-overlay dark:opacity-20",
         className
       )}
       aria-hidden="true"
@@ -43,5 +43,5 @@ export function AnimatedGradientMesh({ className }: AnimatedGradientMeshProps) {
         }}
       />
     </div>
-  );
+  )
 }

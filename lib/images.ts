@@ -1,13 +1,13 @@
 export type ImageAsset = {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
-};
+  src: string
+  alt: string
+  width: number
+  height: number
+}
 
 // Utilizing Unsplash source URLs with standard parameters for quality/format
-const unsplashBase = "https://images.unsplash.com/photo-";
-const unsplashParams = "?auto=format&fit=crop&q=80";
+const unsplashBase = "https://images.unsplash.com/photo-"
+const unsplashParams = "?auto=format&fit=crop&q=80"
 
 export const siteImages = {
   hero: {
@@ -86,4 +86,4 @@ export const siteImages = {
       height: 600,
     },
   },
-} as const;
+} as const

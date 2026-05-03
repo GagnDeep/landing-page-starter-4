@@ -1,88 +1,103 @@
-import { faqContent } from "@/content/faq";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { faqContent } from "@/content/faq"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { DotMatrixGrid, CTAGlow } from "@/components/visuals";
-import Link from "next/link";
-import { Metadata } from "next";
+} from "@/components/ui/accordion"
+import { DotMatrixGrid, CTAGlow } from "@/components/visuals"
+import Link from "next/link"
+import { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: faqContent.seo.title,
   description: faqContent.seo.description,
-};
+}
 
 export default function FAQPage() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex min-h-screen flex-col">
       {/* 03. FAQ Hero & 04. Search */}
-      <section className="relative flex flex-col min-h-[50vh] items-center justify-center overflow-hidden pt-24 pb-16 px-6 md:px-12 bg-muted/20 border-b border-border text-center">
-        <div className="z-10 max-w-2xl mx-auto space-y-8 w-full">
-          <h1 className="font-heading text-5xl md:text-7xl leading-tight tracking-tight">
+      <section className="relative flex min-h-[50vh] flex-col items-center justify-center overflow-hidden border-b border-border bg-muted/20 px-6 pt-24 pb-16 text-center md:px-12">
+        <div className="z-10 mx-auto w-full max-w-2xl space-y-8">
+          <h1 className="font-heading text-5xl leading-tight tracking-tight md:text-7xl">
             {faqContent.hero.heading}
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground font-light">
+          <p className="text-lg font-light text-muted-foreground md:text-xl">
             {faqContent.hero.subheading}
           </p>
           <div className="pt-8">
-            <Input type="search" placeholder="Search for an answer..." className="rounded-full bg-background max-w-md mx-auto py-6 text-base" />
+            <Input
+              type="search"
+              placeholder="Search for an answer..."
+              className="mx-auto max-w-md rounded-full bg-background py-6 text-base"
+            />
           </div>
         </div>
       </section>
 
       {/* 05. Category Jump Links */}
-      <nav className="border-b border-border sticky top-0 z-40 bg-background/80 backdrop-blur-md">
-        <div className="max-w-4xl mx-auto px-6 overflow-x-auto py-4">
-            <ul className="flex justify-center items-center gap-8 text-sm tracking-widest uppercase font-medium min-w-max">
+      <nav className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-md">
+        <div className="mx-auto max-w-4xl overflow-x-auto px-6 py-4">
+          <ul className="flex min-w-max items-center justify-center gap-8 text-sm font-medium tracking-widest uppercase">
             {faqContent.categories.map((category, idx) => (
-                <li key={idx}>
-                    <a href={`#cat-${idx}`} className="hover:text-primary transition-colors text-muted-foreground hover:text-foreground">
-                        {category.name}
-                    </a>
-                </li>
+              <li key={idx}>
+                <a
+                  href={`#cat-${idx}`}
+                  className="text-muted-foreground transition-colors hover:text-foreground hover:text-primary"
+                >
+                  {category.name}
+                </a>
+              </li>
             ))}
-            </ul>
+          </ul>
         </div>
       </nav>
 
       {/* FAQ Categories & Accordions */}
-      <section className="py-24 px-6 max-w-3xl mx-auto w-full space-y-24">
-         {faqContent.categories.map((category, cIdx) => (
-             <div key={cIdx} id={`cat-${cIdx}`} className="space-y-8 scroll-mt-24">
-                 <h2 className="font-heading text-3xl md:text-4xl text-primary border-b border-border pb-4">{category.name}</h2>
-                 <Accordion type="single" collapsible className="w-full">
-                    {category.items.map((item, iIdx) => (
-                        <AccordionItem key={iIdx} value={`item-${cIdx}-${iIdx}`}>
-                            <AccordionTrigger className="text-lg font-medium hover:text-primary data-[state=open]:text-primary transition-colors">
-                                {item.question}
-                            </AccordionTrigger>
-                            <AccordionContent className="text-muted-foreground leading-relaxed text-base pt-2 pb-6">
-                                {item.answer}
-                            </AccordionContent>
-                        </AccordionItem>
-                    ))}
-                </Accordion>
-             </div>
-         ))}
+      <section className="mx-auto w-full max-w-3xl space-y-24 px-6 py-24">
+        {faqContent.categories.map((category, cIdx) => (
+          <div key={cIdx} id={`cat-${cIdx}`} className="scroll-mt-24 space-y-8">
+            <h2 className="border-b border-border pb-4 font-heading text-3xl text-primary md:text-4xl">
+              {category.name}
+            </h2>
+            <Accordion type="single" collapsible className="w-full">
+              {category.items.map((item, iIdx) => (
+                <AccordionItem key={iIdx} value={`item-${cIdx}-${iIdx}`}>
+                  <AccordionTrigger className="text-lg font-medium transition-colors hover:text-primary data-[state=open]:text-primary">
+                    {item.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="pt-2 pb-6 text-base leading-relaxed text-muted-foreground">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        ))}
       </section>
 
       {/* 16-18. Fallback CTA */}
-      <section className="py-24 px-6 bg-accent/5 border-t border-border relative overflow-hidden">
+      <section className="relative overflow-hidden border-t border-border bg-accent/5 px-6 py-24">
         <DotMatrixGrid className="opacity-10" />
-        <div className="max-w-2xl mx-auto text-center space-y-8 relative z-10">
-             <h2 className="font-heading text-4xl">{faqContent.cta.heading}</h2>
-             <p className="text-muted-foreground text-lg">{faqContent.cta.text}</p>
-             <CTAGlow className="inline-block">
-                <Button size="lg" className="rounded-full px-12 tracking-widest uppercase text-sm mt-4" asChild>
-                    <Link href={faqContent.cta.cta.href}>{faqContent.cta.cta.label}</Link>
-                </Button>
-            </CTAGlow>
+        <div className="relative z-10 mx-auto max-w-2xl space-y-8 text-center">
+          <h2 className="font-heading text-4xl">{faqContent.cta.heading}</h2>
+          <p className="text-lg text-muted-foreground">{faqContent.cta.text}</p>
+          <CTAGlow className="inline-block">
+            <Button
+              size="lg"
+              className="mt-4 rounded-full px-12 text-sm tracking-widest uppercase"
+              asChild
+            >
+              <Link href={faqContent.cta.cta.href}>
+                {faqContent.cta.cta.label}
+              </Link>
+            </Button>
+          </CTAGlow>
         </div>
       </section>
     </div>
-  );
+  )
 }

@@ -1,4 +1,4 @@
-import { CTA, LinkItem } from "./types";
+import { CTA, LinkItem } from "./types"
 
 export const globalContent = {
   header: {
@@ -16,7 +16,8 @@ export const globalContent = {
   },
   footer: {
     brand: "BOHO",
-    description: "Chandigarh’s premier destination for bespoke chrome nails, expert curly hair care, and luxury grooming.",
+    description:
+      "Chandigarh’s premier destination for bespoke chrome nails, expert curly hair care, and luxury grooming.",
     socialLinks: {
       instagram: "#",
       facebook: "#",
@@ -44,7 +45,8 @@ export const globalContent = {
     ],
     location: {
       heading: "Visit",
-      address: "SCO 45-46, Sector 17C\nChandigarh 160017\n\nOpen Tuesday – Sunday\n10:00 AM – 8:00 PM",
+      address:
+        "SCO 45-46, Sector 17C\nChandigarh 160017\n\nOpen Tuesday – Sunday\n10:00 AM – 8:00 PM",
     },
     legal: {
       copyright: "Boho Salon. All rights reserved.",
@@ -57,5 +59,5 @@ export const globalContent = {
   heroBadge: {
     rating: "4.7★",
     reviews: "800+ Reviews",
-  }
-};
+  },
+}

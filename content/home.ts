@@ -1,4 +1,4 @@
-import { SEOMetadata, CTA, Testimonial } from "./types";
+import { SEOMetadata, CTA, Testimonial } from "./types"
 
 export const homeContent = {
   seo: {
@@ -29,15 +29,18 @@ export const homeContent = {
     services: [
       {
         title: "Chrome & Gel Artistry",
-        description: "Intricate, lasting nail designs utilizing premium international gels.",
+        description:
+          "Intricate, lasting nail designs utilizing premium international gels.",
       },
       {
         title: "Curly Hair Expertise",
-        description: "Specialized cutting and hydration treatments honoring natural texture.",
+        description:
+          "Specialized cutting and hydration treatments honoring natural texture.",
       },
       {
         title: "Luxury Grooming",
-        description: "Elevated skincare and grooming rituals for the modern aesthete.",
+        description:
+          "Elevated skincare and grooming rituals for the modern aesthete.",
       },
     ],
   },
@@ -78,13 +81,15 @@ export const homeContent = {
 
   testimonials: [
     {
-      quote: "The only place I trust in India for my curly hair. The team at Boho understands texture perfectly.",
+      quote:
+        "The only place I trust in India for my curly hair. The team at Boho understands texture perfectly.",
       name: "Aanya S.",
       location: "London, UK",
       service: "Curly Hair Cut & Spa",
     },
     {
-      quote: "Their chrome gel nails survived a three-week wedding trip flawlessly. The hygiene standards are exceptional.",
+      quote:
+        "Their chrome gel nails survived a three-week wedding trip flawlessly. The hygiene standards are exceptional.",
       name: "Priya M.",
       location: "Toronto, CA",
       service: "Bridal Gel Nails",
@@ -116,12 +121,14 @@ export const homeContent = {
     faqs: [
       {
         question: "Do I need an appointment?",
-        answer: "Yes, we operate strictly by appointment to ensure every client receives our full attention."
+        answer:
+          "Yes, we operate strictly by appointment to ensure every client receives our full attention.",
       },
       {
         question: "What is your cancellation policy?",
-        answer: "We kindly ask for 24 hours notice to avoid a 50% cancellation fee."
-      }
+        answer:
+          "We kindly ask for 24 hours notice to avoid a 50% cancellation fee.",
+      },
     ],
     cta: {
       label: "Read our full FAQ",
@@ -131,16 +138,17 @@ export const homeContent = {
 
   newsletter: {
     heading: "Join the Inner Circle",
-    description: "Exclusive access to seasonal bookings, new services, and styling guides.",
+    description:
+      "Exclusive access to seasonal bookings, new services, and styling guides.",
     buttonLabel: "Subscribe",
   },
 
   awardsHeading: "Recognized By",
   preFooterCTA: {
-      heading: "Elevate Your Aesthetics",
-      cta: {
-          label: "Book Now",
-          href: "/contact"
-      } as CTA
-  }
-};
+    heading: "Elevate Your Aesthetics",
+    cta: {
+      label: "Book Now",
+      href: "/contact",
+    } as CTA,
+  },
+}

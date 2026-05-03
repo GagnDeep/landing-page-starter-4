@@ -1,14 +1,16 @@
-import { SEOMetadata } from "./types";
+import { SEOMetadata } from "./types"
 
 export const contactContent = {
   seo: {
     title: "Contact Us | Boho Salon Chandigarh",
-    description: "Book your appointment, find our location in Sector 17, or get in touch with the Boho Salon team for inquiries.",
+    description:
+      "Book your appointment, find our location in Sector 17, or get in touch with the Boho Salon team for inquiries.",
   } as SEOMetadata,
 
   hero: {
     heading: "Get in Touch",
-    subheading: "We're here to answer your questions and help you schedule your next visit.",
+    subheading:
+      "We're here to answer your questions and help you schedule your next visit.",
   },
 
   contactInfo: {
@@ -52,4 +54,4 @@ export const contactContent = {
       text: "We are a 5-minute walk from the Sector 17 Bus Stand.",
     },
   },
-};
+}

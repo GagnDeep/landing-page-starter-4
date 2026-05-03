@@ -1,9 +1,10 @@
-import { SEOMetadata } from "./types";
+import { SEOMetadata } from "./types"
 
 export const privacyContent = {
   seo: {
     title: "Privacy Policy | Boho Salon",
-    description: "How we collect, use, and protect your personal information at Boho Salon.",
+    description:
+      "How we collect, use, and protect your personal information at Boho Salon.",
   } as SEOMetadata,
 
   heading: "Privacy Policy",
@@ -31,4 +32,4 @@ export const privacyContent = {
       text: "You have the right to access the personal information we hold about you and request corrections or deletion. Please contact us at hello@bohosalon.com for any privacy-related requests.",
     },
   ],
-};
+}

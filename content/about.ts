@@ -1,9 +1,10 @@
-import { SEOMetadata, CTA } from "./types";
+import { SEOMetadata, CTA } from "./types"
 
 export const aboutContent = {
   seo: {
     title: "About Boho Salon | Our Story & Team",
-    description: "Learn about the vision behind Boho Salon, our commitment to elevating Chandigarh's beauty standards, and meet our team of expert technicians.",
+    description:
+      "Learn about the vision behind Boho Salon, our commitment to elevating Chandigarh's beauty standards, and meet our team of expert technicians.",
   } as SEOMetadata,
 
   hero: {
@@ -23,19 +24,41 @@ export const aboutContent = {
   values: {
     heading: "What Guides Us",
     items: [
-      { title: "Artistry over Speed", text: "We book ample time for every client. Great work cannot be rushed." },
-      { title: "Uncompromising Hygiene", text: "We treat our salon with clinical strictness to ensure your absolute safety." },
-      { title: "Continuous Education", text: "The beauty industry evolves rapidly; our team is dedicated to lifelong learning." },
+      {
+        title: "Artistry over Speed",
+        text: "We book ample time for every client. Great work cannot be rushed.",
+      },
+      {
+        title: "Uncompromising Hygiene",
+        text: "We treat our salon with clinical strictness to ensure your absolute safety.",
+      },
+      {
+        title: "Continuous Education",
+        text: "The beauty industry evolves rapidly; our team is dedicated to lifelong learning.",
+      },
     ],
   },
 
   team: {
     heading: "The Artists",
-    description: "Our team is hand-selected not just for their skill, but for their passion for the craft.",
+    description:
+      "Our team is hand-selected not just for their skill, but for their passion for the craft.",
     members: [
-      { name: "Priya S.", role: "Lead Nail Architect", specialty: "Russian Manicures & Chrome" },
-      { name: "Rahul D.", role: "Senior Stylist", specialty: "Texture & Curl Architecture" },
-      { name: "Meera T.", role: "Aesthetician", specialty: "Skin Barrier Restoration" },
+      {
+        name: "Priya S.",
+        role: "Lead Nail Architect",
+        specialty: "Russian Manicures & Chrome",
+      },
+      {
+        name: "Rahul D.",
+        role: "Senior Stylist",
+        specialty: "Texture & Curl Architecture",
+      },
+      {
+        name: "Meera T.",
+        role: "Aesthetician",
+        specialty: "Skin Barrier Restoration",
+      },
     ],
   },
 
@@ -51,4 +74,4 @@ export const aboutContent = {
       href: "/contact",
     } as CTA,
   },
-};
+}

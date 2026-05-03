@@ -1,14 +1,16 @@
-import { SEOMetadata, CTA } from "./types";
+import { SEOMetadata, CTA } from "./types"
 
 export const featuresContent = {
   seo: {
     title: "The Boho Experience | Features & Specialties",
-    description: "Discover what sets Boho Salon apart. From rigorous hygiene standards and international product lines to our specialized NRI client services.",
+    description:
+      "Discover what sets Boho Salon apart. From rigorous hygiene standards and international product lines to our specialized NRI client services.",
   } as SEOMetadata,
 
   hero: {
     heading: "Beyond Standard Beauty",
-    subheading: "An elevated approach to salon culture, prioritizing technique, hygiene, and the client experience.",
+    subheading:
+      "An elevated approach to salon culture, prioritizing technique, hygiene, and the client experience.",
   },
 
   philosophy: {
@@ -19,24 +21,38 @@ export const featuresContent = {
   features: [
     {
       title: "The NRI Standard",
-      description: "We understand the expectations of our global clientele. Our booking systems, hygiene protocols, and service longevity are designed to match and exceed the standards of top salons in London, Toronto, and New York.",
+      description:
+        "We understand the expectations of our global clientele. Our booking systems, hygiene protocols, and service longevity are designed to match and exceed the standards of top salons in London, Toronto, and New York.",
     },
     {
       title: "Clinical-Grade Hygiene",
-      description: "Your safety is non-negotiable. We utilize hospital-grade autoclaves for all metal implements, single-use files and buffers, and strict sanitization between every client.",
+      description:
+        "Your safety is non-negotiable. We utilize hospital-grade autoclaves for all metal implements, single-use files and buffers, and strict sanitization between every client.",
     },
     {
       title: "Master Technicians",
-      description: "Our staff does not learn on the job. Every technician and stylist undergoes rigorous internal training and continuing education to master the latest global trends.",
+      description:
+        "Our staff does not learn on the job. Every technician and stylist undergoes rigorous internal training and continuing education to master the latest global trends.",
     },
   ],
 
   technology: {
     heading: "The Toolkit",
     items: [
-      { name: "Premium Gels", description: "Sourced directly from Japan and Korea for unmatched durability." },
-      { name: "Dyson Styling", description: "Minimizing heat damage for healthier hair." },
-      { name: "Olaplex Integration", description: "Standard in our color and curl treatments to protect hair integrity." },
+      {
+        name: "Premium Gels",
+        description:
+          "Sourced directly from Japan and Korea for unmatched durability.",
+      },
+      {
+        name: "Dyson Styling",
+        description: "Minimizing heat damage for healthier hair.",
+      },
+      {
+        name: "Olaplex Integration",
+        description:
+          "Standard in our color and curl treatments to protect hair integrity.",
+      },
     ],
   },
 
@@ -62,4 +78,4 @@ export const featuresContent = {
       href: "/contact",
     } as CTA,
   },
-};
+}
