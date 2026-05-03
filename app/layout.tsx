@@ -3,6 +3,8 @@ import { Cormorant_Garamond, Montserrat } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
+import { Header } from "@/components/layout/Header"
+import { Footer } from "@/components/layout/Footer"
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -26,13 +28,17 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
       className={cn(
-        "font-sans antialiased",
+        "font-sans antialiased selection:bg-primary/20 selection:text-primary",
         cormorantGaramond.variable,
         montserrat.variable
       )}
     >
-      <body>
-        <ThemeProvider>{children}</ThemeProvider>
+      <body className="flex min-h-screen flex-col overflow-x-hidden">
+        <ThemeProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   )

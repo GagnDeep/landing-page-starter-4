@@ -15,3 +15,9 @@
 - Visual library established with 8 reusable `framer-motion` components (`AnimatedGradientMesh`, `LogoMarquee`, etc.)
 - Typed image registry configured in `lib/images.ts` using external Unsplash assets.
 - Project ready for assembly of the core layout and global navigation (Phase 4).
+
+**[2024-05-03] Phase 4 Completion:**
+- Core layout shell wrapped in `Header` and `Footer` via `app/layout.tsx`.
+- Implemented responsive navigation using Shadcn UI `NavigationMenu` (desktop) and `Sheet` (mobile).
+- Navigation structure maps securely to upcoming pages and cleanly scales for both Salon and Academy paths.
+- Theme switching works properly across layout components.
