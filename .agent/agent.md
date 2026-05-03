@@ -33,3 +33,7 @@
 * **[Date of Execution] Phase 7 Completion:** Implemented Blog, FAQ, and Contact pages.
   - **Structure:** Encapsulated page logic within `components/blog/`, `components/faq/`, and `components/contact/`. Reused `PageHero` effectively.
   - **Integration:** Safely wired Shadcn UI components (Input, Textarea, Accordion) ensuring valid server/client boundaries. All labels and data are correctly sourced from `content/contact.ts`, `content/blog.ts`, and `content/faq.ts`.
+
+* **[Date of Execution] Phase 8 Completion:** Implemented final utility routes and conducted a site-wide audit.
+  - **Structure:** Implemented `/careers`, `/terms`, and `/privacy`. Added a generic `@tailwindcss/typography` powered `Prose` wrapper for the legal text. Fixed a React prop hydration error within the Prose component.
+  - **Audit:** Fixed the markdown parser to prevent invalid HTML structure (nesting block level `h3` tags inside `p` tags). Ensured the entire app compiles statically with no TypeErrors or prerender failures.

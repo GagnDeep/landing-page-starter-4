@@ -1,9 +1,12 @@
 # Current State
 
-Phase 7 — Blog, FAQ, and Contact Pages is **COMPLETE**.
+Phase 8 — Careers, Legal, and Final Polish is **COMPLETE**.
 
-We have successfully implemented the functional support routes:
-- **Blog Page (`/blog`)**: Implemented `FeaturedArticle`, `CategoryFilters`, `ArticleGrid`, and `BlogNewsletter` matching the `.agent/layout-blog.md` intent.
-- **FAQ Page (`/faq`)**: Developed a searchable layout with `FAQAccordions` grouped by category, utilizing the `shadcn` accordion component.
-- **Contact Page (`/contact`)**: Built a fully responsive layout with `ContactDetails` pulled from configuration, alongside an elegant `ContactForm` and a `ContactMap` placeholder.
-- All three pages utilize the `PageHero` component for brand visual consistency and import 100% of their copy from the TypeScript `content/` registry. No hardcoded strings.
+The digital experience for Amil's Hair Lounge has been fully realized from end to end:
+- All 10 application routes (`/`, `/about`, `/features`, `/pricing`, `/blog`, `/faq`, `/contact`, `/careers`, `/terms`, `/privacy`) have been implemented using Next.js App Router.
+- The UI perfectly reflects the bespoke "affordable luxury" design system, ensuring consistent spacing, layout rhythm, and WCAG-compliant color usage across light and dark modes.
+- Site content is strictly decoupled from the UI, pulling entirely from a typed `content/` registry.
+- A robust collection of `framer-motion` visual primitives powers the interactions, elegantly degrading for `prefers-reduced-motion` settings.
+- The site successfully passed a final audit verifying typescript strictness, build completion, and semantic structure.
+
+The project is fully complete and ready for deployment.

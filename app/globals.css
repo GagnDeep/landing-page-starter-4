@@ -132,3 +132,4 @@
     @apply font-heading;
   }
 }
+@plugin "@tailwindcss/typography";
