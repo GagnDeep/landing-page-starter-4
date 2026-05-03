@@ -1,10 +1,10 @@
 # Next State
 
 ## Upcoming Phase
-Phase 2: Content Files
+Phase 3: Animated Visuals & Image Registry
 
 ## Objectives for Next Phase
-- Translate the structure outlined in the layout documentation (`.agent/layout-*.md`) into actionable content files.
-- Create JSON or Markdown based content structures that can be consumed by the frontend components in future phases.
-- Ensure the copy tone aligns strictly with the "friendly-professional" and "calm-clinic" ethos established in Phase 1.
-- *Note:* UI code, React components, and actual image downloads remain out of scope for Phase 2.
+- Implement lightweight, non-distracting animated visual components supporting the calm-clinic aesthetic.
+- Establish an image registry managing local assets or standardizing optimized external image fetching.
+- Setup structure for animations and visuals to be consumed seamlessly by page layouts.
+- Ensure all motions follow the gentle, unhurried ease-in-out properties defined in the Phase 1 Design System.
