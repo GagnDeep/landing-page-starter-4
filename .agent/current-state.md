@@ -1,6 +1,6 @@
 # Current State
 
-- Phase 3: Animated Visuals & Image Registry
+- Phase 4: Core Layout and Navigation Shell
 - Status: Complete
-- Completed: The visual component library with 8 animated components using Framer Motion and respecting accessibility settings has been created. An Unsplash-based image registry was established in `lib/images.ts`, and Next.js has been configured for remote images.
-- In Progress: None. Ready for Phase 4.
+- Completed: The global layout shell including a responsive navigation header and full-featured footer has been implemented. Theme awareness, font definitions (`Inter` and `Merriweather`), and design system values are now actively enforced.
+- In Progress: None. Ready for Phase 5.
