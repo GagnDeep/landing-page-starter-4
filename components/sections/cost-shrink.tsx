@@ -4,10 +4,16 @@ import { useTranslations } from "next-intl"
 import { Eyebrow } from "@/components/primitives/eyebrow"
 import { CountUp } from "@/components/primitives/count-up"
 import { useInView } from "@/hooks/use-in-view"
+import { site } from "@/lib/config/site.config"
+import { formatMoney } from "@/lib/format"
 
 export function CostShrink() {
   const t = useTranslations("costShrink")
   const [ref, seen] = useInView<HTMLDivElement>()
+  // Sample bill values — scaled to currency: $280 → $14 vs ₹4,500 → ₹360
+  const before = site.copy.defaultBill
+  const after = Math.round(before * 0.08)
+  const saving = before - after
   return (
     <section className="cshrink">
       <div className="container cshrink-grid">
@@ -28,7 +34,7 @@ export function CostShrink() {
               className="cshrink-bar cshrink-bar-before"
               style={{ width: seen ? "92%" : "8%" }}
             >
-              <span className="cshrink-amt serif">₹4,500</span>
+              <span className="cshrink-amt serif">{formatMoney(before)}</span>
             </div>
             <span className="cshrink-lbl mono">{t("today")}</span>
           </div>
@@ -40,7 +46,7 @@ export function CostShrink() {
               className="cshrink-bar cshrink-bar-after"
               style={{ width: seen ? "12%" : "92%" }}
             >
-              <span className="cshrink-amt serif">₹360</span>
+              <span className="cshrink-amt serif">{formatMoney(after)}</span>
             </div>
             <span className="cshrink-lbl mono">{t("after")}</span>
           </div>
@@ -49,7 +55,8 @@ export function CostShrink() {
               {t("savingEyebrow")}
             </span>
             <span className="serif cshrink-saving-num">
-              ₹<CountUp to={4140} />
+              {site.currency.symbol}
+              <CountUp to={saving} />
             </span>
             <span className="mono cshrink-saving-suffix">
               {t("savingSuffix")}

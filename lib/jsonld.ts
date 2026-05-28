@@ -45,8 +45,10 @@ export const orgJsonLd = () => ({
       telephone: site.phone,
       contactType: "customer service",
       email: site.email,
-      areaServed: "IN-PB",
-      availableLanguage: ["English", "Hindi", "Punjabi"],
+      areaServed: `${site.address.country}-${site.address.regionCode}`,
+      availableLanguage: site.locales.map(
+        (l) => site.localeNames[l] ?? l.toUpperCase(),
+      ),
     },
   ],
   taxID: site.gstin,
@@ -85,13 +87,48 @@ export const localBusinessJsonLd = () => ({
     opens: h.open,
     closes: h.close,
   })),
-  areaServed: { "@type": "State", name: "Punjab, India" },
+  /**
+   * Enumerating every served city (not just the state) lets Google's
+   * local pack and "near me" surfaces resolve the service area to each
+   * district. Falls back to a State node if no districts are configured.
+   */
+  areaServed:
+    site.content.districts.length > 0
+      ? site.content.districts.map((d) => ({
+          "@type": "City",
+          name: d.name,
+          containedInPlace: {
+            "@type": "State",
+            name: site.copy.regionLong,
+          },
+        }))
+      : { "@type": "State", name: site.copy.regionLong },
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: site.rating.value,
     reviewCount: site.rating.count,
     bestRating: site.rating.best,
   },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Rooftop solar packages",
+    itemListElement: site.content.packages.map((p) => ({
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: p.name, description: p.sub },
+      price: p.price.replace(/[^\d.]/g, ""),
+      priceCurrency: site.pricing.currency,
+      url: absUrl(`/packages/${p.slug}/`),
+    })),
+  },
+  knowsAbout: [
+    "Rooftop solar installation",
+    "Federal Residential Clean Energy Credit (Section 25D)",
+    "NEM 3.0 Net Billing Tariff",
+    "Tesla Powerwall 3 installation",
+    "Enphase IQ8 microinverters",
+    "Solar permit interconnection (PG&E, SCE, SDG&E)",
+    "Title 24 compliance",
+  ],
   sameAs: Object.values(site.social).filter(Boolean),
 })
 
@@ -102,8 +139,17 @@ export const websiteJsonLd = () => ({
   url: site.url,
   name: site.name,
   description: site.description,
-  inLanguage: site.locales.map((l) => `${l}-IN`),
+  inLanguage: [site.hreflang.primary, ...site.hreflang.alternates].filter(
+    (l) => l !== "x-default",
+  ),
   publisher: { "@id": orgId },
+  // Speakable spec at the site level lets Google Assistant pick up
+  // "About" + hero copy + the opening paragraph of any page when the
+  // user asks a verbal question that resolves to this domain.
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: [".hero-lead", ".page-hero .lead", ".blog-tldr", "h1"],
+  },
   potentialAction: {
     "@type": "SearchAction",
     target: {
@@ -144,6 +190,10 @@ export const articleJsonLd = (a: {
   modified?: string
   author?: string
   image?: string
+  keywords?: string[]
+  articleSection?: string
+  wordCount?: number
+  citations?: { url: string; name?: string }[]
 }) => ({
   "@context": SCHEMA,
   "@type": "BlogPosting",
@@ -163,7 +213,63 @@ export const articleJsonLd = (a: {
     logo: { "@type": "ImageObject", url: absUrl(site.logo) },
   },
   mainEntityOfPage: { "@type": "WebPage", "@id": absUrl(a.path) },
-  inLanguage: "en-IN",
+  inLanguage: site.hreflang.primary,
+  // Speakable section: lets Google Assistant / AI Overviews quote the
+  // opening paragraph cleanly. Maps to the .prose intro paragraph that
+  // every blog post renders.
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: [".blog-tldr", "article.prose > p:first-of-type"],
+  },
+  ...(a.keywords?.length ? { keywords: a.keywords.join(", ") } : {}),
+  ...(a.articleSection ? { articleSection: a.articleSection } : {}),
+  ...(a.wordCount ? { wordCount: a.wordCount } : {}),
+  ...(a.citations?.length
+    ? {
+        citation: a.citations.map((c) => ({
+          "@type": "CreativeWork",
+          url: c.url,
+          ...(c.name ? { name: c.name } : {}),
+        })),
+      }
+    : {}),
+})
+
+/**
+ * Author entity — used on byline pages and referenced by `@id` from
+ * articleJsonLd to give Google's entity graph a fully-resolved Person
+ * node. Supplies E-E-A-T signals for YMYL-adjacent solar/tax content.
+ */
+export const personJsonLd = (p: {
+  slug: string
+  name: string
+  jobTitle?: string
+  bio?: string
+  image?: string
+  sameAs?: string[]
+  knowsAbout?: string[]
+  credentials?: { name: string; issuer?: string }[]
+}) => ({
+  "@context": SCHEMA,
+  "@type": "Person",
+  "@id": absUrl(`/authors/${p.slug}/#person`),
+  name: p.name,
+  url: absUrl(`/authors/${p.slug}/`),
+  ...(p.jobTitle ? { jobTitle: p.jobTitle } : {}),
+  ...(p.bio ? { description: p.bio } : {}),
+  ...(p.image ? { image: absUrl(p.image) } : {}),
+  worksFor: { "@id": orgId },
+  ...(p.sameAs?.length ? { sameAs: p.sameAs } : {}),
+  ...(p.knowsAbout?.length ? { knowsAbout: p.knowsAbout } : {}),
+  ...(p.credentials?.length
+    ? {
+        hasCredential: p.credentials.map((c) => ({
+          "@type": "EducationalOccupationalCredential",
+          name: c.name,
+          ...(c.issuer ? { credentialCategory: c.issuer } : {}),
+        })),
+      }
+    : {}),
 })
 
 // ===================================================================
@@ -194,15 +300,15 @@ export const districtServiceJsonLd = (d: {
   "@context": SCHEMA,
   "@type": "Service",
   serviceType: "Rooftop solar installation",
-  name: `Rooftop solar installation in ${d.name}, Punjab`,
-  description: `Tier-1 rooftop solar systems installed in ${d.name} with PM Surya Ghar subsidy handled end-to-end. Typical system: ${d.popularKw} kW.`,
+  name: `Rooftop solar installation in ${d.name}, ${site.copy.regionName}`,
+  description: `Tier-1 rooftop solar systems installed in ${d.name} with ${site.incentive.short} handled end-to-end. Typical system: ${d.popularKw} kW.`,
   provider: {
     "@id": businessId,
   },
   areaServed: {
     "@type": "City",
     name: d.name,
-    containedInPlace: { "@type": "State", name: "Punjab, India" },
+    containedInPlace: { "@type": "State", name: site.copy.regionLong },
   },
   offers: {
     "@type": "Offer",
@@ -243,7 +349,7 @@ export const productJsonLd = (p: {
   ],
   offers: {
     "@type": "Offer",
-    price: p.price.replace(/[₹,]/g, ""),
+    price: p.price.replace(/[^\d.]/g, ""),
     priceCurrency: site.pricing.currency,
     priceValidUntil: `${new Date().getFullYear() + 1}-12-31`,
     availability: "https://schema.org/InStock",
@@ -276,7 +382,7 @@ export const packageItemListJsonLd = (
       description: pkg.sub,
       offers: {
         "@type": "Offer",
-        price: pkg.price.replace(/[₹,]/g, ""),
+        price: pkg.price.replace(/[^\d.]/g, ""),
         priceCurrency: site.pricing.currency,
       },
     },
@@ -297,9 +403,12 @@ export const howToJsonLd = (steps: { n: string; t: string; d: string }[]) => ({
   estimatedCost: {
     "@type": "MonetaryAmount",
     currency: site.pricing.currency,
-    value: "108000",
+    value: String(
+      site.calculator.perKwByType.Home *
+        Number(site.content.packages[0]?.slug.match(/(\d+)kw/)?.[1] ?? 5),
+    ),
   },
-  supply: ["Tier-1 panels", "IP65 inverter", "Mounting structure", "Net meter"],
+  supply: ["Tier-1 panels", "Microinverter/inverter", "Mounting structure", "Net meter"],
   tool: ["Drone survey", "Roof inclinometer"],
   step: steps.map((s) => ({
     "@type": "HowToStep",
@@ -317,16 +426,15 @@ export const howToJsonLd = (steps: { n: string; t: string; d: string }[]) => ({
 export const govServiceJsonLd = () => ({
   "@context": SCHEMA,
   "@type": "GovernmentService",
-  name: site.subsidy.program,
-  description:
-    "Central government rooftop solar subsidy for Indian residential homeowners — up to ₹78,000 off installations between 1 kW and 10 kW.",
-  serviceType: "Residential rooftop solar subsidy",
+  name: site.incentive.program,
+  description: site.incentive.long,
+  serviceType: "Residential rooftop solar incentive",
   provider: {
     "@type": "GovernmentOrganization",
-    name: site.subsidy.authority,
+    name: site.incentive.authority,
   },
-  audience: { "@type": "Audience", audienceType: "Indian homeowners" },
-  areaServed: { "@type": "Country", name: "India" },
+  audience: { "@type": "Audience", audienceType: `${site.address.countryName} homeowners` },
+  areaServed: { "@type": "Country", name: site.address.countryName },
   serviceOperator: { "@id": businessId },
   termsOfService: absUrl("/subsidy/"),
 })
@@ -371,13 +479,13 @@ export const caseStudyJsonLd = (c: {
       "@type": "QuantitativeValue",
       name: "Before bill",
       value: c.beforeBill,
-      unitText: "INR/month",
+      unitText: `${site.currency.code}/month`,
     },
     {
       "@type": "QuantitativeValue",
       name: "After bill",
       value: c.afterBill,
-      unitText: "INR/month",
+      unitText: `${site.currency.code}/month`,
     },
     {
       "@type": "QuantitativeValue",

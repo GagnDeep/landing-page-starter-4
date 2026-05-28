@@ -32,74 +32,73 @@ import { steps } from "@/content/steps"
 import { site } from "@/lib/config/site.config"
 
 export const metadata = buildMetadata({
-  title: `Rooftop solar in ${site.address.locality}, all Punjab`,
+  title: `Rooftop solar in ${site.address.locality}, all ${site.copy.regionName}`,
   description: site.description,
   path: "/",
 })
 
+/**
+ * Each child section already paints its own padding (`.cshrink`, `.livegen`
+ * etc.) — wrapping them in a `<section>` would double-stack the spacing.
+ * We use anchor `<div>` wrappers instead so the page still has stable
+ * `#hash` deep-links and aria-labels without the extra padding-block.
+ */
 export default function HomePage() {
   return (
     <>
       <ScrollProgress />
       <SiteHeader />
       <main id="main">
-        {/* Capture intent */}
         <Hero />
         <TrustMarquee />
 
-        {/* Proof in numbers — savings + live generation */}
-        <section id="proof" aria-label="Savings and live generation">
+        <div id="proof" role="region" aria-label="Savings and live generation">
           <CostShrink />
           <LiveGeneration />
-        </section>
+        </div>
 
-        {/* Engagement: 30-second qualifier */}
-        <section id="quick-check" aria-label="Quick check quiz">
+        <div id="quick-check" role="region" aria-label="Quick check quiz">
           <QuickCheck />
-        </section>
+        </div>
 
-        {/* Pricing first — visitors want price */}
-        <section id="packages" aria-label="Solar packages">
+        <div id="packages" role="region" aria-label="Solar packages">
           <Packages />
-        </section>
+        </div>
 
-        {/* Financial reassurance after price */}
-        <section id="subsidy" aria-label="Subsidy">
+        <div id="subsidy" role="region" aria-label="Incentive">
           <Subsidy />
-        </section>
+        </div>
 
-        {/* Process clarity */}
-        <section id="how-it-works" aria-label="How it works">
+        <div id="how-it-works" role="region" aria-label="How it works">
           <HowItWorks />
           <Timeline />
-        </section>
+        </div>
 
-        {/* Outcome story */}
-        <section id="savings" aria-label="Customer savings stories">
+        <div id="savings" role="region" aria-label="Customer savings stories">
           <SavingsStory />
-        </section>
+        </div>
 
-        {/* Visual + social proof */}
-        <section id="gallery" aria-label="Install gallery">
+        <div id="gallery" role="region" aria-label="Install gallery">
           <Gallery />
-        </section>
-        <section id="testimonials" aria-label="Customer testimonials">
-          <Testimonials />
-        </section>
+        </div>
 
-        {/* Final objection handling */}
-        <section id="trust" aria-label="Why customers trust us">
+        <div id="testimonials" role="region" aria-label="Customer testimonials">
+          <Testimonials />
+        </div>
+
+        <div id="trust" role="region" aria-label="Why customers trust us">
           <Trust />
-        </section>
-        <section id="local-proof" aria-label="Local presence in Punjab">
+        </div>
+
+        <div id="local-proof" role="region" aria-label="Local presence">
           <PunjabPulse />
           <Partners />
-        </section>
+        </div>
 
-        {/* Last questions, then the ask */}
-        <section id="faq" aria-label="Frequently asked questions">
+        <div id="faq" role="region" aria-label="Frequently asked questions">
           <FAQ />
-        </section>
+        </div>
+
         <FinalCTA />
       </main>
       <SiteFooter />

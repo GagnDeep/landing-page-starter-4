@@ -11,11 +11,11 @@ import { webApplicationJsonLd } from "@/lib/jsonld"
 import { faqs } from "@/content/faqs"
 import { buildMetadata } from "@/lib/seo"
 import { useTranslations } from "next-intl"
+import { site } from "@/lib/config/site.config"
 
 export const metadata = buildMetadata({
-  title: "Solar savings calculator — bill, subsidy, payback",
-  description:
-    "Estimate your rooftop solar savings in Punjab in 2 minutes. Bills, PM Surya Ghar subsidy, EMI and payback period — calculated instantly.",
+  title: `Solar savings calculator — bill, ${site.incentive.type === "ITC" ? "tax credit" : "incentive"}, payback`,
+  description: `Estimate your rooftop solar savings in ${site.copy.regionName} in 2 minutes. Bills, ${site.incentive.short}, financing and payback period — calculated instantly.`,
   path: "/calculator/",
 })
 

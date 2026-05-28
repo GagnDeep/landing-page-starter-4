@@ -6,11 +6,13 @@ import { Eyebrow } from "@/components/primitives/eyebrow"
 import { CountUp } from "@/components/primitives/count-up"
 import { useInView } from "@/hooks/use-in-view"
 import { useMounted } from "@/hooks/use-mounted"
+import { site } from "@/lib/config/site.config"
+import { formatMoney } from "@/lib/format"
 
 export function LiveGeneration() {
   const t = useTranslations("liveGen")
   const baseUnits = 18420000
-  const baseHomes = 6240
+  const baseHomes = 3420
   const baseCo2 = 13160
   const [tick, setTick] = useState(0)
   const [ref, seen] = useInView<HTMLElement>({ threshold: 0.2, once: false })
@@ -18,8 +20,24 @@ export function LiveGeneration() {
 
   useEffect(() => {
     if (!seen) return
-    const id = setInterval(() => setTick((x) => x + 1), 80)
-    return () => clearInterval(id)
+    // requestAnimationFrame + visibility gate replaces a 12.5 Hz setInterval
+    // that ran even when the tab was backgrounded. Throttles updates to
+    // ~4 Hz with the same on-screen rolling effect at ~3× fewer React
+    // reconciliations on mobile.
+    let raf = 0
+    let last = performance.now()
+    const loop = (now: number) => {
+      if (
+        now - last > 240 &&
+        document.visibilityState === "visible"
+      ) {
+        setTick((x) => x + 3)
+        last = now
+      }
+      raf = requestAnimationFrame(loop)
+    }
+    raf = requestAnimationFrame(loop)
+    return () => cancelAnimationFrame(raf)
   }, [seen])
 
   const units = baseUnits + tick * 6
@@ -58,10 +76,11 @@ export function LiveGeneration() {
               {t("kwh")}
             </div>
             <div className="lg-card-num serif">
-              {Math.floor(units).toLocaleString("en-IN")}
+              {Math.floor(units).toLocaleString(site.currency.locale)}
             </div>
             <div className="lg-card-meta mono">
-              + ₹{Math.floor(units * 7.5).toLocaleString("en-IN")} {t("saved")}
+              + {formatMoney(units * site.calculator.tariffByType.Home)}{" "}
+              {t("saved")}
             </div>
           </div>
 
@@ -94,7 +113,7 @@ export function LiveGeneration() {
             <div className="lg-status-row">
               <div className="lg-status-time serif">
                 {now
-                  ? now.toLocaleTimeString("en-IN", {
+                  ? now.toLocaleTimeString(site.currency.locale, {
                       hour: "2-digit",
                       minute: "2-digit",
                     })

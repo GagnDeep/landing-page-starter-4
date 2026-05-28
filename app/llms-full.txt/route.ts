@@ -10,8 +10,32 @@ import { posts } from "@/content/posts"
 import { caseStudies } from "@/content/case-studies"
 import { faqs } from "@/content/faqs"
 import { steps } from "@/content/steps"
+import { formatMoney } from "@/lib/format"
 
 export const dynamic = "force-static"
+
+/**
+ * Strip `:::widget … :::` fenced blocks from a body so the
+ * llms-full.txt passthrough stays readable for crawlers.
+ * Headings and list markers are preserved (they're plain markdown).
+ */
+function stripWidgets(body: string): string {
+  const lines = body.split("\n")
+  const out: string[] = []
+  let inWidget = false
+  for (const line of lines) {
+    if (/^:::([a-z]+)/.test(line)) {
+      inWidget = true
+      continue
+    }
+    if (/^:::\s*$/.test(line)) {
+      inWidget = false
+      continue
+    }
+    if (!inWidget) out.push(line)
+  }
+  return out.join("\n")
+}
 
 export async function GET() {
   const out: string[] = []
@@ -22,7 +46,9 @@ export async function GET() {
   push(`Site: ${site.url}`)
   push(`Email: ${site.email}`)
   push(`Phone: ${site.phone}`)
-  push(`Address: ${site.address.street}, ${site.address.locality}, ${site.address.region} ${site.address.postalCode}, ${site.address.countryName}`)
+  push(
+    `Address: ${site.address.street}, ${site.address.locality}, ${site.address.region} ${site.address.postalCode}, ${site.address.countryName}`,
+  )
   push(`Hours: ${site.hoursHuman}`)
   push(`Founded: ${site.foundingYear}`)
   push(`Rating: ${site.rating.value}/5 (${site.rating.count} reviews)`)
@@ -36,7 +62,7 @@ export async function GET() {
   for (const t of tiers) {
     push(`### ${t.name}`)
     push(`- Description: ${t.sub}`)
-    push(`- Price after subsidy: ${t.price} (MRP ${t.strike})`)
+    push(`- Price after incentive: ${t.price} (sticker ${t.strike})`)
     push(`- Panels: ${t.panels}`)
     push(`- Inverter: ${t.inverter}`)
     push(`- Warranty: ${t.warranty}`)
@@ -45,10 +71,18 @@ export async function GET() {
     push()
   }
 
-  push("## Subsidy: " + site.subsidy.program)
-  push(`Authority: ${site.subsidy.authority}`)
-  for (const s of site.subsidy.slabs) {
-    push(`- ${s.kw} kW system → ₹${s.amount.toLocaleString("en-IN")} subsidy`)
+  push(`## Incentive: ${site.incentive.program}`)
+  push(`Authority: ${site.incentive.authority}`)
+  push(`Type: ${site.incentive.type}`)
+  push(site.incentive.long)
+  if (site.incentive.slabs) {
+    for (const s of site.incentive.slabs) {
+      push(`- ${s.kw} kW system → ${formatMoney(s.amount)}`)
+    }
+  } else if (site.incentive.pctOfCost) {
+    push(
+      `- ${Math.round(site.incentive.pctOfCost * 100)}% of installed cost, claimed via the local tax authority.`,
+    )
   }
   push()
 
@@ -58,9 +92,11 @@ export async function GET() {
   }
   push()
 
-  push("## Service areas")
+  push(`## Service areas (${site.copy.regionName} ${site.copy.districtWordPlural})`)
   for (const d of districts) {
-    push(`- ${d.name}: ~${d.sunHours}h sun, avg bill ₹${d.avgBill.toLocaleString("en-IN")}, popular system ${d.popularKw} kW. URL: ${absUrl(`/service-areas/${d.slug}/`)}`)
+    push(
+      `- ${d.name}: ~${d.sunHours}h sun, avg bill ${formatMoney(d.avgBill)}, popular system ${d.popularKw} kW. URL: ${absUrl(`/service-areas/${d.slug}/`)}`,
+    )
   }
   push()
 
@@ -74,8 +110,12 @@ export async function GET() {
   push("## Case studies")
   for (const c of caseStudies) {
     push(`### ${c.title}`)
-    push(`Location: ${c.district}, system ${c.systemKw} kW, installed ${c.installDate}.`)
-    push(`Before: ₹${c.beforeBill}/mo → After: ₹${c.afterBill}/mo.`)
+    push(
+      `Location: ${c.district}, system ${c.systemKw} kW, installed ${c.installDate}.`,
+    )
+    push(
+      `Before: ${formatMoney(c.beforeBill)}/mo → After: ${formatMoney(c.afterBill)}/mo.`,
+    )
     push(c.body)
     push(`URL: ${absUrl(`/case-studies/${c.slug}/`)}`)
     push()
@@ -85,7 +125,7 @@ export async function GET() {
   for (const p of posts) {
     push(`### ${p.title} (${p.date})`)
     push(p.excerpt)
-    push(p.body)
+    push(stripWidgets(p.body))
     push(`URL: ${absUrl(`/blog/${p.slug}/`)}`)
     push()
   }
@@ -101,6 +141,7 @@ export async function GET() {
     headers: {
       "content-type": "text/plain; charset=utf-8",
       "cache-control": "public, max-age=3600",
+      "x-robots-tag": "noindex, follow",
     },
   })
 }

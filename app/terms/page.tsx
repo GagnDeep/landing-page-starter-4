@@ -40,15 +40,17 @@ export default function TermsPage() {
             <h2>The calculator</h2>
             <p>
               Numbers shown by our online calculator are indicative. They use
-              Punjab averages for tariff, generation and PM Surya Ghar subsidy.
-              Your final, binding quote is issued only after a free site visit.
+              {" "}{site.copy.regionName} averages for tariff, generation and the
+              {" "}{site.incentive.program}. Your final, binding quote is
+              issued only after a free site visit.
             </p>
-            <h2>The 21-day promise</h2>
+            <h2>The {site.copy.installDays} promise</h2>
             <p>
-              We commit to power-on within 21 days of subsidy + DISCOM
-              application acceptance. Force-majeure delays (PSPCL inspector
-              strikes, monsoon flooding) extend that window. Otherwise, we pay
-              your next month&rsquo;s bill &mdash; written into every contract.
+              We commit to power-on within {site.copy.installDays} of permit +
+              utility interconnection acceptance. Force-majeure delays
+              (inspector backlogs, weather events) extend that window.
+              Otherwise, we pay your next month&rsquo;s bill &mdash; written
+              into every contract.
             </p>
             <h2>The site</h2>
             <p>

@@ -45,15 +45,16 @@ export default function PrivacyPage() {
             </p>
             <h2>What we use it for</h2>
             <p>
-              Site-visit scheduling, the subsidy filing, the DISCOM
-              net-metering application, and (if you become a customer) install
-              scheduling and after-sales service.
+              Site-visit scheduling, permit + interconnection filings, and (if
+              you become a customer) install scheduling and after-sales
+              service.
             </p>
             <h2>Who sees it</h2>
             <p>
-              Our internal team in {site.address.locality}. The DISCOM (PSPCL)
-              and the National Portal &mdash; only the fields they require for
-              your subsidy claim. We never sell your data.
+              Our internal team in {site.address.locality}. Your utility (
+              {site.copy.utilityShort}) and the local building department —
+              only the fields they require for your interconnection and
+              permits. We never sell your data.
             </p>
             <h2>How long we keep it</h2>
             <p>

@@ -16,7 +16,7 @@ import {
 const fraunces = Fraunces({
   subsets: ["latin"],
   variable: "--font-serif",
-  axes: ["opsz", "SOFT"],
+  axes: ["opsz"],
   style: ["normal", "italic"],
   display: "swap",
   preload: true,
@@ -57,14 +57,14 @@ export const metadata: Metadata = {
   },
   description: site.description,
   keywords: [
-    "rooftop solar Punjab",
-    "PM Surya Ghar subsidy",
-    "solar installation Patiala",
-    "solar panels Amritsar",
-    "solar panels Ludhiana",
-    "PSPCL net metering",
-    "residential solar India",
-    "Punjab Solar",
+    `rooftop solar ${site.copy.regionName}`,
+    `${site.copy.regionName} solar installer`,
+    site.incentive.short,
+    `solar installation ${site.address.locality}`,
+    ...site.content.districts.slice(0, 3).map((d) => `solar panels ${d.name}`),
+    `${site.copy.utilityShort} interconnection`,
+    `residential solar ${site.address.countryName}`,
+    site.name,
   ],
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
@@ -74,8 +74,10 @@ export const metadata: Metadata = {
   category: "business",
   openGraph: {
     type: "website",
-    locale: "en_IN",
-    alternateLocale: ["hi_IN", "pa_IN"],
+    locale: site.primaryLocale,
+    alternateLocale: site.hreflang.alternates
+      .filter((l) => l !== "x-default")
+      .map((l) => l.replace("-", "_")),
     siteName: site.name,
     url: site.url,
     title: `${site.name} — ${site.tagline}`,
@@ -98,10 +100,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: site.url,
     languages: {
-      "en-IN": site.url,
-      "hi-IN": site.url,
-      "pa-IN": site.url,
-      "x-default": site.url,
+      [site.hreflang.primary]: site.url,
+      ...Object.fromEntries(
+        site.hreflang.alternates.map((alt) => [alt, site.url]),
+      ),
     },
     types: {
       "application/rss+xml": absUrl("/blog/rss.xml"),
@@ -123,7 +125,7 @@ export const metadata: Metadata = {
       : {}),
   },
   other: {
-    "geo.region": "IN-PB",
+    "geo.region": `${site.address.country}-${site.address.regionCode}`,
     "geo.placename": site.address.locality,
     "geo.position": `${site.address.lat};${site.address.lng}`,
     ICBM: `${site.address.lat}, ${site.address.lng}`,
@@ -140,6 +142,18 @@ export default async function RootLayout({
       lang={locale}
       className={cn(fraunces.variable, geist.variable, mono.variable)}
     >
+      <head>
+        {/* DNS warm-up for the Google Fonts CDN. next/font preloads the
+            specific weights we use, but the broader site still benefits
+            from an early TCP/TLS handshake on fonts.gstatic.com. */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin=""
+        />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+      </head>
       <body>
         <a href="#main" className="skip-link">
           Skip to content

@@ -19,31 +19,24 @@ export function Timeline() {
           <p className="lead">{t("lead")}</p>
         </div>
 
-        <div className="tl-rail-wrap">
-          <div className="tl-rail" />
-          <div className="tl-track">
-            {timeline.map((day, i) => (
-              <article
-                key={i}
-                className="tl-card"
-                style={{ animationDelay: `${i * 100}ms` }}
-              >
-                <div className="tl-card-step mono">
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-                <div className="tl-card-icon-wrap" aria-hidden="true">
+        <ol className="tl-track" role="list">
+          {timeline.map((day, i) => (
+            <li
+              key={i}
+              className="tl-card"
+              style={{ animationDelay: `${i * 80}ms` }}
+            >
+              <div className="tl-card-head">
+                <span className="tl-card-icon-wrap" aria-hidden="true">
                   <TimelineIcon name={day.icon} />
-                </div>
-                <div className="tl-card-day mono">{day.d}</div>
-                <div className="tl-card-t serif">{day.t}</div>
-                <div className="tl-card-s">{day.s}</div>
-                <div className="tl-card-pin" aria-hidden="true">
-                  <span className="tl-card-pin-dot" />
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
+                </span>
+                <span className="tl-card-day mono">{day.d}</span>
+              </div>
+              <h3 className="tl-card-t serif">{day.t}</h3>
+              <p className="tl-card-s">{day.s}</p>
+            </li>
+          ))}
+        </ol>
 
         <div className="tl-finish">
           <div className="tl-finish-flag">

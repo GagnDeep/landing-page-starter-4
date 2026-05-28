@@ -2,17 +2,47 @@ import Link from "next/link"
 import { useTranslations } from "next-intl"
 import { Eyebrow } from "@/components/primitives/eyebrow"
 import { Icon } from "@/components/primitives/icon"
+import { site } from "@/lib/config/site.config"
 
-export function Subsidy() {
-  const t = useTranslations("subsidy")
-  const items = [
+// Bullet list — describes the paperwork we file. Tailored per incentive type.
+const itemsByType: Record<string, string[]> = {
+  ITC: [
+    "City building permit + plan review",
+    "Utility interconnection (NEM 3.0) application",
+    "HOA mount-design approval (if required)",
+    "Net-billing tariff election",
+    "IRS Form 5695 worksheet at commissioning",
+    "Property-tax exclusion filing (CA §73)",
+  ],
+  DBT: [
     "National Portal registration",
     "DISCOM (PSPCL) feasibility application",
     "Vendor empanelment proof",
     "Net-metering agreement",
     "Subsidy claim with installation invoice",
     "Bank-account linkage for direct transfer",
-  ]
+  ],
+  credit: [
+    "Utility net-metering application",
+    "City permit + structural review",
+    "Tariff credit registration",
+    "Interconnection inspection",
+    "Performance verification",
+    "Documentation handoff to homeowner",
+  ],
+  rebate: [
+    "State rebate application",
+    "Utility interconnection",
+    "Building permit",
+    "Inspection scheduling",
+    "Rebate claim with invoice",
+    "Bank-account linkage for payment",
+  ],
+}
+
+export function Subsidy() {
+  const t = useTranslations("subsidy")
+  const items = itemsByType[site.incentive.type] ?? itemsByType.ITC
   return (
     <section className="subsidy-band">
       <div className="container subsidy-grid">

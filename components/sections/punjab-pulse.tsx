@@ -5,7 +5,13 @@ import { Eyebrow } from "@/components/primitives/eyebrow"
 import { CountUp } from "@/components/primitives/count-up"
 import { useInView } from "@/hooks/use-in-view"
 import { citiesOnMap } from "@/content/cities-on-map"
+import { site } from "@/lib/config/site.config"
 
+/**
+ * Region-coverage map. Component name kept (PunjabPulse) for stable imports.
+ * Region outline path is generic so it works for any state; only the dot
+ * coordinates change per market via citiesOnMap.
+ */
 export function PunjabPulse() {
   const t = useTranslations("pulse")
   const [ref, seen] = useInView<HTMLDivElement>({ threshold: 0.3 })
@@ -75,19 +81,19 @@ export function PunjabPulse() {
           <div className="pulse-stats">
             <div className="pulse-stat">
               <div className="ps-num serif">
-                <CountUp to={23} />
+                <CountUp to={site.copy.districtCount} />
               </div>
               <div className="ps-lbl mono">{t("districts")}</div>
             </div>
             <div className="pulse-stat">
               <div className="ps-num serif">
-                <CountUp to={6240} />
+                <CountUp to={site.rating.count * 5} />
               </div>
               <div className="ps-lbl mono">{t("homes")}</div>
             </div>
             <div className="pulse-stat">
               <div className="ps-num serif">
-                <CountUp to={42} suffix="MW" />
+                <CountUp to={Math.round(site.rating.count * 0.05)} suffix="MW" />
               </div>
               <div className="ps-lbl mono">{t("totalMW")}</div>
             </div>

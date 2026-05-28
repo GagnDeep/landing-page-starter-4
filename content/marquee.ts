@@ -1,10 +1,3 @@
-export const marqueeItems = [
-  "PSPCL EMPANELLED",
-  "MNRE APPROVED",
-  "TIER-1 PANELS ONLY",
-  "25-YEAR WARRANTY",
-  "PM SURYA GHAR FILED FOR YOU",
-  "NET METERING HANDLED",
-  "1,200+ ROOFTOPS",
-  "ALL 23 PUNJAB DISTRICTS",
-]
+import { site } from "@/lib/config/site.config"
+
+export const marqueeItems: string[] = site.content.marquee

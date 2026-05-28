@@ -8,11 +8,11 @@ import { FinalCTA } from "@/components/sections/final-cta"
 import { Jsonld } from "@/components/primitives/jsonld"
 import { aboutPageJsonLd } from "@/lib/jsonld"
 import { buildMetadata } from "@/lib/seo"
+import { site } from "@/lib/config/site.config"
 
 export const metadata = buildMetadata({
-  title: "About Punjab Solar — Patiala installer, all-Punjab service",
-  description:
-    "Punjab Solar — a Patiala-based rooftop solar installer serving every district of Punjab since 2018. Engineers who pick up the phone. One written quote, with subsidy applied.",
+  title: `About ${site.name} — ${site.address.locality} installer, all-${site.copy.regionName} service`,
+  description: `${site.name} — a ${site.address.locality}-based rooftop solar installer serving every ${site.copy.districtWord} of ${site.copy.regionName} since ${site.foundingYear}. Designers who pick up the phone. One written quote, with ${site.incentive.short} modeled in.`,
   path: "/about/",
 })
 
@@ -26,25 +26,26 @@ export default function AboutPage() {
         </div>
         <PageHero
           eyebrow="About us"
-          titleHtml="Patiala-built. Punjab-wide.<br/>A <em>Punjabi</em> installer."
-          lead="We've been wiring panels onto roofs from Pathankot to Fazilka since 2018. We started small, in a single industrial unit on the outskirts of Patiala. Today we run six install crews, employ thirty-eight Punjabi-speaking engineers and linesmen, and have powered 1,247 rooftops across every district in the state."
+          titleHtml={`${site.address.locality}-built. ${site.copy.regionName}-wide.<br/>A <em>local</em> installer.`}
+          lead={`We've been wiring panels onto roofs across ${site.copy.regionName} since ${site.foundingYear}. We started small, in a single unit on the outskirts of ${site.address.locality}. Today we run multiple install crews, employ designers and electricians who live in the communities we serve, and have powered ${site.rating.count.toLocaleString(site.currency.locale)}+ rooftops across the state.`}
         />
         <section className="tight">
           <div className="container">
             <div className="prose">
               <h2>Why we exist</h2>
               <p>
-                Punjab&rsquo;s electricity tariffs have risen ~6% a year for a
-                decade. Most installers in the state are call-centres reselling
-                work to nameless subcontractors. We started Punjab Solar to do
-                it differently: locally, transparently, with engineers who pick
-                up the phone.
+                {site.copy.regionPossessive} electricity rates have risen
+                steeply for years. Most installers are call-centres reselling
+                work to nameless subcontractors. We started {site.name} to do
+                it differently: locally, transparently, with designers who
+                pick up the phone.
               </p>
               <h2>What we promise</h2>
               <p>
-                One quote, in writing, with the subsidy locked in. Tier-1
-                panels only. PM Surya Ghar paperwork filed for you. Power-on in
-                21 days &mdash; or we pay your next month&rsquo;s bill.
+                One quote, in writing, with the incentive modeled in. Tier-1
+                panels only. {site.incentive.short} paperwork filed for you.
+                Power-on in {site.copy.installDays} &mdash; or we pay your next
+                month&rsquo;s bill.
               </p>
             </div>
           </div>

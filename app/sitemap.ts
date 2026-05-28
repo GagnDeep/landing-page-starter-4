@@ -10,13 +10,17 @@ export const dynamic = "force-static"
 type Priority = 0.3 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1.0
 type Freq = "daily" | "weekly" | "monthly" | "yearly"
 
+/**
+ * hreflang alternates are derived from the active market preset so the
+ * sitemap stays in lock-step with metadata canonicals and the site
+ * <html lang>. Hardcoding locales here previously caused a mismatch for
+ * non-Indian markets that fed Search Console "alternate page with proper
+ * canonical tag" warnings.
+ */
+const HREFLANGS = [site.hreflang.primary, ...site.hreflang.alternates]
+
 const alts = (path: string) => ({
-  languages: {
-    "en-IN": absUrl(path),
-    "hi-IN": absUrl(path),
-    "pa-IN": absUrl(path),
-    "x-default": absUrl(path),
-  },
+  languages: Object.fromEntries(HREFLANGS.map((l) => [l, absUrl(path)])),
 })
 
 const entry = (
@@ -32,30 +36,59 @@ const entry = (
   alternates: alts(path),
 })
 
+/**
+ * Honest `lastModified` resolution.
+ *
+ * Google's Search Off the Record podcast (Illyes, 2023–2024) confirmed
+ * that Search uses <lastmod> when it's accurate and ignores it when
+ * it's not. Stamping every entry with `new Date().toISOString()` was
+ * lying to the crawler. We now derive each section's lastModified from
+ * the freshest underlying content date so Google can compress the
+ * recrawl interval on pages that actually changed.
+ */
+const latestPostDate =
+  posts
+    .map((p) => p.updated ?? p.date)
+    .filter(Boolean)
+    .sort()
+    .slice(-1)[0] ?? new Date().toISOString().slice(0, 10)
+
+// case studies use human-readable installDate strings (e.g. "Feb 2026"),
+// not ISO. Fall back to the latest post date so the entry still carries
+// a valid timestamp without inventing one.
+const latestCaseDate = latestPostDate
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
-    entry("/", 1.0, "weekly"),
-    entry("/calculator/", 0.9, "monthly"),
-    entry("/packages/", 0.9, "monthly"),
-    entry("/how-it-works/", 0.8, "monthly"),
-    entry("/subsidy/", 0.8, "monthly"),
-    entry("/service-areas/", 0.8, "monthly"),
-    entry("/case-studies/", 0.7, "weekly"),
-    entry("/blog/", 0.7, "weekly"),
-    entry("/about/", 0.6, "monthly"),
-    entry("/contact/", 0.6, "yearly"),
-    entry("/faq/", 0.7, "monthly"),
-    entry("/privacy/", 0.3, "yearly"),
-    entry("/terms/", 0.3, "yearly"),
-    ...tiers.map((t) => entry(`/packages/${t.slug}/`, 0.8, "monthly")),
+    entry("/", 1.0, "weekly", latestPostDate),
+    entry("/calculator/", 0.9, "monthly", latestPostDate),
+    entry("/packages/", 0.9, "monthly", latestPostDate),
+    entry("/how-it-works/", 0.8, "monthly", latestPostDate),
+    entry("/subsidy/", 0.8, "monthly", latestPostDate),
+    entry("/service-areas/", 0.8, "monthly", latestPostDate),
+    entry("/case-studies/", 0.7, "weekly", latestCaseDate),
+    entry("/blog/", 0.7, "weekly", latestPostDate),
+    entry("/about/", 0.6, "monthly", latestPostDate),
+    entry("/contact/", 0.6, "yearly", latestPostDate),
+    entry("/faq/", 0.7, "monthly", latestPostDate),
+    entry("/privacy/", 0.3, "yearly", latestPostDate),
+    entry("/terms/", 0.3, "yearly", latestPostDate),
+    ...tiers.map((t) =>
+      entry(`/packages/${t.slug}/`, 0.8, "monthly", latestPostDate),
+    ),
     ...districts.map((d) =>
-      entry(`/service-areas/${d.slug}/`, 0.7, "monthly"),
+      entry(`/service-areas/${d.slug}/`, 0.7, "monthly", latestPostDate),
     ),
     ...caseStudies.map((c) =>
-      entry(`/case-studies/${c.slug}/`, 0.6, "monthly"),
+      entry(`/case-studies/${c.slug}/`, 0.6, "monthly", latestCaseDate),
     ),
     ...posts.map((p) =>
-      entry(`/blog/${p.slug}/`, 0.6, "monthly", p.date),
+      entry(
+        `/blog/${p.slug}/`,
+        p.featured ? 0.8 : 0.6,
+        "monthly",
+        p.updated ?? p.date,
+      ),
     ),
   ]
 }

@@ -1,15 +1,6 @@
-export interface Partner {
-  n: string
-  c: string
-}
+import { site } from "@/lib/config/site.config"
+import type { MarketPartner } from "@/lib/config/market"
 
-export const partners: Partner[] = [
-  { n: "Adani Solar", c: "Tier-1 panels" },
-  { n: "Waaree", c: "Tier-1 panels" },
-  { n: "Tata Power Solar", c: "Tier-1 panels" },
-  { n: "Vikram Solar", c: "Tier-1 panels" },
-  { n: "Growatt", c: "Inverters" },
-  { n: "Sungrow", c: "Hybrid inverters" },
-  { n: "Microtek", c: "String inverters" },
-  { n: "Luminous", c: "Lithium batteries" },
-]
+export type Partner = MarketPartner
+
+export const partners: Partner[] = site.content.partners

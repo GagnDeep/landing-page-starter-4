@@ -10,11 +10,11 @@ import { Jsonld } from "@/components/primitives/jsonld"
 import { faqJsonLd, govServiceJsonLd } from "@/lib/jsonld"
 import { faqs } from "@/content/faqs"
 import { buildMetadata } from "@/lib/seo"
+import { site } from "@/lib/config/site.config"
 
 export const metadata = buildMetadata({
-  title: "PM Surya Ghar subsidy — up to ₹78,000 off",
-  description:
-    "How the central PM Surya Ghar Muft Bijli Yojana works for Punjab homeowners. We file every form — National Portal, DISCOM, post-install claim — so the subsidy lands in your bank.",
+  title: `${site.incentive.program} — ${site.incentive.short}`,
+  description: `How the ${site.incentive.program} works for ${site.copy.regionName} homeowners. We file every form so the incentive applies cleanly.`,
   path: "/subsidy/",
 })
 
@@ -26,12 +26,12 @@ export default function SubsidyPage() {
       <SiteHeader />
       <main id="main">
         <div className="container">
-          <Breadcrumbs items={[{ name: "Subsidy", path: "/subsidy/" }]} />
+          <Breadcrumbs items={[{ name: "Incentive", path: "/subsidy/" }]} />
         </div>
         <PageHero
-          eyebrow="PM Surya Ghar Yojana"
-          titleHtml="Up to <em>₹78,000</em> off<br/>your install."
-          lead="The central government pays you to go solar. We file the claim on your behalf — you don't touch a form."
+          eyebrow={site.incentive.program}
+          titleHtml={`<em>${site.incentive.short}</em><br/>off your install.`}
+          lead={site.incentive.long}
         />
         <Subsidy />
         <Timeline />

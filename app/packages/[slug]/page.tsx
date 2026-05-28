@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps) {
   if (!p) return {}
   return buildMetadata({
     title: `${p.name} — rooftop solar package`,
-    description: `${p.name}: ${p.sub}. ${p.panels}, ${p.inverter}. ${p.price} after PM Surya Ghar subsidy. Installed in ${p.installTime}.`,
+    description: `${p.name}: ${p.sub}. ${p.panels}, ${p.inverter}. ${p.price} after ${site.incentive.short}. Installed in ${p.installTime}.`,
     path: `/packages/${p.slug}/`,
   })
 }
@@ -81,11 +81,10 @@ export default async function PackagePage({ params }: PageProps) {
             </p>
             <h2>Why this size</h2>
             <p>
-              We sized this package around the most common Punjab home
-              electricity bills. {p.sub} typically have a payback period of 3
-              to 5 years, with {site.subsidy.program} bringing the upfront
-              cost down by up to ₹
-              {site.subsidy.max.toLocaleString("en-IN")}.
+              We sized this package around the most common {site.copy.regionName}{" "}
+              home electricity bills. {p.sub} typically has a payback period
+              of 4 to 7 years, with {site.incentive.program} bringing the
+              upfront cost down via {site.incentive.short}.
             </p>
             <p style={{ marginTop: 32 }}>
               <Link href="/calculator/" className="btn btn-primary">

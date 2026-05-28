@@ -11,8 +11,8 @@ import { buildMetadata } from "@/lib/seo"
 import { site, absUrl } from "@/lib/config/site.config"
 
 export const metadata = buildMetadata({
-  title: `Punjab service areas — ${districts.length} districts covered`,
-  description: `Active rooftop solar installation crews across all ${districts.length} districts of Punjab. From Pathankot in the north to Fazilka on the border — pick your district below.`,
+  title: `${site.copy.regionName} service areas — ${districts.length} ${site.copy.districtWordPlural} covered`,
+  description: `Active rooftop solar installation crews across ${districts.length} ${site.copy.districtWordPlural} of ${site.copy.regionName}. Pick your ${site.copy.districtWord} below.`,
   path: "/service-areas/",
 })
 
@@ -38,8 +38,8 @@ export default function ServiceAreasPage() {
         </div>
         <PageHero
           eyebrow="Coverage"
-          titleHtml={`Active in all<br/><em>${districts.length} districts</em>.`}
-          lead="Click any district to see local pricing, payback, and a sample install."
+          titleHtml={`Active in<br/><em>${districts.length} ${site.copy.districtWordPlural}</em>.`}
+          lead={`Click any ${site.copy.districtWord} to see local pricing, payback, and a sample install.`}
         />
         <section className="tight">
           <div className="container">

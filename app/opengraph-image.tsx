@@ -68,7 +68,7 @@ export default function OG() {
             maxWidth: 900,
           }}
         >
-          Rooftop solar across Punjab.
+          Rooftop solar across {site.copy.regionName}.
         </div>
         <div
           style={{
@@ -98,8 +98,8 @@ export default function OG() {
             opacity: 0.55,
           }}
         >
-          <span>punjabsolar.com</span>
-          <span>PM Surya Ghar empanelled</span>
+          <span>{site.url.replace(/^https?:\/\//, "")}</span>
+          <span>{site.incentive.short}</span>
         </div>
       </div>
     ),

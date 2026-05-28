@@ -3,6 +3,7 @@
 import { useState, type MouseEvent } from "react"
 import { useTranslations } from "next-intl"
 import type { CalcInput, CalcResult } from "@/lib/calculator"
+import { formatMoney } from "@/lib/format"
 
 interface Props {
   data: CalcInput
@@ -80,9 +81,7 @@ export function BillCompareChart({ data, results }: Props) {
           <span className="bc-saved-eyebrow mono">
             {t("saved", { label: cfg.label.toLowerCase() })}
           </span>
-          <span className="bc-saved-num serif">
-            ₹{Math.round(totalSaved).toLocaleString("en-IN")}
-          </span>
+          <span className="bc-saved-num serif">{formatMoney(totalSaved)}</span>
         </div>
         <div className="bc-range seg">
           {(Object.keys(ranges) as RangeKey[]).map((k) => (
@@ -202,9 +201,8 @@ export function BillCompareChart({ data, results }: Props) {
       {hover != null && (
         <div className="bc-tooltip mono">
           <span>
-            Month {hover + 1}: bill ₹
-            {Math.round(today[hover]).toLocaleString("en-IN")} → ₹
-            {Math.round(withSolar[hover]).toLocaleString("en-IN")} with solar
+            Month {hover + 1}: bill {formatMoney(today[hover])} →{" "}
+            {formatMoney(withSolar[hover])} with solar
           </span>
         </div>
       )}

@@ -44,10 +44,10 @@ export function buildMetadata({
     alternates: {
       canonical: url,
       languages: {
-        "en-IN": url,
-        "hi-IN": url,
-        "pa-IN": url,
-        "x-default": url,
+        [site.hreflang.primary]: url,
+        ...Object.fromEntries(
+          site.hreflang.alternates.map((alt) => [alt, url]),
+        ),
       },
     },
     openGraph: {
@@ -56,8 +56,10 @@ export function buildMetadata({
       siteName: site.name,
       title: fullTitle,
       description,
-      locale: "en_IN",
-      alternateLocale: ["hi_IN", "pa_IN"],
+      locale: site.primaryLocale,
+      alternateLocale: site.hreflang.alternates
+        .filter((l) => l !== "x-default")
+        .map((l) => l.replace("-", "_")),
       images: [
         {
           url: ogImageUrl,
@@ -107,7 +109,7 @@ export function buildMetadata({
         : {}),
     },
     other: {
-      "geo.region": "IN-PB",
+      "geo.region": `${site.address.country}-${site.address.regionCode}`,
       "geo.placename": site.address.locality,
       "geo.position": `${site.address.lat};${site.address.lng}`,
       ICBM: `${site.address.lat}, ${site.address.lng}`,

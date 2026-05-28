@@ -11,12 +11,13 @@ import { useTranslations } from "next-intl"
 import { Icon } from "@/components/primitives/icon"
 import {
   compute,
-  PUNJAB_CITIES,
+  REGION_CITIES,
   type CalcInput,
   type CalcResult,
   type CustomerType,
 } from "@/lib/calculator"
-import { whatsappLink } from "@/lib/site"
+import { whatsappLink, site } from "@/lib/config/site.config"
+import { formatMoney, formatMoneyCompact } from "@/lib/format"
 import { ProgressDots } from "./progress-dots"
 import { BillCompareChart } from "./bill-compare-chart"
 import { HouseIcon, FarmIcon, ShopIcon } from "./icons"
@@ -66,9 +67,10 @@ export function CalculatorFlow({
   const search = useSearchParams()
   const router = useRouter()
 
-  const initBill = Number(search.get("bill")) || initial?.bill || 3500
+  const initBill = Number(search.get("bill")) || initial?.bill || site.copy.defaultBill
   const initType = (search.get("type") || initial?.type || "Home") as CustomerType
-  const initCity = search.get("city") || initial?.city || "Patiala"
+  const initCity =
+    search.get("city") || initial?.city || site.content.districts[0]?.name || site.address.locality
   const initRoof = initial?.roof ?? 600
 
   const hasPrefill = search.has("bill") && search.has("type")
@@ -271,12 +273,34 @@ interface StepProps {
 
 function BillStep({ data, setData }: StepProps) {
   const t = useTranslations("calculator")
+  const defaultBill = site.copy.defaultBill
+  // Spread presets symmetrically around the market's typical bill so they map
+  // to "small / average / large / extra-large" regardless of currency scale.
   const presets = [
-    { v: 1500, label: "Around ₹1,500", note: "small flat" },
-    { v: 3500, label: "Around ₹3,500", note: "average home" },
-    { v: 6500, label: "Around ₹6,500", note: "AC running" },
-    { v: 12000, label: "₹10,000+", note: "large home / shop" },
+    {
+      v: Math.round(defaultBill * 0.35),
+      label: `Around ${formatMoney(Math.round(defaultBill * 0.35))}`,
+      note: "small flat",
+    },
+    {
+      v: defaultBill,
+      label: `Around ${formatMoney(defaultBill)}`,
+      note: "average home",
+    },
+    {
+      v: Math.round(defaultBill * 1.5),
+      label: `Around ${formatMoney(Math.round(defaultBill * 1.5))}`,
+      note: "AC running hard",
+    },
+    {
+      v: Math.round(defaultBill * 2.5),
+      label: `${formatMoney(Math.round(defaultBill * 2.5))}+`,
+      note: "large home / shop",
+    },
   ]
+  const minBill = site.currency.useLakh ? 500 : 50
+  const maxBill = site.currency.useLakh ? 25000 : 800
+  const stepBill = site.currency.useLakh ? 250 : 10
   return (
     <div className="step-body">
       <p className="step-help">{t("billHelp")}</p>
@@ -298,25 +322,28 @@ function BillStep({ data, setData }: StepProps) {
       <div className="bill-finetune">
         <div className="ft-head">
           <span className="label">{t("billExact")}</span>
-          <span className="serif ft-num">
-            ₹{data.bill.toLocaleString("en-IN")}
-          </span>
+          <span className="serif ft-num">{formatMoney(data.bill)}</span>
         </div>
         <input
           type="range"
-          min={500}
-          max={25000}
-          step={250}
+          min={minBill}
+          max={maxBill}
+          step={stepBill}
           value={data.bill}
+          aria-label={t("billExact")}
+          aria-valuetext={formatMoney(data.bill)}
+          aria-valuemin={minBill}
+          aria-valuemax={maxBill}
+          aria-valuenow={data.bill}
           onChange={(e) =>
             setData({ ...data, bill: Number(e.target.value) })
           }
           className="bill-range"
         />
         <div className="bill-range-marks mono">
-          <span>₹500</span>
-          <span>₹12.5k</span>
-          <span>₹25k</span>
+          <span>{formatMoneyCompact(minBill)}</span>
+          <span>{formatMoneyCompact(Math.round((minBill + maxBill) / 2))}</span>
+          <span>{formatMoneyCompact(maxBill)}</span>
         </div>
       </div>
     </div>
@@ -381,7 +408,7 @@ function RoofStep({ data, setData }: StepProps) {
 
 function CityStep({ data, setData }: StepProps) {
   const t = useTranslations("calculator")
-  const popular = ["Patiala", "Amritsar", "Ludhiana", "Jalandhar", "Bathinda", "Mohali"]
+  const popular = site.content.districts.slice(0, 6).map((d) => d.name)
   return (
     <div className="step-body">
       <p className="step-help">{t("cityHelp")}</p>
@@ -403,7 +430,7 @@ function CityStep({ data, setData }: StepProps) {
           value={data.city}
           onChange={(e) => setData({ ...data, city: e.target.value })}
         >
-          {PUNJAB_CITIES.map((c) => (
+          {REGION_CITIES.map((c) => (
             <option key={c}>{c}</option>
           ))}
         </select>
@@ -436,7 +463,9 @@ function ResultsStep({
           <span
             dangerouslySetInnerHTML={{
               __html: t("resultsTitle2", {
-                savings: results.monthlySavings.toLocaleString("en-IN"),
+                savings: results.monthlySavings.toLocaleString(
+                  site.currency.locale,
+                ),
               }),
             }}
           />
@@ -449,18 +478,14 @@ function ResultsStep({
         <div className="rs-row">
           <div className="rs-pair">
             <span className="rs-k">{t("billToday")}</span>
-            <span className="rs-v">
-              ₹{data.bill.toLocaleString("en-IN")}
-            </span>
+            <span className="rs-v">{formatMoney(data.bill)}</span>
           </div>
           <div className="rs-arrow" aria-hidden="true">
             →
           </div>
           <div className="rs-pair rs-pair-hi">
             <span className="rs-k">{t("withSolar")}</span>
-            <span className="rs-v">
-              ₹{results.newBill.toLocaleString("en-IN")}
-            </span>
+            <span className="rs-v">{formatMoney(results.newBill)}</span>
           </div>
         </div>
 
@@ -474,8 +499,7 @@ function ResultsStep({
           </div>
           <div className="rs-meta-cell">
             <span className="rs-meta-num serif">
-              ₹{(results.lifetimeSavings / 100000).toFixed(1)}
-              <i>L</i>
+              {formatMoneyCompact(results.lifetimeSavings)}
             </span>
             <span className="rs-meta-lbl">{t("lifetimeLabel")}</span>
           </div>
@@ -493,30 +517,22 @@ function ResultsStep({
         <div className="cost-strip">
           <div className="cost-line">
             <span>{t("systemCost")}</span>
-            <span className="mono">
-              ₹{results.grossCost.toLocaleString("en-IN")}
-            </span>
+            <span className="mono">{formatMoney(results.grossCost)}</span>
           </div>
           <div className="cost-line neg">
             <span>
               {t("subsidyLine")}{" "}
               <span className="tag gold mono">{t("weFileIt")}</span>
             </span>
-            <span className="mono">
-              – ₹{results.subsidy.toLocaleString("en-IN")}
-            </span>
+            <span className="mono">– {formatMoney(results.subsidy)}</span>
           </div>
           <div className="cost-line total">
             <span className="serif">{t("youPay")}</span>
-            <span className="serif total-num">
-              ₹{results.net.toLocaleString("en-IN")}
-            </span>
+            <span className="serif total-num">{formatMoney(results.net)}</span>
           </div>
           <div className="cost-line emi">
             <span>{t("emiLine")}</span>
-            <span className="mono">
-              ₹{results.emi.toLocaleString("en-IN")} / mo
-            </span>
+            <span className="mono">{formatMoney(results.emi)} / mo</span>
           </div>
         </div>
       )}
@@ -540,30 +556,32 @@ function PackagesStep({
   onPick: (p: PkgChoice) => void
 }) {
   const t = useTranslations("calculator")
+  // Driven by the active market preset so swapping markets reshapes the lineup.
+  const m = site.content.packages
   const packages: PkgChoice[] = [
     {
       id: "essential",
-      label: "Essential",
-      sub: "Best value · Tier-1 mono panels",
-      brand: "Waaree / Vikram",
-      inverter: "Microtek string",
+      label: m[0]?.name ?? "Essential",
+      sub: m[0]?.sub ?? "Best value",
+      brand: m[0]?.panels ?? "Tier-1 mono",
+      inverter: m[0]?.inverter ?? "String inverter",
       delta: 0,
       perks: [
         "Tier-1 panels",
-        "10-yr inverter warranty",
+        m[0]?.warranty ?? "Long-term warranty",
         "App monitoring",
       ],
       featured: false,
     },
     {
       id: "premium",
-      label: "Premium",
-      sub: "What most people pick",
-      brand: "Adani / Tata bifacial",
-      inverter: "Growatt smart",
+      label: m[1]?.name ?? "Premium",
+      sub: m[1]?.sub ?? "Most popular",
+      brand: m[1]?.panels ?? "Bifacial panels",
+      inverter: m[1]?.inverter ?? "Smart inverter",
       delta: Math.round(results.grossCost * 0.12),
       perks: [
-        "Bifacial TOPCon panels",
+        "Bifacial / TOPCon panels",
         "+8% generation",
         "Smart app + alerts",
         "Priority service",
@@ -572,15 +590,15 @@ function PackagesStep({
     },
     {
       id: "battery",
-      label: "Premium + Battery",
-      sub: "Power cuts? Solved.",
-      brand: "Adani + Luminous Li",
-      inverter: "Sungrow hybrid",
+      label: m[2]?.name ?? "Hybrid + Battery",
+      sub: m[2]?.sub ?? "Outage-proof",
+      brand: m[2]?.panels ?? "Bifacial panels",
+      inverter: m[2]?.inverter ?? "Hybrid + battery",
       delta: Math.round(results.grossCost * 0.55),
       perks: [
         "Everything in Premium",
-        "10 kWh lithium backup",
-        "Runs through power cuts",
+        "Whole-home battery backup",
+        "Runs through outages",
         "Off-grid capable",
       ],
       featured: false,
@@ -618,7 +636,7 @@ function PackagesStep({
               <div className="pkgf-price">
                 <span className="mono small">{t("youPaySmall")}</span>
                 <span className="serif price">
-                  ₹{(results.net + p.delta).toLocaleString("en-IN")}
+                  {formatMoney(results.net + p.delta)}
                 </span>
               </div>
             </div>
@@ -653,10 +671,20 @@ function BookingStep({
     slot: "Morning",
   })
   const [submitting, setSubmitting] = useState(false)
-  const valid = form.name && form.phone.length >= 10 && form.address
+  const [touched, setTouched] = useState<Record<string, boolean>>({})
+  const errors = {
+    name: !form.name ? "Please add your name" : "",
+    phone: form.phone.length < 10 ? "Enter a 10-digit phone number" : "",
+    address: !form.address ? "Add a service address" : "",
+  }
+  const valid = !errors.name && !errors.phone && !errors.address
 
   const handleSubmit = async () => {
-    if (!valid || submitting) return
+    if (submitting) return
+    if (!valid) {
+      setTouched({ name: true, phone: true, address: true })
+      return
+    }
     setSubmitting(true)
     await onSubmit(form)
     setSubmitting(false)
@@ -669,21 +697,48 @@ function BookingStep({
           <p className="step-help">{t("bookHelp")}</p>
           <div className="form-grid">
             <div className="field">
-              <label className="label">{t("fieldName")}</label>
+              <label className="label" htmlFor="bk-name">
+                {t("fieldName")} <span aria-hidden="true" className="req">*</span>
+              </label>
               <input
+                id="bk-name"
+                name="name"
+                type="text"
+                autoComplete="name"
                 className="input"
-                placeholder="Harpreet Singh"
+                placeholder="Alex Morales"
                 value={form.name}
+                required
+                aria-required="true"
+                aria-invalid={touched.name && !!errors.name}
+                aria-describedby={touched.name && errors.name ? "bk-name-err" : undefined}
+                onBlur={() => setTouched((s) => ({ ...s, name: true }))}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
               />
+              {touched.name && errors.name && (
+                <p id="bk-name-err" className="field-error" role="alert">
+                  {errors.name}
+                </p>
+              )}
             </div>
             <div className="field">
-              <label className="label">{t("fieldPhone")}</label>
+              <label className="label" htmlFor="bk-phone">
+                {t("fieldPhone")} <span aria-hidden="true" className="req">*</span>
+              </label>
               <input
+                id="bk-phone"
+                name="phone"
+                type="tel"
+                autoComplete="tel"
                 className="input"
-                placeholder="98765 43210"
+                placeholder="(310) 555-0142"
                 value={form.phone}
-                inputMode="numeric"
+                inputMode="tel"
+                required
+                aria-required="true"
+                aria-invalid={touched.phone && !!errors.phone}
+                aria-describedby={touched.phone && errors.phone ? "bk-phone-err" : undefined}
+                onBlur={() => setTouched((s) => ({ ...s, phone: true }))}
                 onChange={(e) =>
                   setForm({
                     ...form,
@@ -691,21 +746,44 @@ function BookingStep({
                   })
                 }
               />
+              {touched.phone && errors.phone && (
+                <p id="bk-phone-err" className="field-error" role="alert">
+                  {errors.phone}
+                </p>
+              )}
             </div>
             <div className="field full">
-              <label className="label">{t("fieldAddress")}</label>
+              <label className="label" htmlFor="bk-address">
+                {t("fieldAddress")} <span aria-hidden="true" className="req">*</span>
+              </label>
               <input
+                id="bk-address"
+                name="address"
+                type="text"
+                autoComplete="street-address"
                 className="input"
-                placeholder="House no., locality, city, PIN"
+                placeholder="Street, city, ZIP"
                 value={form.address}
+                required
+                aria-required="true"
+                aria-invalid={touched.address && !!errors.address}
+                aria-describedby={touched.address && errors.address ? "bk-addr-err" : undefined}
+                onBlur={() => setTouched((s) => ({ ...s, address: true }))}
                 onChange={(e) =>
                   setForm({ ...form, address: e.target.value })
                 }
               />
+              {touched.address && errors.address && (
+                <p id="bk-addr-err" className="field-error" role="alert">
+                  {errors.address}
+                </p>
+              )}
             </div>
             <div className="field">
-              <label className="label">{t("fieldDate")}</label>
+              <label className="label" htmlFor="bk-date">{t("fieldDate")}</label>
               <input
+                id="bk-date"
+                name="date"
                 className="input"
                 type="date"
                 value={form.date}
@@ -713,11 +791,13 @@ function BookingStep({
               />
             </div>
             <div className="seg-field">
-              <label className="label">{t("fieldSlot")}</label>
-              <div className="seg seg-lg">
+              <label className="label" id="bk-slot-label">{t("fieldSlot")}</label>
+              <div className="seg seg-lg" role="radiogroup" aria-labelledby="bk-slot-label">
                 {(["Morning", "Afternoon", "Evening"] as const).map((s) => (
                   <button
                     key={s}
+                    role="radio"
+                    aria-checked={form.slot === s}
                     className={form.slot === s ? "active" : ""}
                     onClick={() => setForm({ ...form, slot: s })}
                   >
@@ -729,7 +809,8 @@ function BookingStep({
           </div>
           <button
             className="btn btn-primary btn-lg book-cta"
-            disabled={!valid || submitting}
+            disabled={submitting}
+            aria-disabled={!valid || submitting}
             onClick={handleSubmit}
           >
             {t("bookCta")} <Icon.arrow />
@@ -763,13 +844,13 @@ function BookingStep({
               {results.subsidy > 0 && (
                 <div>
                   <span>{t("asideSubsidy")}</span>
-                  <span>– ₹{results.subsidy.toLocaleString("en-IN")}</span>
+                  <span>– {formatMoney(results.subsidy)}</span>
                 </div>
               )}
               <div className="totalrow">
                 <span>{t("asideTotal")}</span>
                 <span className="total-num">
-                  ₹{(results.net + pkg.delta).toLocaleString("en-IN")}
+                  {formatMoney(results.net + pkg.delta)}
                 </span>
               </div>
             </div>

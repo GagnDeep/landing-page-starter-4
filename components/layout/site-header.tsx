@@ -8,11 +8,20 @@ import { Icon } from "@/components/primitives/icon"
 import { phone } from "@/lib/site"
 import { NavMobileSheet } from "./nav-mobile-sheet"
 import { cn } from "@/lib/utils"
+import { site } from "@/lib/config/site.config"
+
+// Derive the brand wordmark — first space-delimited word + the rest as the sub.
+const brandWords = site.name.split(" ")
+const brandHead = brandWords[0]
+const brandTail = brandWords.slice(1).join(" ") || "SOLAR"
+
+// Language toggle codes (currently visual-only; "EN" always active).
+const langCodes = site.locales.map((l) => l.toUpperCase()) as readonly string[]
 
 export function SiteHeader() {
   const t = useTranslations("nav")
   const [scrolled, setScrolled] = useState(false)
-  const [lang, setLang] = useState<"EN" | "ਪੰ" | "हि">("EN")
+  const [lang, setLang] = useState<string>(langCodes[0] ?? "EN")
   const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
@@ -26,13 +35,15 @@ export function SiteHeader() {
     <>
       <nav className={cn("nav", scrolled && "is-scrolled")}>
         <div className="container nav-inner">
-          <Link href="/" className="brand" aria-label="Punjab Solar home">
+          <Link href="/" className="brand" aria-label={`${site.name} home`}>
             <span className="brand-mark" aria-hidden="true">
               <SunMotif size={28} />
             </span>
             <span className="brand-word">
-              <span className="serif">Punjab</span>
-              <span className="mono brand-sub">SOLAR · EST. 2018</span>
+              <span className="serif">{brandHead}</span>
+              <span className="mono brand-sub">
+                {brandTail.toUpperCase()} · EST. {site.foundingYear}
+              </span>
             </span>
           </Link>
 
@@ -40,28 +51,34 @@ export function SiteHeader() {
             <Link href="/how-it-works">{t("howItWorks")}</Link>
             <Link href="/packages">{t("packages")}</Link>
             <Link href="/calculator">{t("calculator")}</Link>
+            <Link href="/blog">{t("blog")}</Link>
             <Link href="/about">{t("whyUs")}</Link>
             <Link href="/faq">{t("faq")}</Link>
           </div>
 
           <div className="nav-actions">
-            <div
-              className="seg lang-seg"
-              role="tablist"
-              aria-label="Language"
-            >
-              {(["EN", "ਪੰ", "हि"] as const).map((l) => (
-                <button
-                  key={l}
-                  className={lang === l ? "active" : ""}
-                  onClick={() => setLang(l)}
-                  disabled={l !== "EN"}
-                  title={l !== "EN" ? t("comingSoon") : undefined}
-                >
-                  {l}
-                </button>
-              ))}
-            </div>
+            {/* Language toggle only renders when 2+ locales ship actual
+                translated content. A disabled "coming soon" toggle was
+                a dead control in the prior build and dragged trust. */}
+            {langCodes.length > 1 && (
+              <div
+                className="seg lang-seg"
+                role="tablist"
+                aria-label="Language"
+              >
+                {langCodes.map((l) => (
+                  <button
+                    key={l}
+                    role="tab"
+                    aria-selected={lang === l}
+                    className={lang === l ? "active" : ""}
+                    onClick={() => setLang(l)}
+                  >
+                    {l}
+                  </button>
+                ))}
+              </div>
+            )}
             <a
               href={`tel:${phone.replace(/\s/g, "")}`}
               className="btn btn-ghost btn-sm nav-phone"
@@ -75,6 +92,8 @@ export function SiteHeader() {
               className="nav-mobile-trigger"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
+              aria-controls="mobile-nav-sheet"
+              aria-expanded={mobileOpen}
             >
               <Icon.menu />
             </button>

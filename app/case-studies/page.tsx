@@ -10,9 +10,8 @@ import { buildMetadata } from "@/lib/seo"
 import { site, absUrl } from "@/lib/config/site.config"
 
 export const metadata = buildMetadata({
-  title: "Case studies — real Punjab solar installs",
-  description:
-    "Real rooftop solar installs across Punjab — bill before, bill after, payback period and system specs that made it possible.",
+  title: `Case studies — real ${site.copy.regionName} solar installs`,
+  description: `Real rooftop solar installs across ${site.copy.regionName} — bill before, bill after, payback period and system specs that made it possible.`,
   path: "/case-studies/",
 })
 
@@ -38,7 +37,7 @@ export default function CaseStudiesPage() {
         <PageHero
           eyebrow="Case studies"
           titleHtml="Real bills.<br/>Real <em>savings</em>."
-          lead="A handful of recent installs across Punjab — with the numbers our customers actually see on their bills."
+          lead={`A handful of recent installs across ${site.copy.regionName} — with the numbers our customers actually see on their bills.`}
         />
         <section className="tight">
           <div className="container">

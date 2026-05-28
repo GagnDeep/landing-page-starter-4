@@ -1,11 +1,6 @@
-export interface Stat {
-  n: string
-  l: string
-}
+import { site } from "@/lib/config/site.config"
+import type { MarketStat } from "@/lib/config/market"
 
-export const stats: Stat[] = [
-  { n: "1,247", l: "Rooftops powered" },
-  { n: "8.4 MW", l: "Total installed" },
-  { n: "23/23", l: "Punjab districts served" },
-  { n: "4.9★", l: "Google rating · 612 reviews" },
-]
+export type Stat = MarketStat
+
+export const stats: Stat[] = site.content.stats

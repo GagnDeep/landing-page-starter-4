@@ -10,8 +10,8 @@ import { site, whatsappLink, telLink } from "@/lib/config/site.config"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Contact — phone, WhatsApp, Patiala office",
-  description: `Reach ${site.name} in ${site.address.locality}. Phone ${site.phone}, WhatsApp, email ${site.email}. Mon–Sat 9:00–19:00. A real human, not a bot.`,
+  title: `Contact — phone, text, ${site.address.locality} office`,
+  description: `Reach ${site.name} in ${site.address.locality}. Phone ${site.phone}, text, email ${site.email}. ${site.hoursHuman}. A real human, not a bot.`,
   path: "/contact/",
 })
 
@@ -25,8 +25,8 @@ export default function ContactPage() {
         </div>
         <PageHero
           eyebrow="Contact"
-          titleHtml="Sat sri akaal —<br/>let's <em>talk</em>."
-          lead="A real human picks up the phone and answers WhatsApp within an hour, Monday to Saturday, 9 AM to 7 PM."
+          titleHtml={`${site.copy.greeting}<br/>Let's <em>talk</em>.`}
+          lead={`A real human picks up the phone and answers within an hour. ${site.hoursHuman}.`}
         />
         <section className="tight">
           <div className="container">
@@ -48,7 +48,7 @@ export default function ContactPage() {
                 </address>
               </div>
               <div className="card">
-                <Eyebrow>Phone &amp; WhatsApp</Eyebrow>
+                <Eyebrow>Phone &amp; Text</Eyebrow>
                 <p style={{ marginTop: 16 }}>
                   <a href={telLink()}>{site.phone}</a>
                 </p>
@@ -59,7 +59,7 @@ export default function ContactPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Icon.whatsapp /> WhatsApp
+                    <Icon.whatsapp /> Message us
                   </a>
                 </p>
               </div>

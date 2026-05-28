@@ -5,20 +5,21 @@
     "calculator": "Calculator",
     "whyUs": "Why us",
     "faq": "FAQ",
-    "phone": "+91 98765 43210",
+    "blog": "Journal",
+    "phone": "(310) 555-0142",
     "getQuote": "Get a quote",
     "comingSoon": "Coming soon"
   },
   "hero": {
-    "metaLeft": "Patiala · est. 2018",
-    "metaRight": "PSPCL empanelled",
-    "titleLine1": "Punjab's sun,",
+    "metaLeft": "Los Angeles · est. 2019",
+    "metaRight": "CSLB C-46 licensed",
+    "titleLine1": "California's sun,",
     "titleLine2": "on your <em>roof</em>.",
-    "lead": "Rooftop solar designed, installed and serviced from Patiala — across all 23 districts. Subsidy filed, paperwork handled, generating in 21 days.",
+    "lead": "Rooftop solar designed, installed and serviced from Los Angeles — every PG&E, SCE, SDG&E, SMUD and LADWP zip code. Federal tax credit handled, paperwork done, panels on in 21 days.",
     "ctaCalc": "Calculate my savings",
-    "ctaWhats": "WhatsApp us",
-    "stat1Num": "₹78k",
-    "stat1Label": "Max central subsidy",
+    "ctaWhats": "Text us",
+    "stat1Num": "30%",
+    "stat1Label": "Federal tax credit",
     "stat2Num": "21",
     "stat2Unit": "days",
     "stat2Label": "Avg time to power-on",
@@ -33,25 +34,25 @@
     "savings": "saved every month with a",
     "system": "system. Pays back in",
     "years": "years.",
-    "subsidy": "Govt. subsidy",
+    "subsidy": "Federal ITC",
     "off": "off",
     "cta": "See my full quote",
     "types": { "home": "Home", "farm": "Farm", "business": "Business" }
   },
   "marquee": [
-    "PSPCL EMPANELLED",
-    "MNRE APPROVED",
+    "CSLB C-46 LICENSED",
+    "NABCEP CERTIFIED",
     "TIER-1 PANELS ONLY",
     "25-YEAR WARRANTY",
-    "PM SURYA GHAR FILED FOR YOU",
-    "NET METERING HANDLED",
-    "1,200+ ROOFTOPS",
-    "ALL 23 PUNJAB DISTRICTS"
+    "ITC FILED FOR YOU",
+    "NEM 3.0 OPTIMIZED",
+    "3,400+ ROOFTOPS",
+    "ALL CALIFORNIA IOUs"
   ],
   "costShrink": {
     "eyebrow": "What you used to pay",
     "title": "Watch your bill <em>shrink</em>.",
-    "lead": "On day 1, your bill drops to almost nothing. The few hundred rupees you still pay covers the meter rental and any night-time grid usage. The savings start <em>immediately</em>.",
+    "lead": "On day 1, your bill drops to almost nothing. The few dollars you still pay covers the connection fee and any night-time grid usage. The savings start <em>immediately</em>.",
     "today": "Today",
     "after": "After solar",
     "savingEyebrow": "You keep",
@@ -69,24 +70,24 @@
   "howItWorks": {
     "eyebrow": "How it works",
     "title": "From bill shock to <em>power-on</em><br/>in twenty-one days.",
-    "lead": "One team. Six steps. Every form, every wire, every inspection — handled. No contractors disappearing after the deposit. No DISCOM runaround.",
+    "lead": "One team. Six steps. Every permit, every conduit, every inspection — handled. No subcontractors disappearing after the deposit. No utility runaround.",
     "promise": "If we miss the 21-day mark, we pay your next month's bill. In writing, on every contract."
   },
   "timeline": {
     "eyebrow": "The 21-day journey",
     "title": "From <em>\"yes\"</em> to power-on,<br/>tracked day by day.",
-    "lead": "Other installers say \"21 days\" and ghost. We send you a WhatsApp update at every milestone — and a guarantee in writing if we slip.",
+    "lead": "Other installers say \"21 days\" and ghost. We send you a text update at every milestone — and a guarantee in writing if we slip.",
     "finishMain": "Average 19 days",
-    "finishSub": "across 6,240 installs"
+    "finishSub": "across 3,420 installs"
   },
   "liveGen": {
-    "eyebrow": "Live · right now in Punjab",
-    "title": "Six thousand roofs.<br/><em>One sun.</em> Working for them all.",
-    "lead": "Every panel we've installed is online and reporting back. Watch the meters tick — these are the real units our customers are generating right now.",
+    "eyebrow": "Live · right now in California",
+    "title": "Three thousand roofs.<br/><em>One sun.</em> Working for them all.",
+    "lead": "Every panel we've installed is online and reporting back. Watch the meters tick — these are the real kilowatt-hours our customers are generating right now.",
     "kwh": "kWh generated · 2026",
     "saved": "saved across all customers",
     "homes": "Homes online",
-    "across": "Across 23 districts",
+    "across": "Across 23 counties",
     "co2": "CO₂ avoided",
     "trees": "trees / year equivalent",
     "status": "System status",
@@ -97,18 +98,18 @@
   "packages": {
     "eyebrow": "Pre-built packages",
     "title": "Or skip the math —<br/>pick a <em>package</em>.",
-    "lead": "Three sizes that fit 90% of Punjab homes. Tier-1 components only. Subsidy already applied to the price you see.",
+    "lead": "Three sizes that fit 90% of California homes. Tier-1 components only. Federal tax credit applied to the price you see.",
     "customize": "Customize"
   },
   "partners": {
     "eyebrow": "What we install",
     "title": "Tier-1 only.<br/><em>No</em> grey-market panels.",
-    "lead": "We only sell what we'd put on our own roof. These are the brands that survive 25 Punjab summers — others fail in 5."
+    "lead": "We only install what we'd put on our own roof. These are the brands that survive 25 California summers — others fail in 5."
   },
   "story": {
     "eyebrow": "One real story",
-    "title": "Ranjit ji's bill went from<br/><em>₹6,800</em> to <em>₹380</em>.",
-    "lead": "5 kW system, single-floor home in Patiala's Tripuri colony. Installed January 2026. Subsidy of ₹78,000 landed in his account 27 days after commissioning.",
+    "title": "The Morales family's bill went from<br/><em>$380</em> to <em>$14</em>.",
+    "lead": "7 kW system, single-floor bungalow in LA's Highland Park. Installed February 2026. Federal tax credit of $5,880 dropped straight into their 2026 return.",
     "before": "Before",
     "after": "After",
     "annual": "Annual savings",
@@ -117,62 +118,62 @@
     "co2": "CO₂ avoided"
   },
   "trust": {
-    "eyebrow": "Why Punjab Solar",
-    "title": "Punjab's roofs deserve<br/>a Punjab <em>installer</em>.",
-    "lead": "We've been wiring panels onto roofs from Pathankot to Fazilka since 2018. Here's what we do differently."
+    "eyebrow": "Why Golden State Solar",
+    "title": "California's roofs deserve<br/>a California <em>installer</em>.",
+    "lead": "We've been wiring panels onto roofs from San Diego to Sacramento since 2019. Here's what we do differently."
   },
   "gallery": {
     "eyebrow": "Recent installations",
-    "title": "Across all 23 <em>districts</em>.",
+    "title": "Across the whole <em>state</em>.",
     "lead": "A few of the rooftops we've recently powered. Real systems, real owners — we'll connect you to any of them."
   },
   "subsidy": {
-    "eyebrow": "PM Surya Ghar Yojana",
-    "title": "Up to <em>₹78,000</em><br/>off your install.",
-    "lead": "The central government pays you to go solar. We file the claim on your behalf — you don't touch a form. The subsidy lands in your bank account within 30 days of commissioning.",
+    "eyebrow": "Federal Solar Tax Credit",
+    "title": "<em>30%</em> off your install,<br/>direct from the IRS.",
+    "lead": "The Residential Clean Energy Credit (IRC §25D) pays 30% of your installed cost back as a dollar-for-dollar federal tax credit. We hand you the IRS Form 5695 worksheet at commissioning.",
     "tableHeadSize": "System size",
-    "tableHeadAmount": "Subsidy",
-    "row1kw": "1 kW",
-    "row1amt": "₹30,000",
-    "row2kw": "2 kW",
-    "row2amt": "₹60,000",
-    "row3kw": "3 kW or more",
-    "row3amt": "₹78,000 (max)",
-    "cta": "Check my subsidy",
+    "tableHeadAmount": "Credit",
+    "row1kw": "6 kW system",
+    "row1amt": "$5,040",
+    "row2kw": "9 kW system",
+    "row2amt": "$7,560",
+    "row3kw": "12 kW + battery",
+    "row3amt": "$14,400",
+    "cta": "Check my tax credit",
     "asideEyebrow": "What we file for you",
-    "asideFoot": "Avg processing time · 22 days"
+    "asideFoot": "Avg permit time · 8 days"
   },
   "pulse": {
     "eyebrow": "Live coverage",
-    "title": "We service every <em>district</em> in Punjab.",
-    "districts": "Districts covered",
+    "title": "We service every <em>IOU territory</em> in California.",
+    "districts": "Counties covered",
     "homes": "Homes online",
     "totalMW": "Total installed"
   },
   "faq": {
     "eyebrow": "FAQ",
     "title": "Things people<br/><em>actually</em> ask.",
-    "lead": "If your question isn't here, WhatsApp us — a real human, not a bot, replies within an hour."
+    "lead": "If your question isn't here, text us — a real human, not a bot, replies within an hour."
   },
   "finalCta": {
     "eyebrow": "Ready when you are",
     "title": "The next bill could be<br/>your <em>last</em>.",
-    "lead": "Free site survey. Subsidy locked-in. Power-on in 21 days.",
+    "lead": "Free site survey. Tax credit modeled in writing. Power-on in 21 days.",
     "ctaCalc": "Calculate my savings",
-    "ctaWhats": "WhatsApp +91 98765 43210"
+    "ctaWhats": "Text (310) 555-0142"
   },
   "footer": {
     "office": "Office",
-    "officeText": "Plot 14, Industrial Area\nPhase II, Patiala 147001\nPunjab, India",
+    "officeText": "2150 W Olympic Blvd, Suite 410\nLos Angeles, CA 90006\nUnited States",
     "contact": "Contact",
-    "contactText": "+91 98765 43210\nhello@punjabsolar.com\nMon–Sat · 9:00–19:00",
-    "empanelled": "Empanelled with",
-    "empanelledText": "PSPCL · MNRE\nPM Surya Ghar Portal\nGST 03ABCDE1234F1Z5",
-    "copyright": "© 2026 Punjab Solar Pvt Ltd",
-    "tagline": "Made in Patiala · ਪੰਜਾਬ"
+    "contactText": "(310) 555-0142\nhello@goldenstatesolar.com\nMon–Fri · 8:00–18:00",
+    "empanelled": "Credentials",
+    "empanelledText": "CSLB C-46 · NABCEP\nSGIP listed installer\nEIN 88-1234567",
+    "copyright": "© 2026 Golden State Solar, Inc.",
+    "tagline": "Designed in Los Angeles · ☀️ California"
   },
   "calculator": {
-    "brand": "PUNJAB SOLAR · QUOTE",
+    "brand": "GOLDEN STATE SOLAR · QUOTE",
     "close": "Close",
     "back": "Back",
     "cancel": "Cancel",
@@ -185,7 +186,7 @@
     "step3Sup": "Question 3 of 4",
     "step3Title": "How much roof do you have?",
     "step4Sup": "Question 4 of 4",
-    "step4Title": "Which part of Punjab?",
+    "step4Title": "Which part of California?",
     "stepResultsSup": "Your savings",
     "stepResultsTitle": "Here's what solar can do.",
     "stepPackageSup": "Pick a package",
@@ -194,31 +195,31 @@
     "stepBookingTitle": "Book a free site visit.",
     "billHelp": "Don't have your last bill handy? Pick the closest range — we'll fine-tune later.",
     "billExact": "Or set the exact amount",
-    "typeHelp": "This helps us pick the right tariff and subsidy rules for your case.",
+    "typeHelp": "This helps us pick the right tariff and credit rules for your case.",
     "roofHelp": "A rough idea is enough. Each kW of solar needs ~80 sq ft of clear roof.",
-    "cityHelp": "We have crews in every district — sunlight is good across all of Punjab.",
-    "cityOther": "Or pick your district",
+    "cityHelp": "We have crews across the state — California sun is good everywhere.",
+    "cityOther": "Or pick your city",
     "resultsEyebrow": "Here's what we found",
     "resultsTitle1": "A <em>{kw} kW</em> system on your roof.",
-    "resultsTitle2": "You save <em>₹{savings}</em> a month.",
+    "resultsTitle2": "You save <em>${savings}</em> a month.",
     "billToday": "Bill today",
     "withSolar": "With solar",
     "paybackLabel": "Payback",
     "lifetimeLabel": "25-yr savings",
     "co2Label": "CO₂ / year",
     "systemCost": "System cost",
-    "subsidyLine": "– PM Surya Ghar subsidy",
+    "subsidyLine": "– 30% federal tax credit",
     "weFileIt": "we file it",
     "youPay": "You actually pay",
-    "emiLine": "or EMI · 5 years · no collateral",
+    "emiLine": "or finance · 15 yr · 7.99% APR",
     "pickPackage": "Pick a package",
     "resultsFoot": "Indicative numbers. Final quote after free site visit.",
-    "packagesHelp": "Three honest choices — same {kw} kW size, different components. Subsidy already applied.",
+    "packagesHelp": "Three honest choices — same {kw} kW size, different components. ITC already applied.",
     "youPaySmall": "You pay",
     "chooseThis": "Choose this",
-    "bookHelp": "Last step. We'll WhatsApp you to confirm — no payment yet, the visit is free.",
+    "bookHelp": "Last step. We'll text you to confirm — no payment yet, the visit is free.",
     "fieldName": "Your name",
-    "fieldPhone": "Mobile (we'll WhatsApp)",
+    "fieldPhone": "Mobile (we'll text)",
     "fieldAddress": "Where is the site?",
     "fieldDate": "When works for you?",
     "fieldSlot": "Time of day",
@@ -231,23 +232,23 @@
     "asideSystem": "System",
     "asidePanels": "Panels",
     "asideInverter": "Inverter",
-    "asideSubsidy": "Subsidy",
+    "asideSubsidy": "Tax credit",
     "asideTotal": "You pay",
     "promise1": "Free site survey within 48 hrs",
     "promise2": "One quote, written. No surprise charges.",
-    "promise3": "Full subsidy paperwork by us",
+    "promise3": "Full ITC paperwork by us",
     "doneTitle": "All set, <em>{name}</em>.",
-    "doneLead": "Sat sri akaal. Engineer Harpreet will WhatsApp you within 2 hours to confirm the visit.",
+    "doneLead": "Welcome. Designer Maya will text you within 2 hours to confirm the visit.",
     "doneRefLabel": "Reference",
     "doneSysLabel": "System",
     "doneVisitLabel": "Site visit",
     "doneAddressLabel": "Address",
     "doneNextHead": "What happens next",
-    "doneNext1": "Engineer site visit (Day 1-2)",
-    "doneNext2": "We file PM Surya Ghar + DISCOM (Day 3-7)",
+    "doneNext1": "Designer site visit (Day 1-2)",
+    "doneNext2": "We file permit + interconnection (Day 3-7)",
     "doneNext3": "Installation begins (Day 10-14)",
-    "doneNext4": "Net-meter & power-on (Day 18-21)",
-    "doneCta": "Chat on WhatsApp now",
+    "doneNext4": "PTO + power-on (Day 18-21)",
+    "doneCta": "Text us now",
     "saved": "You save in {label}",
     "year1": "Year 1",
     "fiveYears": "5 years",
@@ -265,62 +266,62 @@
   "pages": {
     "calculator": {
       "title": "Solar savings calculator",
-      "description": "Find out exactly what rooftop solar saves you in Punjab. Bills, subsidy, payback — in 2 minutes."
+      "description": "Find out exactly what rooftop solar saves you in California. Bills, ITC, payback — in 2 minutes."
     },
     "packages": {
       "title": "Solar packages",
-      "description": "Three pre-built solar packages for Punjab homes. Tier-1 components, subsidy applied, transparent pricing."
+      "description": "Three pre-built solar packages for California homes. Tier-1 components, ITC applied, transparent pricing."
     },
     "howItWorks": {
       "title": "How rooftop solar gets installed",
       "description": "Day-by-day breakdown of our 21-day install. Survey to power-on, every step explained."
     },
     "subsidy": {
-      "title": "PM Surya Ghar subsidy",
-      "description": "How the central government's PM Surya Ghar subsidy works. Up to ₹78,000 off your rooftop install. We file every form."
+      "title": "Federal Solar Tax Credit (ITC)",
+      "description": "How the 30% Residential Clean Energy Credit works. Up to thousands off your rooftop install. We hand you the IRS Form 5695 worksheet."
     },
     "faq": {
       "title": "Frequently asked questions",
-      "description": "Honest answers to the questions Punjab homeowners ask before going solar."
+      "description": "Honest answers to the questions California homeowners ask before going solar."
     },
     "about": {
-      "title": "About Punjab Solar",
-      "description": "Patiala-based rooftop solar installer serving all 23 districts of Punjab since 2018."
+      "title": "About Golden State Solar",
+      "description": "Los Angeles-based rooftop solar installer serving every California IOU territory since 2019."
     },
     "contact": {
       "title": "Contact us",
-      "description": "Reach Punjab Solar in Patiala — phone, WhatsApp, email, office address.",
+      "description": "Reach Golden State Solar in Los Angeles — phone, text, email, office address.",
       "addressHead": "Office",
-      "addressText": "Plot 14, Industrial Area, Phase II, Patiala 147001",
-      "phoneHead": "Phone & WhatsApp",
+      "addressText": "2150 W Olympic Blvd, Suite 410, Los Angeles, CA 90006",
+      "phoneHead": "Phone & Text",
       "emailHead": "Email",
       "hoursHead": "Hours",
-      "hoursText": "Mon–Sat · 9:00–19:00"
+      "hoursText": "Mon–Fri · 8:00–18:00 · Sat · 9:00–16:00"
     },
     "serviceAreas": {
-      "title": "Punjab service areas",
-      "description": "Active rooftop solar installation crews in every Punjab district. Find your district below.",
-      "lead": "Click any district to see local pricing, payback and a sample install.",
+      "title": "California service areas",
+      "description": "Active rooftop solar installation crews across California. Find your city below.",
+      "lead": "Click any city to see local pricing, payback and a sample install.",
       "districtTitlePrefix": "Solar in",
       "districtTitleSuffix": "— install in 21 days",
       "districtLeadPrefix": "Rooftop solar designed, installed and serviced for",
-      "districtLeadSuffix": "homes. Subsidy filed, paperwork handled."
+      "districtLeadSuffix": "homes. Federal tax credit handled, paperwork done."
     },
     "caseStudies": {
       "title": "Case studies",
-      "description": "Real Punjab rooftop solar installs — bills, payback, real numbers."
+      "description": "Real California rooftop solar installs — bills, payback, real numbers."
     },
     "blog": {
-      "title": "Punjab Solar Journal",
-      "description": "Notes on rooftop solar in Punjab — subsidy walkthroughs, monsoon prep, district-by-district guides."
+      "title": "Golden State Solar Journal",
+      "description": "Notes on rooftop solar in California — ITC walkthroughs, marine-layer performance, NEM 3.0 economics."
     },
     "privacy": {
       "title": "Privacy policy",
-      "description": "How Punjab Solar handles your data."
+      "description": "How Golden State Solar handles your data."
     },
     "terms": {
       "title": "Terms",
-      "description": "Terms of use for the Punjab Solar website."
+      "description": "Terms of use for the Golden State Solar website."
     }
   }
 }

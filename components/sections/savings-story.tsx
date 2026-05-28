@@ -1,10 +1,21 @@
 import { useTranslations } from "next-intl"
 import { Eyebrow } from "@/components/primitives/eyebrow"
+import { site } from "@/lib/config/site.config"
+import { formatMoney, formatMoneyCompact } from "@/lib/format"
 
 export function SavingsStory() {
   const t = useTranslations("story")
-  const before = 6800
-  const after = 380
+  // Use a representative case study from the active market.
+  const sample =
+    site.content.caseStudies[0] ?? {
+      beforeBill: site.copy.defaultBill,
+      afterBill: Math.round(site.copy.defaultBill * 0.05),
+    }
+  const before = sample.beforeBill
+  const after = sample.afterBill
+  const annual = (before - after) * 12
+  const lifetime = annual * site.calculator.lifetimeYears * site.calculator.lifetimeInflator
+  const co2t = Math.round((sample.beforeBill * 12 * site.calculator.kgCo2PerKwh) / 1000)
   return (
     <section className="story">
       <div className="container story-grid">
@@ -20,9 +31,7 @@ export function SavingsStory() {
             <div className="bar-row">
               <span className="bar-label mono">{t("before")}</span>
               <div className="bar bar-before" style={{ width: "100%" }}>
-                <span className="bar-num">
-                  ₹{before.toLocaleString("en-IN")}
-                </span>
+                <span className="bar-num">{formatMoney(before)}</span>
               </div>
             </div>
             <div className="bar-row">
@@ -31,13 +40,13 @@ export function SavingsStory() {
                 className="bar bar-after"
                 style={{ width: `${(after / before) * 100}%` }}
               >
-                <span className="bar-num">₹{after}</span>
+                <span className="bar-num">{formatMoney(after)}</span>
               </div>
             </div>
             <div className="bar-axis mono">
               <span>0</span>
-              <span>₹3,500</span>
-              <span>₹7,000</span>
+              <span>{formatMoney(Math.round(before / 2))}</span>
+              <span>{formatMoney(before)}</span>
             </div>
           </div>
         </div>
@@ -45,24 +54,24 @@ export function SavingsStory() {
         <div className="story-stats">
           <div className="story-stat">
             <div className="label">{t("annual")}</div>
-            <div className="readout">₹76,800</div>
+            <div className="readout">{formatMoney(annual)}</div>
           </div>
           <div className="story-stat">
             <div className="label">{t("payback")}</div>
             <div className="readout">
-              3.2<span className="unit">yrs</span>
+              {(sample.systemKw ? (sample.systemKw * site.calculator.perKwByType.Home * (1 - (site.incentive.pctOfCost ?? 0))) / annual : 4).toFixed(1)}
+              <span className="unit">yrs</span>
             </div>
           </div>
           <div className="story-stat">
             <div className="label">{t("lifetime")}</div>
-            <div className="readout">
-              ₹22<span className="unit">L</span>
-            </div>
+            <div className="readout">{formatMoneyCompact(lifetime)}</div>
           </div>
           <div className="story-stat">
             <div className="label">{t("co2")}</div>
             <div className="readout">
-              6.6<span className="unit">t/yr</span>
+              {co2t}
+              <span className="unit">t/yr</span>
             </div>
           </div>
         </div>

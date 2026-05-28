@@ -1,10 +1,14 @@
 "use client"
 
 import Link from "next/link"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useTranslations } from "next-intl"
 import { Eyebrow } from "@/components/primitives/eyebrow"
 import { Icon } from "@/components/primitives/icon"
+import { site } from "@/lib/config/site.config"
+import { formatMoney } from "@/lib/format"
+
+const billThreshold = Math.round(site.copy.defaultBill * 0.5)
 
 type Answer = "yes" | "no" | null
 
@@ -17,6 +21,23 @@ export function QuickCheck() {
   const allAnswered = a1 && a2 && a3
   const score =
     (a1 === "yes" ? 1 : 0) + (a2 === "yes" ? 1 : 0) + (a3 === "yes" ? 1 : 0)
+
+  const verdictRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (!allAnswered) return
+    // On mobile, the verdict block appears below the last answered card
+    // and is offscreen the moment the user taps the third answer. Scroll
+    // it into view so the call-to-action isn't invisible after the quiz
+    // resolves — addresses the audit's "user has no idea the section
+    // updated" finding.
+    const prefersReduced =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    verdictRef.current?.scrollIntoView({
+      behavior: prefersReduced ? "auto" : "smooth",
+      block: "center",
+    })
+  }, [allAnswered])
 
   const verdict = !allAnswered
     ? null
@@ -49,7 +70,7 @@ export function QuickCheck() {
   }[] = [
     {
       id: "q1",
-      q: "Is your monthly bill above ₹2,000?",
+      q: `Is your monthly bill above ${formatMoney(billThreshold)}?`,
       help: "The higher your bill, the faster solar pays back.",
       val: a1,
       setter: setA1,
@@ -93,14 +114,22 @@ export function QuickCheck() {
               <div className="qcheck-num mono">Q.0{i + 1}</div>
               <div className="qcheck-q-text serif">{q.q}</div>
               <div className="qcheck-help">{q.help}</div>
-              <div className="qcheck-answers">
+              <div
+                className="qcheck-answers"
+                role="radiogroup"
+                aria-label={q.q}
+              >
                 <button
+                  role="radio"
+                  aria-checked={q.val === "yes"}
                   className={q.val === "yes" ? "active" : ""}
                   onClick={() => q.setter("yes")}
                 >
                   {t("yes")}
                 </button>
                 <button
+                  role="radio"
+                  aria-checked={q.val === "no"}
                   className={q.val === "no" ? "active" : ""}
                   onClick={() => q.setter("no")}
                 >
@@ -112,7 +141,12 @@ export function QuickCheck() {
         </div>
 
         {verdict && (
-          <div className="qcheck-verdict">
+          <div
+            ref={verdictRef}
+            className="qcheck-verdict"
+            role="status"
+            aria-live="polite"
+          >
             <span className="results-eyebrow mono">
               {t("verdictEyebrow")}
             </span>
@@ -122,6 +156,7 @@ export function QuickCheck() {
               <Link
                 href="/calculator"
                 className="btn btn-primary btn-lg"
+                data-cta="qcheck-verdict"
               >
                 {t("ctaRun")} <Icon.arrow />
               </Link>
