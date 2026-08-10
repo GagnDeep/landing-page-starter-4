@@ -1,61 +1,44 @@
-import { SiteHeader } from "@/components/layout/site-header"
-import { SiteFooter } from "@/components/layout/site-footer"
-import { PageHero } from "@/components/layout/page-hero"
-import { Breadcrumbs } from "@/components/layout/breadcrumbs"
-import { Trust } from "@/components/sections/trust"
-import { Partners } from "@/components/sections/partners"
-import { FinalCTA } from "@/components/sections/final-cta"
-import { Jsonld } from "@/components/primitives/jsonld"
-import { aboutPageJsonLd } from "@/lib/jsonld"
 import { buildMetadata } from "@/lib/seo"
-import { site } from "@/lib/config/site.config"
+import { Prose } from "@/components/layout/prose"
 
 export const metadata = buildMetadata({
-  title: `About ${site.name} — ${site.address.locality} installer, all-${site.copy.regionName} service`,
-  description: `${site.name} — a ${site.address.locality}-based rooftop solar installer serving every ${site.copy.districtWord} of ${site.copy.regionName} since ${site.foundingYear}. Designers who pick up the phone. One written quote, with ${site.incentive.short} modeled in.`,
-  path: "/about/",
+  title: "About Washington DC Review",
+  description: "Learn why Washington DC Review exists and our mission to demystify federal contracting for small businesses without expensive consultants.",
+  path: "/about"
 })
 
 export default function AboutPage() {
   return (
-    <>
-      <SiteHeader />
-      <main id="main">
-        <div className="container">
-          <Breadcrumbs items={[{ name: "About", path: "/about/" }]} />
-        </div>
-        <PageHero
-          eyebrow="About us"
-          titleHtml={`${site.address.locality}-built. ${site.copy.regionName}-wide.<br/>A <em>local</em> installer.`}
-          lead={`We've been wiring panels onto roofs across ${site.copy.regionName} since ${site.foundingYear}. We started small, in a single unit on the outskirts of ${site.address.locality}. Today we run multiple install crews, employ designers and electricians who live in the communities we serve, and have powered ${site.rating.count.toLocaleString(site.currency.locale)}+ rooftops across the state.`}
-        />
-        <section className="tight">
-          <div className="container">
-            <div className="prose">
-              <h2>Why we exist</h2>
-              <p>
-                {site.copy.regionPossessive} electricity rates have risen
-                steeply for years. Most installers are call-centres reselling
-                work to nameless subcontractors. We started {site.name} to do
-                it differently: locally, transparently, with designers who
-                pick up the phone.
-              </p>
-              <h2>What we promise</h2>
-              <p>
-                One quote, in writing, with the incentive modeled in. Tier-1
-                panels only. {site.incentive.short} paperwork filed for you.
-                Power-on in {site.copy.installDays} &mdash; or we pay your next
-                month&rsquo;s bill.
-              </p>
-            </div>
-          </div>
-        </section>
-        <Trust />
-        <Partners />
-        <FinalCTA />
-      </main>
-      <SiteFooter />
-      <Jsonld data={aboutPageJsonLd()} />
-    </>
+    <div className="container mx-auto px-4 md:px-8 py-16 md:py-24">
+      <div className="max-w-3xl mx-auto">
+        <Prose>
+          <h1 className="text-h1 mb-8">About Washington DC Review</h1>
+          <p className="text-lead mb-8">
+            Washington DC Review is an independent resource dedicated to helping small businesses navigate the federal contracting ecosystem without relying on expensive consultants.
+          </p>
+          <h2>The Problem</h2>
+          <p>
+            The U.S. government is the largest purchaser of goods and services in the world. They actively want to buy from small businesses, setting aside billions of dollars annually for exactly that purpose.
+          </p>
+          <p>
+            However, the onboarding process—SAM.gov registration, navigating the Federal Procurement Data System (FPDS), and securing set-aside certifications like 8(a), HUBZone, SDVOSB, or WOSB—is shrouded in complex, bureaucratic language.
+          </p>
+          <p>
+            This complexity has spawned an industry of "GovCon" consultants who charge thousands of dollars to complete free government forms.
+          </p>
+          <h2>Our Mission</h2>
+          <p>
+            We exist to break that funnel. Our goal is to provide clear, actionable, and accurate guides to federal contracting. We map the processes, link directly to the official {"{{VERIFY: .gov source URLs}}"}, and translate the requirements into plain English.
+          </p>
+          <h2>Independence and Accuracy</h2>
+          <p>
+            <strong>We are not affiliated with the U.S. Government.</strong> We are an independent publication. We do not sell consulting services. We do not act as an agent for your business. We provide information, not legal or business advice.
+          </p>
+          <p>
+            Every threshold, fee, and timeline on this site is rigorously checked against official government sources. When the rules change, we update our guides.
+          </p>
+        </Prose>
+      </div>
+    </div>
   )
 }
