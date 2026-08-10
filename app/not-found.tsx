@@ -1,30 +1,22 @@
-import Link from "next/link"
-import { SiteHeader } from "@/components/layout/site-header"
-import { SiteFooter } from "@/components/layout/site-footer"
-import { PageHero } from "@/components/layout/page-hero"
-import { Icon } from "@/components/primitives/icon"
+import Link from 'next/link'
+import { Header } from '@/components/layout/header'
+import { Footer } from '@/components/layout/footer'
+import { Button } from '@/components/ui/button'
 
 export default function NotFound() {
   return (
-    <>
-      <SiteHeader />
-      <main>
-        <PageHero
-          eyebrow="404"
-          titleHtml="That page<br/>isn't <em>here</em>."
-          lead="It might have moved, or never existed. Try the calculator, or go back home."
-        >
-          <div style={{ display: "flex", gap: 12, marginTop: 28, flexWrap: "wrap" }}>
-            <Link href="/" className="btn btn-primary btn-lg">
-              Back home <Icon.arrow />
-            </Link>
-            <Link href="/calculator/" className="btn btn-ghost btn-lg">
-              Solar calculator
-            </Link>
-          </div>
-        </PageHero>
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main id="main" className="flex-1 flex flex-col items-center justify-center container mx-auto px-4 py-24 text-center">
+        <h1 className="font-heading text-4xl md:text-6xl font-bold mb-4 text-foreground">404</h1>
+        <p className="text-muted-foreground text-lg mb-8 max-w-md">
+          The page you are looking for does not exist or has been moved.
+        </p>
+        <Button asChild>
+          <Link href="/">Return to Homepage</Link>
+        </Button>
       </main>
-      <SiteFooter />
-    </>
+      <Footer />
+    </div>
   )
 }
