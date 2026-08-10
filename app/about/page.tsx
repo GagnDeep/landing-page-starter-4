@@ -1,61 +1,23 @@
-import { SiteHeader } from "@/components/layout/site-header"
-import { SiteFooter } from "@/components/layout/site-footer"
-import { PageHero } from "@/components/layout/page-hero"
-import { Breadcrumbs } from "@/components/layout/breadcrumbs"
-import { Trust } from "@/components/sections/trust"
-import { Partners } from "@/components/sections/partners"
-import { FinalCTA } from "@/components/sections/final-cta"
-import { Jsonld } from "@/components/primitives/jsonld"
-import { aboutPageJsonLd } from "@/lib/jsonld"
-import { buildMetadata } from "@/lib/seo"
-import { site } from "@/lib/config/site.config"
+import { Header } from '@/components/layout/header'
+import { Footer } from '@/components/layout/footer'
+import { buildMetadata } from '@/lib/seo'
 
-export const metadata = buildMetadata({
-  title: `About ${site.name} — ${site.address.locality} installer, all-${site.copy.regionName} service`,
-  description: `${site.name} — a ${site.address.locality}-based rooftop solar installer serving every ${site.copy.districtWord} of ${site.copy.regionName} since ${site.foundingYear}. Designers who pick up the phone. One written quote, with ${site.incentive.short} modeled in.`,
-  path: "/about/",
-})
+// 120-160 chars
+export const metadata = buildMetadata("About Us", "About JSONMock and our mission. Learn how our team helps developers achieve fast, deterministic continuous integrations.", "/about/")
 
 export default function AboutPage() {
   return (
-    <>
-      <SiteHeader />
-      <main id="main">
-        <div className="container">
-          <Breadcrumbs items={[{ name: "About", path: "/about/" }]} />
-        </div>
-        <PageHero
-          eyebrow="About us"
-          titleHtml={`${site.address.locality}-built. ${site.copy.regionName}-wide.<br/>A <em>local</em> installer.`}
-          lead={`We've been wiring panels onto roofs across ${site.copy.regionName} since ${site.foundingYear}. We started small, in a single unit on the outskirts of ${site.address.locality}. Today we run multiple install crews, employ designers and electricians who live in the communities we serve, and have powered ${site.rating.count.toLocaleString(site.currency.locale)}+ rooftops across the state.`}
-        />
-        <section className="tight">
-          <div className="container">
-            <div className="prose">
-              <h2>Why we exist</h2>
-              <p>
-                {site.copy.regionPossessive} electricity rates have risen
-                steeply for years. Most installers are call-centres reselling
-                work to nameless subcontractors. We started {site.name} to do
-                it differently: locally, transparently, with designers who
-                pick up the phone.
-              </p>
-              <h2>What we promise</h2>
-              <p>
-                One quote, in writing, with the incentive modeled in. Tier-1
-                panels only. {site.incentive.short} paperwork filed for you.
-                Power-on in {site.copy.installDays} &mdash; or we pay your next
-                month&rsquo;s bill.
-              </p>
-            </div>
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main id="main" className="flex-1 py-16">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <h1 className="font-heading text-4xl font-bold mb-6">About JSONMock</h1>
+          <div className="prose prose-slate dark:prose-invert">
+            <p>JSONMock is built for developers who need deterministic LLM agent tests. We created this because we were tired of flaky CI runs and paying for live model calls during basic assertions.</p>
           </div>
-        </section>
-        <Trust />
-        <Partners />
-        <FinalCTA />
+        </div>
       </main>
-      <SiteFooter />
-      <Jsonld data={aboutPageJsonLd()} />
-    </>
+      <Footer />
+    </div>
   )
 }
